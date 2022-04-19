@@ -16,15 +16,15 @@ from telegram.error import BadRequest
 from telegram.ext import CommandHandler, MessageHandler, Filters, CallbackQueryHandler
 from telegram.utils.helpers import mention_html
 
-import KomiXRyu.modules.sql.notes_sql as sql
-from KomiXRyu import dispatcher, MESSAGE_DUMP, LOGGER
-from KomiXRyu.modules.connection import connected
-from KomiXRyu.modules.disable import DisableAbleCommandHandler
-from KomiXRyu.modules.helper_funcs.alternate import typing_action
-from KomiXRyu.modules.helper_funcs.chat_status import user_admin, user_admin_no_reply
-from KomiXRyu.modules.helper_funcs.misc import build_keyboard, revert_buttons
-from KomiXRyu.modules.helper_funcs.msg_types import get_note_type
-from KomiXRyu.modules.helper_funcs.string_handling import (
+import Raiden.modules.sql.notes_sql as sql
+from Raiden import dispatcher, MESSAGE_DUMP, LOGGER
+from Raiden.modules.connection import connected
+from Raiden.modules.disable import DisableAbleCommandHandler
+from Raiden.modules.helper_funcs.alternate import typing_action
+from Raiden.modules.helper_funcs.chat_status import user_admin, user_admin_no_reply
+from Raiden.modules.helper_funcs.misc import build_keyboard, revert_buttons
+from Raiden.modules.helper_funcs.msg_types import get_note_type
+from Raiden.modules.helper_funcs.string_handling import (
     escape_invalid_curly_brackets,
     markdown_to_html,
 )
