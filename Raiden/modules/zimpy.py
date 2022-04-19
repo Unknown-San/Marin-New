@@ -5,8 +5,8 @@ import zipfile
 from telethon import types
 from telethon.tl import functions
 
-from KomiXRyu import client
-from KomiXRyu.events import register
+from Raiden import client
+from Raiden.events import register
 
 TEMP_DOWNLOAD_DIRECTORY = "./"
 
