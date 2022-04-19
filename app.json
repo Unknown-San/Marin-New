@@ -1,17 +1,17 @@
 {
-  "name": "Komi - San",
-  "description": "Telegram group management bot.",
+  "name": "Raiden",
+  "description": "Genshin Telegram group management bot.",
   "logo": "",
   "keywords": [
     "telegram",
     "anime",
     "group",
     "manager",
-    "Komi"
+    "raiden"
   ],
-  "repository": "https://github.com/Ryu120/Komi-.git",
-  "website": "https://Ryu120.github.io",
-  "success_url": "t.me/Weeb_oo",
+  "repository": "https://github.com/Yoriichi-Tsugikuni/Raiden.git",
+  "website": "https://Yoriichi-Tsugikuni.github.io",
+  "success_url": "t.me/Zhongli_2op",
   "addons": [
    {
      "options": {
