@@ -6,10 +6,10 @@ from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.error import BadRequest, Unauthorized
 from telegram.ext import CommandHandler, CallbackQueryHandler
 
-import KomiXRyu.modules.sql.connection_sql as sql
-from KomiXRyu import dispatcher, DEV_USERS
-from KomiXRyu.modules.helper_funcs import chat_status
-from KomiXRyu.modules.helper_funcs.alternate import send_message, typing_action
+import Raiden.modules.sql.connection_sql as sql
+from Raiden import dispatcher, DEV_USERS
+from Raiden.modules.helper_funcs import chat_status
+from Raiden.modules.helper_funcs.alternate import send_message, typing_action
 
 user_admin = chat_status.user_admin
 
