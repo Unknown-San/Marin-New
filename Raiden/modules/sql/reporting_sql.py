@@ -4,7 +4,7 @@ from typing import Union
 
 from sqlalchemy import Column, String, Boolean
 from sqlalchemy.sql.sqltypes import BigInteger
-from KomiXRyu.modules.sql import SESSION, BASE
+from Raiden.modules.sql import SESSION, BASE
 
 
 class ReportingUserSettings(BASE):
