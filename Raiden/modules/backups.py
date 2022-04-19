@@ -8,22 +8,22 @@ from telegram import ParseMode, Message
 from telegram.error import BadRequest
 from telegram.ext import CommandHandler
 
-# from KomiXRyu.modules.sql import warns_sql as warnssql
-import KomiXRyu.modules.sql.blacklist_sql as blacklistsql
+# from Raiden.modules.sql import warns_sql as warnssql
+import Raiden.modules.sql.blacklist_sql as blacklistsql
 
-# from KomiXRyu.modules.sql import cust_filters_sql as filtersql
-# import KomiXRyu.modules.sql.welcome_sql as welcsql
-import KomiXRyu.modules.sql.locks_sql as locksql
-import KomiXRyu.modules.sql.notes_sql as sql
+# from Raiden.modules.sql import cust_filters_sql as filtersql
+# import Raiden.modules.sql.welcome_sql as welcsql
+import Raiden.modules.sql.locks_sql as locksql
+import Raiden.modules.sql.notes_sql as sql
 
-# from KomiXRyu.modules.rules import get_rules
-import KomiXRyu.modules.sql.rules_sql as rulessql
-from KomiXRyu import dispatcher, LOGGER, OWNER_ID, MESSAGE_DUMP
-from KomiXRyu.__main__ import DATA_IMPORT
-from KomiXRyu.modules.connection import connected
-from KomiXRyu.modules.helper_funcs.alternate import typing_action
-from KomiXRyu.modules.helper_funcs.chat_status import user_admin
-from KomiXRyu.modules.sql import disable_sql as disabledsql
+# from Raiden.modules.rules import get_rules
+import Raiden.modules.sql.rules_sql as rulessql
+from Raiden import dispatcher, LOGGER, OWNER_ID, MESSAGE_DUMP
+from Raiden.__main__ import DATA_IMPORT
+from Raiden.modules.connection import connected
+from Raiden.modules.helper_funcs.alternate import typing_action
+from Raiden.modules.helper_funcs.chat_status import user_admin
+from Raiden.modules.sql import disable_sql as disabledsql
 
 
 @user_admin
