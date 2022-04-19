@@ -4,8 +4,8 @@ import threading
 
 from sqlalchemy import Column, String, Boolean, UnicodeText, Integer, func, distinct
 
-from KomiXRyu.modules.helper_funcs.msg_types import Types
-from KomiXRyu.modules.sql import SESSION, BASE
+from Raiden.modules.helper_funcs.msg_types import Types
+from Raiden.modules.sql import SESSION, BASE
 
 
 class Notes(BASE):
