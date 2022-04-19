@@ -5,7 +5,7 @@ from telethon import events
 from telethon.errors.rpcerrorlist import MessageDeleteForbiddenError
 from telethon.tl.types import ChannelParticipantsAdmins
 
-from KomiXRyu import client, DEV_USERS
+from Raiden import client, DEV_USERS
 
 
 # Check if user has admin rights
