@@ -1,8 +1,8 @@
 
 import aiohttp
 from pyrogram import filters
-from KomiXRyu import pbot
-from KomiXRyu.utlis.error import capture_err
+from Raiden import pbot
+from Raiden.utlis.error import capture_err
 
 
 __mod_name__ = "Github"
