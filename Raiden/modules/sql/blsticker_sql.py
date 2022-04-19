@@ -1,6 +1,6 @@
 import threading
 
-from KomiXRyu.modules.sql import BASE, SESSION
+from Raiden.modules.sql import BASE, SESSION
 from sqlalchemy import Column, Integer, String, UnicodeText, distinct, func
 
 
