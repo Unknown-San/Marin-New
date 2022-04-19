@@ -13,11 +13,11 @@ from telegram.ext import (
 )
 from telegram.utils.helpers import mention_html
 
-from KomiXRyu import dispatcher, LOGGER
-from KomiXRyu.modules.helper_funcs.alternate import typing_action
-from KomiXRyu.modules.helper_funcs.chat_status import user_not_admin, user_admin
-from KomiXRyu.modules.log_channel import loggable
-from KomiXRyu.modules.sql import reporting_sql as sql
+from Raiden import dispatcher, LOGGER
+from Raiden.modules.helper_funcs.alternate import typing_action
+from Raiden.modules.helper_funcs.chat_status import user_not_admin, user_admin
+from Raiden.modules.log_channel import loggable
+from Raiden.modules.sql import reporting_sql as sql
 
 REPORT_GROUP = 5
 
