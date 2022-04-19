@@ -12,11 +12,11 @@ from pyrogram.errors.exceptions.bad_request_400 import (
 )
 from pyrogram.types import ChatPermissions, InlineKeyboardButton, InlineKeyboardMarkup
 
-from KomiXRyu import BOT_ID
+from Raiden import BOT_ID
 
-# from KomiXRyu import OWNER_ID as SUDO_USERS
-from KomiXRyu import pbot as pgram
-from KomiXRyu.modules.sql import forceSubscribe_sql as sql
+# from Raiden import OWNER_ID as SUDO_USERS
+from Raiden import pbot as pgram
+from Raiden.modules.sql import forceSubscribe_sql as sql
 
 logging.basicConfig(level=logging.INFO)
 
