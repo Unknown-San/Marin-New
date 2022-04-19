@@ -1,9 +1,9 @@
 from functools import wraps
 from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
 from pyrogram.types import Message
-from KomiXRyu import pbot as app
-from KomiXRyu import DEV_USERS , SUPPORT_USERS , WHITELIST_USERS
-from KomiXRyu.modules.Fullpro import member_permissions
+from Raiden import pbot as app
+from Raiden import DEV_USERS , SUPPORT_USERS , WHITELIST_USERS
+from Raiden.modules.Fullpro import member_permissions
 
 SUDO = DEV_USERS, SUPPORT_USERS, WHITELIST_USERS
 
