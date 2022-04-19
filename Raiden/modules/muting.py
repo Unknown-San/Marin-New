@@ -8,18 +8,18 @@ from telegram.error import BadRequest
 from telegram.ext import CommandHandler, Filters
 from telegram.utils.helpers import mention_html
 
-from KomiXRyu import dispatcher, LOGGER
-from KomiXRyu.modules.helper_funcs.admin_rights import user_can_ban
-from KomiXRyu.modules.helper_funcs.alternate import typing_action
-from KomiXRyu.modules.helper_funcs.chat_status import (
+from Raiden import dispatcher, LOGGER
+from Raiden.modules.helper_funcs.admin_rights import user_can_ban
+from Raiden.modules.helper_funcs.alternate import typing_action
+from Raiden.modules.helper_funcs.chat_status import (
     bot_admin,
     user_admin,
     is_user_admin,
     can_restrict,
 )
-from KomiXRyu.modules.helper_funcs.extraction import extract_user, extract_user_and_text
-from KomiXRyu.modules.helper_funcs.string_handling import extract_time
-from KomiXRyu.modules.log_channel import loggable
+from Raiden.modules.helper_funcs.extraction import extract_user, extract_user_and_text
+from Raiden.modules.helper_funcs.string_handling import extract_time
+from Raiden.modules.log_channel import loggable
 
 
 @bot_admin
