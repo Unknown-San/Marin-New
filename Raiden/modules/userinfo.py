@@ -6,11 +6,11 @@ from telegram import Message, User
 from telegram import ParseMode, MAX_MESSAGE_LENGTH
 from telegram.utils.helpers import escape_markdown
 
-import KomiXRyu.modules.sql.userinfo_sql as sql
-from KomiXRyu import dispatcher, DEV_USERS
-from KomiXRyu.modules.disable import DisableAbleCommandHandler
-from KomiXRyu.modules.helper_funcs.alternate import typing_action
-from KomiXRyu.modules.helper_funcs.extraction import extract_user
+import Raiden.modules.sql.userinfo_sql as sql
+from Raiden import dispatcher, DEV_USERS
+from Raiden.modules.disable import DisableAbleCommandHandler
+from Raiden.modules.helper_funcs.alternate import typing_action
+from Raiden.modules.helper_funcs.extraction import extract_user
 
 
 @typing_action
