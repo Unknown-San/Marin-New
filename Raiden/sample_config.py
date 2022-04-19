@@ -13,7 +13,7 @@ if not __name__.endswith("sample_config"):
     sys.exit(1)
 
 def get_user_list(config, key):
-    with open("{}/KomiXRyu/{}".format(os.getcwd(), config), "r") as json_file:
+    with open("{}/Raiden/{}".format(os.getcwd(), config), "r") as json_file:
         return json.load(json_file)[key]
 
 
@@ -35,7 +35,7 @@ class Config(object):
     MESSAGE_DUMP = -1001501815938  # needed to make sure 'save from' messages persist
     REDIS_URL = ""  # needed for afk module, get from redislab
     LOAD = []
-    SUPPORT_CHAT = "Villainevil_support"  # Your own group for support, do not add the @
+    SUPPORT_CHAT = "RaidenXSupport"  # Your own group for support, do not add the @
     NO_LOAD = []
     WEBHOOK = False
     URL = None
