@@ -7,24 +7,24 @@ from telegram.error import BadRequest
 from telegram.ext import CommandHandler, Filters
 from telegram.utils.helpers import mention_html
 
-from KomiXRyu import dispatcher, DEV_USERS
-from KomiXRyu.modules.connection import connected
-from KomiXRyu.modules.disable import DisableAbleCommandHandler
-from KomiXRyu.modules.helper_funcs.admin_rights import (
+from Raiden import dispatcher, DEV_USERS
+from Raiden.modules.connection import connected
+from Raiden.modules.disable import DisableAbleCommandHandler
+from Raiden.modules.helper_funcs.admin_rights import (
     user_can_pin,
     user_can_promote,
     user_can_changeinfo,
 )
-from KomiXRyu.modules.helper_funcs.alternate import typing_action
-from KomiXRyu.modules.helper_funcs.chat_status import (
+from Raiden.modules.helper_funcs.alternate import typing_action
+from Raiden.modules.helper_funcs.chat_status import (
     bot_admin,
     can_promote,
     user_admin,
     ADMIN_CACHE,
     can_pin,
 )
-from KomiXRyu.modules.helper_funcs.extraction import extract_user, extract_user_and_text
-from KomiXRyu.modules.log_channel import loggable
+from Raiden.modules.helper_funcs.extraction import extract_user, extract_user_and_text
+from Raiden.modules.log_channel import loggable
 
 
 @bot_admin
