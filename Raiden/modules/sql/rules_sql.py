@@ -3,7 +3,7 @@ import threading
 
 from sqlalchemy import Column, String, UnicodeText, func, distinct
 
-from KomiXRyu.modules.sql import SESSION, BASE
+from Raiden.modules.sql import SESSION, BASE
 
 
 class Rules(BASE):
