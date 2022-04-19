@@ -1,7 +1,7 @@
 
 import sys
 
-from KomiXRyu import LOAD, NO_LOAD, LOGGER
+from Raiden import LOAD, NO_LOAD, LOGGER
 
 
 def __list_all_modules():
@@ -23,14 +23,14 @@ def __list_all_modules():
                 any(mod == module_name for module_name in all_modules)
                 for mod in to_load
             ):
-                LOGGER.error("[Komi] Invalid loadorder names. Quitting.")
+                LOGGER.error("[Raiden] Invalid loadorder names. Quitting.")
                 sys.exit(1)
 
         else:
             to_load = all_modules
 
         if NO_LOAD:
-            LOGGER.info("[Komi] Not loading: {}".format(NO_LOAD))
+            LOGGER.info("[Raiden] Not loading: {}".format(NO_LOAD))
             return [item for item in to_load if item not in NO_LOAD]
 
         return to_load
@@ -39,5 +39,5 @@ def __list_all_modules():
 
 
 ALL_MODULES = sorted(__list_all_modules())
-LOGGER.info("[Komi] Modules to load: %s", str(ALL_MODULES))
+LOGGER.info("[Raiden] Modules to load: %s", str(ALL_MODULES))
 __all__ = ALL_MODULES + ["ALL_MODULES"]
