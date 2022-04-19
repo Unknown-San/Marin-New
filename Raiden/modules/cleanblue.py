@@ -9,15 +9,15 @@ from telegram.ext import (
     MessageHandler,
 )
 
-from KomiXRyu import ALLOW_EXCL, CustomCommandHandler, dispatcher
-from KomiXRyu.modules.disable import DisableAbleCommandHandler
-from KomiXRyu.modules.helper_funcs.chat_status import (
+from Raiden import ALLOW_EXCL, CustomCommandHandler, dispatcher
+from Raiden.modules.disable import DisableAbleCommandHandler
+from Raiden.modules.helper_funcs.chat_status import (
     bot_can_delete,
     connection_status,
     dev_plus,
     user_admin,
 )
-from KomiXRyu.modules.sql import cleanblue_sql as sql
+from Raiden.modules.sql import cleanblue_sql as sql
 
 CMD_STARTERS = ("/", "!") if ALLOW_EXCL else "/"
 BLUE_TEXT_CLEAN_GROUP = 13
