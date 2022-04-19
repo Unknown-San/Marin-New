@@ -13,22 +13,22 @@ from telegram.ext import (
 )
 from telegram.utils.helpers import escape_markdown, mention_html
 
-from KomiXRyu import LOGGER, dispatcher
-from KomiXRyu.modules.connection import connected
-from KomiXRyu.modules.disable import DisableAbleCommandHandler
-from KomiXRyu.modules.helper_funcs.alternate import send_message, typing_action
-from KomiXRyu.modules.helper_funcs.chat_status import user_admin
-from KomiXRyu.modules.helper_funcs.extraction import extract_text
-from KomiXRyu.modules.helper_funcs.filters import CustomFilters
-from KomiXRyu.modules.helper_funcs.misc import build_keyboard_parser
-from KomiXRyu.modules.helper_funcs.msg_types import get_filter_type
-from KomiXRyu.modules.helper_funcs.string_handling import (
+from Raiden import LOGGER, dispatcher
+from Raiden.modules.connection import connected
+from Raiden.modules.disable import DisableAbleCommandHandler
+from Raiden.modules.helper_funcs.alternate import send_message, typing_action
+from Raiden.modules.helper_funcs.chat_status import user_admin
+from Raiden.modules.helper_funcs.extraction import extract_text
+from Raiden.modules.helper_funcs.filters import CustomFilters
+from Raiden.modules.helper_funcs.misc import build_keyboard_parser
+from Raiden.modules.helper_funcs.msg_types import get_filter_type
+from Raiden.modules.helper_funcs.string_handling import (
     button_markdown_parser,
     escape_invalid_curly_brackets,
     markdown_to_html,
     split_quotes,
 )
-from KomiXRyu.modules.sql import cust_filters_sql as sql
+from Raiden.modules.sql import cust_filters_sql as sql
 
 HANDLER_GROUP = 15
 
