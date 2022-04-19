@@ -4,17 +4,17 @@ import json
 import os
 from typing import Optional
 
-from KomiXRyu import (DEV_USERS, OWNER_ID, SUPPORT_USERS, WHITELIST_USERS, dispatcher)
-from KomiXRyu.modules.helper_funcs.chat_status import (dev_plus, sudo_plus,
+from Raiden import (DEV_USERS, OWNER_ID, SUPPORT_USERS, WHITELIST_USERS, dispatcher)
+from Raiden.modules.helper_funcs.chat_status import (dev_plus, sudo_plus,
                                                            ass_plus)
-from KomiXRyu.modules.helper_funcs.extraction import extract_user
-from KomiXRyu.modules.log_channel import loggable
+from Raiden.modules.helper_funcs.extraction import extract_user
+from Raiden.modules.log_channel import loggable
 from telegram import ParseMode, TelegramError, Update
 from telegram.ext import CallbackContext, CommandHandler, run_async
 from telegram.utils.helpers import mention_html
 
 ELEVATED_USERS_FILE = os.path.join(os.getcwd(),
-                                   'KomiXRyu/elevated_users.json')
+                                   'Raiden/elevated_users.json')
 
 
 def check_user_id(user_id: int, context: CallbackContext) -> Optional[str]:
