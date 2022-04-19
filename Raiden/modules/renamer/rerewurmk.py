@@ -10,12 +10,12 @@ import asyncio
 import pyrogram
 
 
-from KomiXRyu.modules.renamer.scrimp import scrimp
+from Raiden.modules.renamer.scrimp import scrimp
 
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ForceReply
 
-from KomiXRyu.modules.renamer.rehelp import progress_for_pyrogram
+from Raiden.modules.renamer.rehelp import progress_for_pyrogram
 
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
