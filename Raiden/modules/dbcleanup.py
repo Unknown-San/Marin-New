@@ -5,9 +5,9 @@ from telegram import Bot, Update, InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.error import BadRequest, Unauthorized
 from telegram.ext import CommandHandler, CallbackQueryHandler, Filters
 
-import KomiXRyu.modules.sql.global_bans_sql as gban_sql
-import KomiXRyu.modules.sql.users_sql as user_sql
-from KomiXRyu import dispatcher, DEV_USERS
+import Raiden.modules.sql.global_bans_sql as gban_sql
+import Raiden.modules.sql.users_sql as user_sql
+from Raiden import dispatcher, DEV_USERS
 
 
 def get_invalid_chats(bot: Bot, update: Update, remove: bool = False):
