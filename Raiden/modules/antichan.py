@@ -1,7 +1,7 @@
 """
 import asyncio
 
-from KomiXRyu import pbot
+from Raiden import pbot
 from pyrogram import Client, errors
 from pyrogram.raw import types, functions
 from pyrogram.raw.base import Update
