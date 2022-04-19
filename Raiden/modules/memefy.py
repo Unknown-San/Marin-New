@@ -2,10 +2,10 @@ import os
 import textwrap
 
 from PIL import Image, ImageDraw, ImageFont
-from KomiXRyu import client as borg
-from KomiXRyu import client as bot
-from KomiXRyu.events import register
-from KomiXRyu import LOGGER
+from Raiden import client as borg
+from Raiden import client as bot
+from Raiden.events import register
+from Raiden import LOGGER
 
 TEMP_DOWNLOAD_DIRECTORY = "./"    
     
