@@ -7,9 +7,9 @@ from pytz import country_names as cname
 from telegram import ParseMode
 from telegram.error import BadRequest
 
-from KomiXRyu import dispatcher, API_WEATHER as APPID
-from KomiXRyu.modules.disable import DisableAbleCommandHandler
-from KomiXRyu.modules.helper_funcs.alternate import typing_action
+from Raiden import dispatcher, API_WEATHER as APPID
+from Raiden.modules.disable import DisableAbleCommandHandler
+from Raiden.modules.helper_funcs.alternate import typing_action
 
 
 @typing_action
