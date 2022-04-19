@@ -7,14 +7,14 @@ import pyrogram
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ForceReply
 from pyrogram.errors import UserNotParticipant
-from KomiXRyu.modules.renamer.scrimp import scrimp
-from KomiXRyu.modules.renamer.rerewurmk import rename_as_doc, rename_as_video
-from KomiXRyu import pbot
+from Raiden.modules.renamer.scrimp import scrimp
+from Raiden.modules.renamer.rerewurmk import rename_as_doc, rename_as_video
+from Raiden import pbot
 
 
 
 
-@pbot.on_message(filters.command["rename", "rename@KomiXryu_Bot"],filters.private & (filters.document | filters.video))
+@pbot.on_message(filters.command["rename", "rename@RaidenXRobot"],filters.private & (filters.document | filters.video))
 async def rename_cb(bot, update):
  
     file = update.document or update.video
