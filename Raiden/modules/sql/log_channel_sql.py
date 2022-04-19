@@ -3,7 +3,7 @@ import threading
 
 from sqlalchemy import Column, String, func, distinct
 
-from KomiXRyu.modules.sql import BASE, SESSION
+from Raiden.modules.sql import BASE, SESSION
 
 
 class GroupLogs(BASE):
