@@ -7,11 +7,11 @@ from telegram.error import BadRequest
 from telegram.ext import CommandHandler, Filters
 from telegram.utils.helpers import escape_markdown
 
-import KomiXRyu.modules.sql.rules_sql as sql
-from KomiXRyu import dispatcher
-from KomiXRyu.modules.helper_funcs.alternate import typing_action
-from KomiXRyu.modules.helper_funcs.chat_status import user_admin
-from KomiXRyu.modules.helper_funcs.string_handling import markdown_parser
+import Raiden.modules.sql.rules_sql as sql
+from Raiden import dispatcher
+from Raiden.modules.helper_funcs.alternate import typing_action
+from Raiden.modules.helper_funcs.chat_status import user_admin
+from Raiden.modules.helper_funcs.string_handling import markdown_parser
 
 
 @typing_action
