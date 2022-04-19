@@ -4,8 +4,8 @@ import subprocess
 from telegram import ParseMode
 from telegram.ext import CommandHandler
 
-from KomiXRyu import LOGGER, dispatcher
-from KomiXRyu.modules.helper_funcs.chat_status import dev_plus
+from Raiden import LOGGER, dispatcher
+from Raiden.modules.helper_funcs.chat_status import dev_plus
 
 
 @dev_plus
