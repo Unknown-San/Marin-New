@@ -10,9 +10,9 @@ from pySmartDL import SmartDL
 from os import remove
 from telegram import ChatAction
 from telegram.ext import Filters, run_async
-from KomiXRyu.modules.disable import DisableAbleCommandHandler
-from KomiXRyu.modules.helper_funcs.alternate import typing_action, send_action
-from KomiXRyu import dispatcher
+from Raiden.modules.disable import DisableAbleCommandHandler
+from Raiden.modules.helper_funcs.alternate import typing_action, send_action
+from Raiden import dispatcher
 
 down_p = './'
 
