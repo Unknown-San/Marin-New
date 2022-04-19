@@ -22,8 +22,8 @@ from telegram.error import BadRequest, TelegramError, Unauthorized
 from telegram.ext import CommandHandler, CallbackQueryHandler
 from telegram.utils.helpers import mention_html, mention_markdown
 
-import KomiXRyu.modules.sql.feds_sql as sql
-from KomiXRyu import (
+import Raiden.modules.sql.feds_sql as sql
+from Raiden import (
     dispatcher,
     OWNER_ID,
     DEV_USERS,
@@ -31,19 +31,19 @@ from KomiXRyu import (
     MESSAGE_DUMP,
     LOGGER,
 )
-from KomiXRyu.modules.disable import DisableAbleCommandHandler
-from KomiXRyu.modules.helper_funcs.alternate import (
+from Raiden.modules.disable import DisableAbleCommandHandler
+from Raiden.modules.helper_funcs.alternate import (
     send_message,
     typing_action,
     send_action,
 )
-from KomiXRyu.modules.helper_funcs.chat_status import is_user_admin
-from KomiXRyu.modules.helper_funcs.extraction import (
+from Raiden.modules.helper_funcs.chat_status import is_user_admin
+from Raiden.modules.helper_funcs.extraction import (
     extract_user,
     extract_unt_fedban,
     extract_user_fban,
 )
-from KomiXRyu.modules.helper_funcs.string_handling import markdown_parser
+from Raiden.modules.helper_funcs.string_handling import markdown_parser
 
 # Hello bot owner, I spended for feds many hours of my life, Please don't remove this if you still respect MrYacha
 # and peaktogoo and AyraHikari too Federation by MrYacha 2018-2019 Federation rework by Mizukito Akito 2019
