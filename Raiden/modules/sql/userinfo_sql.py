@@ -3,7 +3,7 @@ import threading
 
 from sqlalchemy import Column, UnicodeText
 from sqlalchemy.sql.sqltypes import BigInteger
-from KomiXRyu.modules.sql import SESSION, BASE
+from Raiden.modules.sql import SESSION, BASE
 
 
 class UserInfo(BASE):
