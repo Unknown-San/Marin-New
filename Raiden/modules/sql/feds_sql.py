@@ -6,8 +6,8 @@ from sqlalchemy import Column, String, UnicodeText, Integer, Boolean
 from sqlalchemy.sql.sqltypes import BigInteger
 from telegram.error import BadRequest, Unauthorized
 
-from KomiXRyu import dispatcher
-from KomiXRyu.modules.sql import SESSION, BASE
+from Raiden import dispatcher
+from Raiden.modules.sql import SESSION, BASE
 
 
 class Federations(BASE):
