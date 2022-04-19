@@ -1,5 +1,5 @@
 from envparse import env
-from KomiXRyu  import LOGGER
+from Raiden  import LOGGER
 
 DEFAULTS = {
     "LOAD_MODULES": True,
