@@ -1,5 +1,5 @@
-from KomiXRyu import dispatcher
-from KomiXRyu.modules.disable import DisableAbleCommandHandler
+from Raiden import dispatcher
+from Raiden.modules.disable import DisableAbleCommandHandler
 from telegram import Update
 from telegram.ext import CallbackContext, run_async
 
