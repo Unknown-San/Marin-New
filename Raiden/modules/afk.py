@@ -5,19 +5,19 @@ from telegram import MessageEntity
 from telegram.error import BadRequest
 from telegram.ext import Filters, MessageHandler
 
-from KomiXRyu import dispatcher, REDIS
-from KomiXRyu.modules.disable import (
+from Raiden import dispatcher, REDIS
+from Raiden.modules.disable import (
     DisableAbleCommandHandler,
     DisableAbleMessageHandler,
 )
-from KomiXRyu.modules.helper_funcs.readable_time import get_readable_time
-from KomiXRyu.modules.redis.afk_redis import (
+from Raiden.modules.helper_funcs.readable_time import get_readable_time
+from Raiden.modules.redis.afk_redis import (
     start_afk,
     end_afk,
     is_user_afk,
     afk_reason,
 )
-from KomiXRyu.modules.users import get_user_id
+from Raiden.modules.users import get_user_id
 
 AFK_GROUP = 7
 AFK_REPLY_GROUP = 8
