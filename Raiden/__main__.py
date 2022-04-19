@@ -85,21 +85,19 @@ def get_readable_time(seconds: int) -> str:
 
     return ping_time
 
-HELP_IMG = "https://telegra.ph//file/b3aedf8d65276f8241556.jpg"
-HELP_MSG = "Click the button below to get help menu in your pm."
-START_MSG = "I'm awake already!\n<b>Haven't slept since:</b> <code>{}</code>"
-START_IMG = "https://telegra.ph//file/f4e28ef63d3f7c04ac5ad.jpg"
+HELP_IMG = "https://telegra.ph//file/98614588d823bda52551d.jpg"
+HELP_MSG = "Click the button below to get help to know my abilities."
+START_MSG = "I'm awake already Baka!\n<b>Have being slaying Bosses since:</b> <code>{}</code>"
+START_IMG = "https://telegra.ph//file/6bcfa7906c19acd6aca6b.mp4"
     
 PM_START_TEXT = """
-────「 [{}](https://telegra.ph/file/e627baf23c5cd3e0cff73.mp4) 」────
-Heyyo `{}`,  here to help,
-*I am an Anime themed advance group management bot with a lot of awesome Features*
-┏━━━━━━━━━━━━━━━━━━━━
-┣♡ *Uptime:* `{}`
-➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖
-┣♡ `{}` *users, across* `{}` *chats.*
-┗━━━━━━━━━━━━━━━━━━━━
-*Try The Help Buttons Below To Know My Abilities And Charm* ××
+────「 [{}](https://telegra.ph//file/a814af57a80c825a18d4a.mp4) 」────
+Kon'nichiwa {} - San!
+I'm [Raiden Shogun](https://genshin-impact.fandom.com/wiki/Raiden_Shogun),
+➖➖➖➖➖➖➖➖➖➖➖➖➖
+I am an group management bot from [Genshin Impact](https://genshin.hoyoverse.com/m/en/)
+➖➖➖➖➖➖➖➖➖➖➖➖➖
+Hit /help to see the commands available after my elemental buff. ××
 """
 
 GROUP_START_TEXT = """
@@ -110,14 +108,16 @@ Haven't slept since: {}
 buttons = [
     [
         InlineKeyboardButton(
-            text="💖 ADD ME IN YOUR GROUP",url="t.me/RaidenXRobot_Bot?startgroup=true"),
+            text="➕️ Add Raiden In Your Group ➕️",url="t.me/RaidenXRobot_Bot?startgroup=true"),
     ],
     [
         InlineKeyboardButton(
-            text="⚙️ Support", url=f"https://t.me/RaidenXsupport"),                    
+            text="Support", url=f"https://t.me/RaidenXsupport"),                    
         InlineKeyboardButton(
-            text="🔐 Help", callback_data="help_back"
-        ),
+            text="Help", callback_data="help_back"),
+    ],
+    [
+        InlineKeyboardButton(text="My Zhongli", url=f"https://t.me/Zhongli_2op"),
     ],
 ]
 
@@ -241,17 +241,14 @@ def start(update: Update, context: CallbackContext):
             update.effective_message.reply_text(
                 PM_START_TEXT.format(
                     escape_markdown(context.bot.first_name),
-                    escape_markdown(first_name),
-                    escape_markdown(uptime),
-                    sql.num_users(),
-                    sql.num_chats()),                        
+                    escape_markdown(first_name)),                        
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
             )
     else:
                 update.effective_message.reply_photo(
-            START_IMG, caption="Kon'nichiwa, Raiden Here To Help!\n<b>Haven't slept since:</b> <code>{}</code>".format(
+            START_IMG, caption="Kon'nichiwa, Raiden Here To Help!\n<b>Have been slaying bosses since:</b> <code>{}</code>".format(
                 uptime,
             ),
             parse_mode=ParseMode.HTML,
@@ -397,7 +394,7 @@ def asuna_callback_data(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="[Back]", callback_data="help_back")
+                    InlineKeyboardButton(text="[•༶B𝚊𝚌k༶•]", callback_data="help_back")
                  ]
                 ]
             ),
@@ -408,9 +405,6 @@ def asuna_callback_data(update, context):
                 PM_START_TEXT.format(
                     escape_markdown(context.bot.first_name),
                     escape_markdown(first_name),
-                    escape_markdown(uptime),
-                    sql.num_users(),
-                    sql.num_chats()),
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
@@ -453,7 +447,7 @@ def get_help(update, context):
             chat.id,
             text,
             InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="[Back]", callback_data="help_back")]]
+                [[InlineKeyboardButton(text="[•༶B𝚊𝚌k༶•]", callback_data="help_back")]]
             ),
         )
 
@@ -654,8 +648,8 @@ def main():
         try:
             dispatcher.bot.send_photo(
                 "@RaidenXsupport",
-                "https://telegra.ph//file/2c817a1e191b120554f41.jpg",
-                "I Am Alive Now!",
+                "https://telegra.ph//file/d97c02aa9d5ed4c7135a6.mp4",
+                "Am Alive Again To Slay Some Mf Bosses!",
                 parse_mode=ParseMode.MARKDOWN,
             )
         except Unauthorized:
