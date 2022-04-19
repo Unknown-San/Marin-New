@@ -10,8 +10,8 @@ from sqlalchemy import (
     func,
 )
 from sqlalchemy.sql.sqltypes import BigInteger
-from KomiXRyu import dispatcher
-from KomiXRyu.modules.sql import BASE, SESSION
+from Raiden import dispatcher
+from Raiden.modules.sql import BASE, SESSION
 
 
 class Users(BASE):
