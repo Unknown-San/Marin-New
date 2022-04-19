@@ -1,10 +1,10 @@
 from os import remove
 from pyrogram import filters
-from KomiXRyu import DEV_USERS, SUPPORT_USERS, WHITELIST_USERS, pbot as app
-from KomiXRyu.modules.wall import arq
-from KomiXRyu.utlis.error import capture_err
-from KomiXRyu.modules.helper_funcs.chun import adminsOnly
-from KomiXRyu.modules.sql.nsfw_sql import is_nsfw, rem_nsfw, set_nsfw
+from Raiden import DEV_USERS, SUPPORT_USERS, WHITELIST_USERS, pbot as app
+from Raiden.modules.wall import arq
+from Raiden.utlis.error import capture_err
+from Raiden.modules.helper_funcs.chun import adminsOnly
+from Raiden.modules.sql.nsfw_sql import is_nsfw, rem_nsfw, set_nsfw
 
 SUDOS = DEV_USERS, SUPPORT_USERS, WHITELIST_USERS
 
