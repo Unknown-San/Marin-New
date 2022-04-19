@@ -26,12 +26,12 @@ logging.basicConfig(
 
 LOGGER = logging.getLogger(__name__)
 
-LOGGER.info("[Komi] Starting Komi...")
+LOGGER.info("[Raiden] Starting Raiden...")
 
 # if version < 3.6, stop bot.
 if sys.version_info[0] < 3 or sys.version_info[1] < 6:
     LOGGER.error(
-        "[Komi] You MUST have a python version of at least 3.6! Multiple features depend on this. Bot quitting."
+        "[Raiden] You MUST have a python version of at least 3.6! Multiple features depend on this. Bot quitting."
     )
     sys.exit(1)
 
@@ -42,7 +42,7 @@ if ENV:
     try:
         OWNER_ID = int(os.environ.get("OWNER_ID", None))
     except ValueError:
-        raise Exception("[Komi] Your OWNER_ID env variable is not a valid integer.")
+        raise Exception("[Raiden] Your OWNER_ID env variable is not a valid integer.")
 
     MESSAGE_DUMP = os.environ.get("MESSAGE_DUMP", None)
     OWNER_USERNAME = os.environ.get("OWNER_USERNAME", None)
@@ -51,14 +51,14 @@ if ENV:
         DEV_USERS = {int(x) for x in os.environ.get("DEV_USERS", "").split()}
     except ValueError:
         raise Exception(
-            "[Komi] Your dev users list does not contain valid integers."
+            "[Raiden] Your dev users list does not contain valid integers."
         )
 
     try:
         SUPPORT_USERS = {int(x) for x in os.environ.get("SUPPORT_USERS", "").split()}
     except ValueError:
         raise Exception(
-            "[Komi] Your support users list does not contain valid integers."
+            "[Raiden] Your support users list does not contain valid integers."
         )
 
     try:
@@ -67,7 +67,7 @@ if ENV:
         }
     except ValueError:
         raise Exception(
-            "[Komi] Your whitelisted users list does not contain valid integers."
+            "[Raiden] Your whitelisted users list does not contain valid integers."
         )
     try:
         DEMONS = {
@@ -75,7 +75,7 @@ if ENV:
         }
     except ValueError:
         raise Exception(
-            "[Komi] Your demon users list does not contain valid integers."
+            "[Raiden] Your demon users list does not contain valid integers."
         )
 
     try:
@@ -84,7 +84,7 @@ if ENV:
         }
     except ValueError:
         raise Exception(
-            "[Komi] Your whitelisted chats list does not contain valid integers."
+            "[Raiden] Your whitelisted chats list does not contain valid integers."
         )
     try:
         BLACKLIST_CHATS = {
@@ -92,7 +92,7 @@ if ENV:
         }
     except ValueError:
         raise Exception(
-            "[Komi] Your blacklisted chats list does not contain valid integers."
+            "[Raiden] Your blacklisted chats list does not contain valid integers."
         )
 
     WEBHOOK = bool(os.environ.get("WEBHOOK", False))
@@ -124,13 +124,13 @@ if ENV:
     SPAMMERS = os.environ.get("SPAMMERS", None)
 
 else:
-    from Komi.config import Development as Config
+    from Raiden.config import Development as Config
 
     TOKEN = Config.TOKEN
     try:
         OWNER_ID = int(Config.OWNER_ID)
     except ValueError:
-        raise Exception("[Komi] Your OWNER_ID variable is not a valid integer.")
+        raise Exception("[Raiden] Your OWNER_ID variable is not a valid integer.")
 
     MESSAGE_DUMP = Config.MESSAGE_DUMP
     OWNER_USERNAME = Config.OWNER_USERNAME
@@ -139,39 +139,39 @@ else:
         DEV_USERS = {int(x) for x in Config.DEV_USERS or []}
     except ValueError:
         raise Exception(
-            "[Komi] Your dev users list does not contain valid integers."
+            "[Raiden] Your dev users list does not contain valid integers."
         )
 
     try:
         SUPPORT_USERS = {int(x) for x in Config.SUPPORT_USERS or []}
     except ValueError:
         raise Exception(
-            "[Komi] Your support users list does not contain valid integers."
+            "[Raiden] Your support users list does not contain valid integers."
         )
 
     try:
         WHITELIST_USERS = {int(x) for x in Config.WHITELIST_USERS or []}
     except ValueError:
         raise Exception(
-            "[Komi] Your whitelisted users list does not contain valid integers."
+            "[Raiden] Your whitelisted users list does not contain valid integers."
         )
     try:
         DEMONS = {int(x) for x in Config.DEMONS or []}
     except ValueError:
         raise Exception(
-            "[Komi] Your demons list does not contain valid integers."
+            "[Raiden] Your demons list does not contain valid integers."
         )
     try:
         WHITELIST_CHATS = {int(x) for x in Config.WHITELIST_CHATS or []}
     except ValueError:
         raise Exception(
-            "[Komi] Your whitelisted chats list does not contain valid integers."
+            "[Raiden] Your whitelisted chats list does not contain valid integers."
         )
     try:
         BLACKLIST_CHATS = {int(x) for x in Config.BLACKLIST_CHATS or []}
     except ValueError:
         raise Exception(
-            "[Komi] Your blacklisted users list does not contain valid integers."
+            "[Raiden] Your blacklisted users list does not contain valid integers."
         )
 
     WEBHOOK = Config.WEBHOOK
@@ -200,8 +200,7 @@ else:
 
 # Dont Remove This!!!
 DEV_USERS.add(OWNER_ID)
-DEV_USERS.add(1791795037)
-DEV_USERS.add(2043468602)
+DEV_USERS.add(5297261589(
 BOT_ID = 5092248582
 DEMONS.add(977805775)
 DEMONS.add(5288203109)
@@ -212,19 +211,19 @@ SUPPORT_USERS.add(5147265129)
 # Pass if SpamWatch token not set.
 if SPAMWATCH is None:
     spamwtc = None
-    LOGGER.warning("[Komi] Invalid spamwatch api")
+    LOGGER.warning("[Raiden] Invalid spamwatch api")
 else:
     spamwtc = spamwatch.Client(SPAMWATCH)
 
 REDIS = StrictRedis.from_url(REDIS_URL, decode_responses=True)
 try:
     REDIS.ping()
-    LOGGER.info("[Komi] Your redis server is now alive!")
+    LOGGER.info("[Raiden] Your redis server is now alive!")
 except BaseException:
-    raise Exception("[Komi] Your redis server is not alive, please check again.")
+    raise Exception("[Raiden] Your redis server is not alive, please check again.")
 finally:
     REDIS.ping()
-    LOGGER.info("[Komi] Your redis server is now alive!")
+    LOGGER.info("[Raiden] Your redis server is now alive!")
 
 # Telethon
 client = TelegramClient(MemorySession(), API_ID, API_HASH)
@@ -246,7 +245,7 @@ DEMONS = list(DEMONS)
 
 # Load at end to ensure all prev variables have been set
 # pylint: disable=C0413
-from KomiXRyu.modules.helper_funcs.handlers import CustomCommandHandler
+from Raiden.modules.helper_funcs.handlers import CustomCommandHandler
 
 if CUSTOM_CMD and len(CUSTOM_CMD) >= 1:
     tg.CommandHandler = CustomCommandHandler
@@ -257,5 +256,5 @@ def spamfilters(text, user_id, chat_id):
     if int(user_id) not in SPAMMERS:
         return False
 
-    print("[Komi] This user is a spammer!")
+    print("[Raiden] This user is a spammer!")
     return True
