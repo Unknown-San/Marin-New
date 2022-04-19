@@ -7,7 +7,7 @@ from telegram import Chat, ChatMember, Update
 from telegram.error import BadRequest, Unauthorized
 from telegram.ext import CallbackContext
 
-from KomiXRyu import (
+from Raiden import (
     DEL_CMDS,
     DEV_USERS,
     SUPPORT_USERS,
@@ -232,7 +232,7 @@ def dev_plus(func):
         else:
             update.effective_message.reply_text(
                 "This is a developer restricted command."
-                " You do not have permissions to run this.Learn more at @Komisansupport"
+                " You do not have permissions to run this.Learn more at @RaidenXSupport"
             )
 
     return is_dev_plus_func
@@ -302,6 +302,6 @@ def connection_status(func):
 
 
 # Workaround for circular import with connection.py
-from KomiXRyu.modules import connection
+from Raiden.modules import connection
 
 connected = connection.connected
