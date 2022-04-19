@@ -5,8 +5,8 @@ from typing import Union
 
 from sqlalchemy import Boolean, Column, Integer, String, UnicodeText
 from sqlalchemy.sql.sqltypes import BigInteger
-from KomiXRyu.modules.helper_funcs.msg_types import Types
-from KomiXRyu.modules.sql import BASE, SESSION
+from Raiden.modules.helper_funcs.msg_types import Types
+from Raiden.modules.sql import BASE, SESSION
 
 DEFAULT_WELCOME = "Hey {first}, how are you?"
 DEFAULT_GOODBYE = "Nice knowing ya!"
