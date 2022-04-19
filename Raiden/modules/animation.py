@@ -4,8 +4,8 @@ from typing import List
 from telegram import Update
 from telegram.ext import run_async, CallbackContext
 
-from KomiXRyu import dispatcher
-from KomiXRyu.modules.disable import DisableAbleCommandHandler
+from Raiden import dispatcher
+from Raiden.modules.disable import DisableAbleCommandHandler
 
 # sleep how many times after each edit in 'love'
 EDIT_SLEEP = 1
