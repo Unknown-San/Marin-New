@@ -1,5 +1,5 @@
 from telethon import events
-from KomiXRyu import client as telethn
+from Raiden import client as telethn
 
 
 def register(**args):
