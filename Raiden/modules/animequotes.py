@@ -6,11 +6,11 @@ import html
 import random
 import time
 
-from KomiXRyu import dispatcher
-from KomiXRyu.modules.disable import DisableAbleCommandHandler
+from Raiden import dispatcher
+from Raiden.modules.disable import DisableAbleCommandHandler
 from telegram.ext import CallbackContext, CommandHandler, Filters, run_async, CallbackQueryHandler
-from KomiXRyu.modules.helper_funcs.chat_status import (is_user_admin)
-from KomiXRyu.modules.helper_funcs.extraction import extract_user
+from Raiden.modules.helper_funcs.chat_status import (is_user_admin)
+from Raiden.modules.helper_funcs.extraction import extract_user
 from telegram import ParseMode, Update, InlineKeyboardMarkup, InlineKeyboardButton, replymarkup, ChatPermissions
 from telegram.error import BadRequest
 
