@@ -6,8 +6,8 @@ from telethon import types
 from telethon.tl import functions, types
 
 
-from KomiXRyu.events import register
-from KomiXRyu import telethn
+from Raiden.events import register
+from Raiden import telethn
 
 
 async def is_register_admin(chat, user):
