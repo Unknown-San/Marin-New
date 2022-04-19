@@ -7,17 +7,17 @@ from telegram.error import BadRequest
 from telegram.ext import CommandHandler, MessageHandler, Filters
 from telegram.utils.helpers import mention_html
 
-import KomiXRyu.modules.sql.blacklist_sql as sql
-from KomiXRyu import dispatcher, LOGGER
-from KomiXRyu.modules.connection import connected
-from KomiXRyu.modules.disable import DisableAbleCommandHandler
-from KomiXRyu.modules.helper_funcs.alternate import send_message, typing_action
-from KomiXRyu.modules.helper_funcs.chat_status import user_admin, user_not_admin
-from KomiXRyu.modules.helper_funcs.extraction import extract_text
-from KomiXRyu.modules.helper_funcs.misc import split_message
-from KomiXRyu.modules.helper_funcs.string_handling import extract_time
-from KomiXRyu.modules.log_channel import loggable
-from KomiXRyu.modules.warns import warn
+import Raiden.modules.sql.blacklist_sql as sql
+from Raiden import dispatcher, LOGGER
+from Raiden.modules.connection import connected
+from Raiden.modules.disable import DisableAbleCommandHandler
+from Raiden.modules.helper_funcs.alternate import send_message, typing_action
+from Raiden.modules.helper_funcs.chat_status import user_admin, user_not_admin
+from Raiden.modules.helper_funcs.extraction import extract_text
+from Raiden.modules.helper_funcs.misc import split_message
+from Raiden.modules.helper_funcs.string_handling import extract_time
+from Raiden.modules.log_channel import loggable
+from Raiden.modules.warns import warn
 
 BLACKLIST_GROUP = 11
 
