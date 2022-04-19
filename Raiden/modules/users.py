@@ -6,9 +6,9 @@ from telegram import TelegramError
 from telegram.error import BadRequest
 from telegram.ext import MessageHandler, Filters, CommandHandler
 
-import KomiXRyu.modules.sql.users_sql as sql
-from KomiXRyu import dispatcher, LOGGER, DEV_USERS
-from KomiXRyu.modules.helper_funcs.filters import CustomFilters
+import Raiden.modules.sql.users_sql as sql
+from Raiden import dispatcher, LOGGER, DEV_USERS
+from Raiden.modules.helper_funcs.filters import CustomFilters
 
 USERS_GROUP = 4
 CHAT_GROUP = 10
