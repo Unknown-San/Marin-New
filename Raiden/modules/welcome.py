@@ -23,8 +23,8 @@ from telegram.ext import (
 )
 from telegram.utils.helpers import escape_markdown, mention_html, mention_markdown
 
-import KomiXRyu.modules.sql.welcome_sql as sql
-from KomiXRyu import (
+import Raiden.modules.sql.welcome_sql as sql
+from Raiden import (
     DEV_USERS,
     DEMONS,
     LOGGER,
@@ -34,18 +34,18 @@ from KomiXRyu import (
     spamwtc,
     dispatcher,
 )
-from KomiXRyu.modules.helper_funcs.chat_status import (
+from Raiden.modules.helper_funcs.chat_status import (
     is_user_ban_protected,
     user_admin,
 )
-from KomiXRyu.modules.helper_funcs.misc import build_keyboard, revert_buttons
-from KomiXRyu.modules.helper_funcs.msg_types import get_welcome_type
-from KomiXRyu.modules.helper_funcs.string_handling import (
+from Raiden.modules.helper_funcs.misc import build_keyboard, revert_buttons
+from Raiden.modules.helper_funcs.msg_types import get_welcome_type
+from Raiden.modules.helper_funcs.string_handling import (
     escape_invalid_curly_brackets,
     markdown_parser,
 )
-from KomiXRyu.modules.log_channel import loggable
-from KomiXRyu.modules.sql.global_bans_sql import is_user_gbanned
+from Raiden.modules.log_channel import loggable
+from Raiden.modules.sql.global_bans_sql import is_user_gbanned
 
 VALID_WELCOME_FORMATTERS = [
     "first",
@@ -224,7 +224,7 @@ def new_member(update: Update, context: CallbackContext):  # sourcery no-metrics
             # Welcome yourself
             if new_mem.id == bot.id:
                 update.effective_message.reply_text(
-                    "Hey {}, I'm {}! Thank you for adding me to {}\n"
+                    "Kon'nichiwa {} - San, I'm {}! Thank you for adding me to {}\n"
                     "Join support and channel update with clicking button below!".format(
                         user.first_name, context.bot.first_name, chat.title
                     ),
@@ -233,10 +233,10 @@ def new_member(update: Update, context: CallbackContext):  # sourcery no-metrics
                         [
                             [
                                 InlineKeyboardButton(
-                                    text="☎️ Support", url="https://t.me/Komisansupport"
+                                    text="Support", url="https://t.me/RaidenXsupport"
                                 ),
                                 InlineKeyboardButton(
-                                    text="Updates 📡", url="https://t.me/Weeb_oo"
+                                    text="Updates", url="https://t.me/RaidenXUpdates"
                                 ),
                             ]
                         ],
