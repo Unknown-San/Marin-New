@@ -9,15 +9,15 @@ from telegram.error import BadRequest
 from telegram.ext import CommandHandler, Filters
 from telegram.utils.helpers import escape_markdown
 
-import KomiXRyu.modules.helper_funcs.fun_strings as fun
-from KomiXRyu import LOGGER, DEV_USERS, SUPPORT_USERS, dispatcher
-from KomiXRyu.modules.disable import (
+import Raiden.modules.helper_funcs.fun_strings as fun
+from Raiden import LOGGER, DEV_USERS, SUPPORT_USERS, dispatcher
+from Raiden.modules.disable import (
     DisableAbleCommandHandler,
     DisableAbleMessageHandler,
 )
-from KomiXRyu.modules.helper_funcs.alternate import typing_action
-from KomiXRyu.modules.helper_funcs.extraction import extract_user
-from KomiXRyu.modules.helper_funcs.filters import CustomFilters
+from Raiden.modules.helper_funcs.alternate import typing_action
+from Raiden.modules.helper_funcs.extraction import extract_user
+from Raiden.modules.helper_funcs.filters import CustomFilters
 
 
 @typing_action
