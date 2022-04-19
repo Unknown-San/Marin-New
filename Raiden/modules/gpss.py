@@ -1,8 +1,8 @@
 import os
-from KomiXRyu import client as tbot
+from Raiden import client as tbot
 from geopy.geocoders import Nominatim
-from KomiXRyu.events import register
-from KomiXRyu import *
+from Raiden.events import register
+from Raiden import *
 from telethon import *
 from telethon.tl import *
 
