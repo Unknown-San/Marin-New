@@ -1,10 +1,15 @@
-
-from typing import List, Dict
-from math import ceil
-from telegram import MAX_MESSAGE_LENGTH, InlineKeyboardButton, Bot, ParseMode
+from typing import Dict, List
+import typing
+from uuid import uuid4
+from Raiden import NO_LOAD
+from telegram import MAX_MESSAGE_LENGTH, Bot, InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, InlineQueryResultArticle, InputTextMessageContent
 from telegram.error import TelegramError
-
-from KomiXRyu import LOAD, NO_LOAD
+import requests
+import json
+import zlib
+import base64
+from urllib.parse import urlparse, urljoin, urlunparse
+from math import ceil
 
 
 class EqInlineKeyboardButton(InlineKeyboardButton):
@@ -37,32 +42,31 @@ def split_message(msg: str) -> List[str]:
     return result
 
 
-
-def paginate_modules(page_n, module_dict, prefix, chat=None):
+def paginate_modules(page_n: int, module_dict: Dict, prefix, chat=None) -> List:
     if not chat:
-        modules = sorted(
+            modules = sorted(
             [
                 EqInlineKeyboardButton(
                     x.__mod_name__,
                     callback_data="{}_module({})".format(
-                        prefix, x.__mod_name__.lower()
+                        prefix, x.__mod_name__.replace(" ", "_").lower()
                     ),
                 )
                 for x in module_dict.values()
             ]
         )
     else:
-        modules = sorted(
-            [
+            modules = sorted(
+                 [
                 EqInlineKeyboardButton(
                     x.__mod_name__,
                     callback_data="{}_module({},{})".format(
-                        prefix, chat, x.__mod_name__.lower()
+                        prefix, chat, x.__mod_name__.replace(" ", "_").lower()
                     ),
                 )
                 for x in module_dict.values()
             ]
-        )
+             )
 
     pairs = list(zip(modules[::3], modules[1::3], modules[2::3]))
     i = 0
@@ -79,7 +83,7 @@ def paginate_modules(page_n, module_dict, prefix, chat=None):
             )
         )
 
-    COLUMN_SIZE = 6
+    COLUMN_SIZE = 4
 
     max_num_pages = ceil(len(pairs) / COLUMN_SIZE)
     modulo_page = page_n % max_num_pages
@@ -96,7 +100,7 @@ def paginate_modules(page_n, module_dict, prefix, chat=None):
                 ),
                 EqInlineKeyboardButton(
                     "Back",
-                    callback_data="komi_back",
+                    callback_data="shasa_back",
                 ),
                 EqInlineKeyboardButton(
                     "❯",
@@ -107,6 +111,26 @@ def paginate_modules(page_n, module_dict, prefix, chat=None):
 
     return pairs
 
+def article(
+    title: str = "",
+    description: str = "",
+    message_text: str = "",
+    thumb_url: str = None,
+    reply_markup: InlineKeyboardMarkup = None,
+    disable_web_page_preview: bool = False,
+) -> InlineQueryResultArticle:
+
+    return InlineQueryResultArticle(
+        id=uuid4(),
+        title=title,
+        description=description,
+        thumb_url=thumb_url,
+        input_message_content=InputTextMessageContent(
+            message_text=message_text,
+            disable_web_page_preview=disable_web_page_preview,
+        ),
+        reply_markup=reply_markup,
+    )
 
 def send_to_list(
     bot: Bot, send_to: list, message: str, markdown=False, html=False
@@ -145,10 +169,6 @@ def revert_buttons(buttons):
     )
 
 
-def is_module_loaded(name):
-    return (not LOAD or name in LOAD) and name not in NO_LOAD
-
-
 def build_keyboard_parser(bot, chat_id, buttons):
     keyb = []
     for btn in buttons:
@@ -160,3 +180,18 @@ def build_keyboard_parser(bot, chat_id, buttons):
             keyb.append([InlineKeyboardButton(btn.name, url=btn.url)])
 
     return keyb
+
+
+def is_module_loaded(name):
+    return name not in NO_LOAD
+
+def upload_text(data: str) -> typing.Optional[str]:
+    compress = zlib.compressobj(wbits=-15)
+    paste_blob = compress.compress(json.dumps({'paste': data}, separators=(',', ':')).encode()) + compress.flush()
+    paste_meta = [[base64.b64encode(cipher.nonce).decode(), base64.b64encode(salt).decode(), 100000, 256, 128, 'gcm', 'zlib'], 'syntaxhighlighting', 0, 0]
+    cipher.update(json.dumps(paste_meta, separators=(',', ':')).encode())
+    ct, tag = cipher.encrypt_and_digest(paste_blob)
+    resp = requests.post('https://bin.nixnet.services', headers={'X-Requested-With': 'JSONHttpRequest'}, data=json.dumps({'v': 2, 'adata': paste_meta, 'ct': base64.b64encode(ct + tag).decode(), 'meta': {'expire': '1week'}}, separators=(',', ':')))
+    data = resp.json()
+    url = list(urlparse(urljoin('https://bin.nixnet.services', data['url'])))
+    return urlunparse(url)
