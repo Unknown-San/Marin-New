@@ -14,9 +14,9 @@ from telegram import (
 )
 from telegram.ext import CallbackContext
 
-from KomiXRyu import dispatcher
-from KomiXRyu.modules.disable import DisableAbleCommandHandler
-from KomiXRyu.modules.helper_funcs.alternate import typing_action, send_action
+from Raiden import dispatcher
+from Raiden.modules.disable import DisableAbleCommandHandler
+from Raiden.modules.helper_funcs.alternate import typing_action, send_action
 
 trans = SyncTranslator()
 
