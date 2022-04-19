@@ -4,7 +4,7 @@ import threading
 
 from sqlalchemy import Column, String, Boolean
 
-from KomiXRyu.modules.sql import SESSION, BASE
+from Raiden.modules.sql import SESSION, BASE
 
 
 class Permissions(BASE):
