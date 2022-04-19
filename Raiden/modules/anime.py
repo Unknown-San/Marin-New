@@ -12,8 +12,8 @@ from telegram import (
     Message,
 )
 
-from KomiXRyu import dispatcher
-from KomiXRyu.modules.disable import DisableAbleCommandHandler
+from Raiden import dispatcher
+from Raiden.modules.disable import DisableAbleCommandHandler
 
 info_btn = "More Information"
 prequel_btn = "⬅️ Prequel"
