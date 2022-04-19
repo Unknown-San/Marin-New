@@ -12,9 +12,9 @@ from telegram import ParseMode
 from telegram.error import BadRequest
 from ujson import loads
 
-from KomiXRyu import dispatcher
-from KomiXRyu.modules.disable import DisableAbleCommandHandler
-from KomiXRyu.modules.helper_funcs.alternate import typing_action
+from Raiden import dispatcher
+from Raiden.modules.disable import DisableAbleCommandHandler
+from Raiden.modules.helper_funcs.alternate import typing_action
 
 GITHUB = "https://github.com"
 DEVICES_DATA = "https://raw.githubusercontent.com/androidtrackers/certified-android-devices/master/by_device.json"
