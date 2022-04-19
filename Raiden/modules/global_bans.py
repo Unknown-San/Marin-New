@@ -7,8 +7,8 @@ from telegram.error import BadRequest, TelegramError
 from telegram.ext import CommandHandler, MessageHandler, Filters
 from telegram.utils.helpers import mention_html
 
-import KomiXRyu.modules.sql.global_bans_sql as sql
-from KomiXRyu import (
+import Raiden.modules.sql.global_bans_sql as sql
+from Raiden import (
     dispatcher,
     OWNER_ID,
     DEV_USERS,
@@ -19,11 +19,11 @@ from KomiXRyu import (
     MESSAGE_DUMP,
     spamwtc,
 )
-from KomiXRyu.modules.helper_funcs.alternate import typing_action, send_action
-from KomiXRyu.modules.helper_funcs.chat_status import user_admin, is_user_admin
-from KomiXRyu.modules.helper_funcs.extraction import extract_user, extract_user_and_text
-from KomiXRyu.modules.helper_funcs.filters import CustomFilters
-from KomiXRyu.modules.sql.users_sql import get_all_chats
+from Raiden.modules.helper_funcs.alternate import typing_action, send_action
+from Raiden.modules.helper_funcs.chat_status import user_admin, is_user_admin
+from Raiden.modules.helper_funcs.extraction import extract_user, extract_user_and_text
+from Raiden.modules.helper_funcs.filters import CustomFilters
+from Raiden.modules.sql.users_sql import get_all_chats
 
 GBAN_ENFORCE_GROUP = 6
 
