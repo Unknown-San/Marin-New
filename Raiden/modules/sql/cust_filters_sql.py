@@ -3,8 +3,8 @@ import threading
 
 from sqlalchemy import Column, String, UnicodeText, Boolean, Integer, distinct, func
 
-from KomiXRyu.modules.helper_funcs.msg_types import Types
-from KomiXRyu.modules.sql import BASE, SESSION
+from Raiden.modules.helper_funcs.msg_types import Types
+from Raiden.modules.sql import BASE, SESSION
 
 
 class CustomFilters(BASE):
