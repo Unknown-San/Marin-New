@@ -16,26 +16,26 @@ from telegram.ext import (
 )
 from telegram.utils.helpers import mention_html
 
-from KomiXRyu import dispatcher  # BAN_STICKER
-from KomiXRyu.modules.disable import DisableAbleCommandHandler
-from KomiXRyu.modules.helper_funcs.alternate import typing_action
-from KomiXRyu.modules.helper_funcs.chat_status import (
+from Raiden import dispatcher  # BAN_STICKER
+from Raiden.modules.disable import DisableAbleCommandHandler
+from Raiden.modules.helper_funcs.alternate import typing_action
+from Raiden.modules.helper_funcs.chat_status import (
     is_user_admin,
     bot_admin,
     user_admin_no_reply,
     user_admin,
     can_restrict,
 )
-from KomiXRyu.modules.helper_funcs.extraction import (
+from Raiden.modules.helper_funcs.extraction import (
     extract_text,
     extract_user_and_text,
     extract_user,
 )
-from KomiXRyu.modules.helper_funcs.filters import CustomFilters
-from KomiXRyu.modules.helper_funcs.misc import split_message
-from KomiXRyu.modules.helper_funcs.string_handling import split_quotes
-from KomiXRyu.modules.log_channel import loggable
-from KomiXRyu.modules.sql import warns_sql as sql
+from Raiden.modules.helper_funcs.filters import CustomFilters
+from Raiden.modules.helper_funcs.misc import split_message
+from Raiden.modules.helper_funcs.string_handling import split_quotes
+from Raiden.modules.log_channel import loggable
+from Raiden.modules.sql import warns_sql as sql
 
 WARN_HANDLER_GROUP = 9
 CURRENT_WARNING_FILTER_STRING = "<b>Current warning filters in this chat:</b>\n"
