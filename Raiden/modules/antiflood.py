@@ -7,13 +7,13 @@ from telegram.error import BadRequest
 from telegram.ext import Filters, MessageHandler, CommandHandler
 from telegram.utils.helpers import mention_html
 
-from KomiXRyu import dispatcher
-from KomiXRyu.modules.connection import connected
-from KomiXRyu.modules.helper_funcs.alternate import send_message, typing_action
-from KomiXRyu.modules.helper_funcs.chat_status import is_user_admin, user_admin
-from KomiXRyu.modules.helper_funcs.string_handling import extract_time
-from KomiXRyu.modules.log_channel import loggable
-from KomiXRyu.modules.sql import antiflood_sql as sql
+from Raiden import dispatcher
+from Raiden.modules.connection import connected
+from Raiden.modules.helper_funcs.alternate import send_message, typing_action
+from Raiden.modules.helper_funcs.chat_status import is_user_admin, user_admin
+from Raiden.modules.helper_funcs.string_handling import extract_time
+from Raiden.modules.log_channel import loggable
+from Raiden.modules.sql import antiflood_sql as sql
 
 FLOOD_GROUP = 3
 
