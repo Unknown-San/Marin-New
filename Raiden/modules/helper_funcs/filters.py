@@ -2,7 +2,7 @@
 from telegram import Message
 from telegram.ext import MessageFilter
 
-from KomiXRyu import DEV_USERS, SUPPORT_USERS, DEMONS
+from Raiden import DEV_USERS, SUPPORT_USERS, DEMONS
 
 
 class CustomFilters(object):
