@@ -9,11 +9,11 @@ from pyrate_limiter import (
 )
 from telegram import Update
 
-import KomiXRyu.modules.sql.blacklistusers_sql as sql
-from KomiXRyu import LOGGER, DEV_USERS, SUPPORT_USERS, WHITELIST_USERS
+import Raiden.modules.sql.blacklistusers_sql as sql
+from Raiden import LOGGER, DEV_USERS, SUPPORT_USERS, WHITELIST_USERS
 
 try:
-    from KomiXRyu import CUSTOM_CMD
+    from Raiden import CUSTOM_CMD
 except BaseException:
     CUSTOM_CMD = False
 
