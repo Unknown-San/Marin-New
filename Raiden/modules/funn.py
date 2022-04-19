@@ -2,16 +2,16 @@ import html
 import random
 import time
 
-import KomiXRyu.modules.fun_strings as fun_strings
-from KomiXRyu import dispatcher
-from KomiXRyu.modules.disable import DisableAbleCommandHandler
-from KomiXRyu.modules.helper_funcs.chat_status import is_user_admin
-from KomiXRyu.modules.helper_funcs.extraction import extract_user
+import Raiden.modules.fun_strings as fun_strings
+from Raiden import dispatcher
+from Raiden.modules.disable import DisableAbleCommandHandler
+from Raiden.modules.helper_funcs.chat_status import is_user_admin
+from Raiden.modules.helper_funcs.extraction import extract_user
 from telegram import ChatPermissions, ParseMode, Update
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext
 
-GIF_ID = "CgACAgQAAx0CSVUvGgAC7KpfWxMrgGyQs-GUUJgt-TSO8cOIDgACaAgAAlZD0VHT3Zynpr5nGxsE"
+GIF_ID = "CgACAgQAAx0CaGBYqgADjmJfFgwbdNVR9ybRq-4G2G41yg6jAALrAgACHHq0UotcIqygBXUOJAQ"
 
 
 def runs(update: Update, context: CallbackContext):
