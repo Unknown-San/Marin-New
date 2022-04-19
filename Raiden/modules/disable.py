@@ -13,21 +13,21 @@ from telegram.ext import (
 )
 from telegram.utils.helpers import escape_markdown
 
-from KomiXRyu import dispatcher
-from KomiXRyu.modules.helper_funcs.handlers import CMD_STARTERS, SpamChecker
-from KomiXRyu.modules.helper_funcs.misc import is_module_loaded
+from Raiden import dispatcher
+from Raiden.modules.helper_funcs.handlers import CMD_STARTERS, SpamChecker
+from Raiden.modules.helper_funcs.misc import is_module_loaded
 
 FILENAME = __name__.rsplit(".", 1)[-1]
 
 # If module is due to be loaded, then setup all the magical handlers
 if is_module_loaded(FILENAME):
 
-    from KomiXRyu.modules.helper_funcs.chat_status import (
+    from Raiden.modules.helper_funcs.chat_status import (
         connection_status,
         is_user_admin,
         user_admin,
     )
-    from KomiXRyu.modules.sql import disable_sql as sql
+    from Raiden.modules.sql import disable_sql as sql
 
     DISABLE_CMDS = []
     DISABLE_OTHER = []
