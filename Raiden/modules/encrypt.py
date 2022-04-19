@@ -1,6 +1,6 @@
-from KomiXRyu import client as tbot
+from Raiden import client as tbot
 import os
-from KomiXRyu.events import register
+from Raiden.events import register
 import secureme
 
 @register(pattern="^/encrypt ?(.*)")
