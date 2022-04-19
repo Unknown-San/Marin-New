@@ -1,9 +1,9 @@
 import os
 from time import sleep
 
-from KomiXRyu import DEV_USERS, SUPPORT_USERS, dispatcher
-from KomiXRyu.modules.helper_funcs.extraction import extract_user
-from KomiXRyu.modules.sql.users_sql import get_user_com_chats
+from Raiden import DEV_USERS, SUPPORT_USERS, dispatcher
+from Raiden.modules.helper_funcs.extraction import extract_user
+from Raiden.modules.sql.users_sql import get_user_com_chats
 from telegram import Update
 from telegram.error import BadRequest, RetryAfter, Unauthorized
 from telegram.ext import CallbackContext, CommandHandler, Filters
