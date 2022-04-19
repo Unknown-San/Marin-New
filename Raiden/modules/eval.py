@@ -11,8 +11,8 @@ from contextlib import redirect_stdout
 from telegram import ParseMode, Update
 from telegram.ext import CallbackContext, CommandHandler
 
-from KomiXRyu import LOGGER, dispatcher
-from KomiXRyu.modules.helper_funcs.chat_status import dev_plus
+from Raiden import LOGGER, dispatcher
+from Raiden.modules.helper_funcs.chat_status import dev_plus
 
 namespaces = {}
 
