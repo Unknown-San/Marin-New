@@ -8,19 +8,19 @@ from telegram.error import BadRequest
 from telegram.ext import CommandHandler, MessageHandler, Filters
 from telegram.utils.helpers import mention_html
 
-import KomiXRyu.modules.sql.locks_sql as sql
-from KomiXRyu import dispatcher, LOGGER
-from KomiXRyu.modules.connection import connected
-from KomiXRyu.modules.disable import DisableAbleCommandHandler
-from KomiXRyu.modules.helper_funcs.alternate import send_message, typing_action
-from KomiXRyu.modules.helper_funcs.chat_status import (
+import Raiden.modules.sql.locks_sql as sql
+from Raiden import dispatcher, LOGGER
+from Raiden.modules.connection import connected
+from Raiden.modules.disable import DisableAbleCommandHandler
+from Raiden.modules.helper_funcs.alternate import send_message, typing_action
+from Raiden.modules.helper_funcs.chat_status import (
     can_delete,
     is_user_admin,
     user_not_admin,
     is_bot_admin,
     user_admin,
 )
-from KomiXRyu.modules.log_channel import loggable
+from Raiden.modules.log_channel import loggable
 
 ad = AlphabetDetector()
 
