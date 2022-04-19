@@ -2,8 +2,8 @@ import html
 
 import bs4
 import requests
-from KomiXRyu import dispatcher
-from KomiXRyu.modules.disable import DisableAbleCommandHandler
+from Raiden import dispatcher
+from Raiden.modules.disable import DisableAbleCommandHandler
 from telegram import (InlineKeyboardButton, InlineKeyboardMarkup, ParseMode,
                       Update)
 from telegram.ext import CallbackContext, run_async
