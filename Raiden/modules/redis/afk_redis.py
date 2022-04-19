@@ -1,5 +1,5 @@
 
-from KomiXRyu import REDIS
+from Raiden import REDIS
 
 
 # AFK
