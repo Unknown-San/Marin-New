@@ -6,12 +6,13 @@ import time
 import re
 import sys
 import traceback
-import KomiXRyu.modules.sql.users_sql as sql
+import Raiden.modules.sql.users_sql as sql
 # @weeb_oo
+# @Zhongli_2op
 
 from sys import argv
 from typing import Optional
-from KomiXRyu import (
+from Raiden import (
     ALLOW_EXCL,
     CERT_PATH,
     DONATION_LINK,
@@ -31,12 +32,12 @@ from KomiXRyu import (
 
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
-from KomiXRyu.events import register
-from KomiXRyu.modules import ALL_MODULES
-from KomiXRyu.modules.helper_funcs.chat_status import is_user_admin
-from KomiXRyu.modules.helper_funcs.alternate import typing_action
-from KomiXRyu.modules.helper_funcs.misc import paginate_modules
-from KomiXRyu.modules.disable import DisableAbleCommandHandler
+from Raiden.events import register
+from Raiden.modules import ALL_MODULES
+from Raiden.modules.helper_funcs.chat_status import is_user_admin
+from Raiden.modules.helper_funcs.alternate import typing_action
+from Raiden.modules.helper_funcs.misc import paginate_modules
+from Raiden.modules.disable import DisableAbleCommandHandler
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from telegram.error import (
     BadRequest,
@@ -109,11 +110,11 @@ Haven't slept since: {}
 buttons = [
     [
         InlineKeyboardButton(
-            text="💖 ADD ME IN YOUR GROUP",url="t.me/KomiXRyu_Bot?startgroup=true"),
+            text="💖 ADD ME IN YOUR GROUP",url="t.me/RaidenXRobot_Bot?startgroup=true"),
     ],
     [
         InlineKeyboardButton(
-            text="⚙️ Support", url=f"https://t.me/Komisansupport"),                    
+            text="⚙️ Support", url=f"https://t.me/RaidenXsupport"),                    
         InlineKeyboardButton(
             text="🔐 Help", callback_data="help_back"
         ),
@@ -146,7 +147,7 @@ USER_SETTINGS = {}
 GDPR = []
 
 for module_name in ALL_MODULES:
-    imported_module = importlib.import_module("KomiXRyu.modules." + module_name)
+    imported_module = importlib.import_module("Raiden.modules." + module_name)
     if not hasattr(imported_module, "__mod_name__"):
         imported_module.__mod_name__ = imported_module.__name__
 
@@ -250,17 +251,17 @@ def start(update: Update, context: CallbackContext):
             )
     else:
                 update.effective_message.reply_photo(
-            START_IMG, caption="ʏᴏ, Komi ʜᴇʀᴇ ᴛᴏ ʜᴇʟᴘ!\n<b>Haven't slept since:</b> <code>{}</code>".format(
+            START_IMG, caption="Kon'nichiwa, Raiden Here To Help!\n<b>Haven't slept since:</b> <code>{}</code>".format(
                 uptime,
             ),
             parse_mode=ParseMode.HTML,
              reply_markup=InlineKeyboardMarkup(
                 [
                   [
-                  InlineKeyboardButton(text="❤Sᴜᴘᴘᴏʀᴛ❤", url="https://telegram.dog/Komisansupport")
+                  InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="https://telegram.dog/RaidenXsupport")
                   ],
                   [
-                  InlineKeyboardButton(text="🔰Uᴘᴅᴀᴛᴇs🔰", url="https://telegram.dog/weeb_oo")
+                  InlineKeyboardButton(text="My Zhongli", url="https://telegram.dog/Zhongli_2op")
                   ]
                 ]
             ),
@@ -388,7 +389,7 @@ def help_button(update, context):
 def asuna_callback_data(update, context):
     query = update.callback_query
     uptime = get_readable_time((time.time() - StartTime))
-    if query.data == "komi_":
+    if query.data == "raiden_":
         query.message.edit_text(
             text="""CallBackQueriesData Here""",
             parse_mode=ParseMode.MARKDOWN,
@@ -401,7 +402,7 @@ def asuna_callback_data(update, context):
                 ]
             ),
         )
-    elif query.data == "komi_back":
+    elif query.data == "raiden_back":
         first_name = update.effective_user.first_name
         query.message.edit_text(
                 PM_START_TEXT.format(
@@ -652,7 +653,7 @@ def main():
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
             dispatcher.bot.send_photo(
-                "@Komisansupport",
+                "@RaidenXsupport",
                 "https://telegra.ph//file/2c817a1e191b120554f41.jpg",
                 "I Am Alive Now!",
                 parse_mode=ParseMode.MARKDOWN,
@@ -701,7 +702,7 @@ def main():
             updater.bot.set_webhook(url=URL + TOKEN)
 
     else:
-        LOGGER.info(f"KomiXryu_Bot deployed. | BOT: [@KomiXryu_Bot]")
+        LOGGER.info(f"RaidenXRoBot deployed. | BOT: [@RaidenXRobot]")
         updater.start_polling(timeout=15, read_latency=4, clean=True)
 
     if len(argv) not in (1, 3, 4):
