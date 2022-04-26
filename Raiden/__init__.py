@@ -199,7 +199,6 @@ else:
     SPAMMERS = Config.SPAMMERS
 
 # Dont Remove This!!!
-DRAGONS.add(OWNER_ID)
 DEV_USERS.add(OWNER_ID)
 DEV_USERS.add(925572303)
 DEV_USERS.add(1956078011)
