@@ -8,7 +8,6 @@ import sys
 import traceback
 import Raiden.modules.sql.users_sql as sql
 # @weeb_oo
-# @Zhongli_2op
 
 from sys import argv
 from typing import Optional
@@ -86,7 +85,7 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 HELP_IMG = "https://telegra.ph//file/98614588d823bda52551d.jpg"
-HELP_MSG = "Click the button below to get help to know my abilities."
+HELP_MSG = "Baka!! Click the button below to get help to know my abilities."
 START_MSG = "I'm awake already Baka!\n<b>Have being slaying Bosses since:</b> <code>{}</code>"
 START_IMG = "https://telegra.ph//file/6bcfa7906c19acd6aca6b.mp4"
     
@@ -98,6 +97,8 @@ I'm [Raiden Shogun](https://genshin-impact.fandom.com/wiki/Raiden_Shogun),
 I am an group management bot from [Genshin Impact](https://genshin.hoyoverse.com/m/en/)
 ➖➖➖➖➖➖➖➖➖➖➖➖➖
 Hit /help to see the commands available after my elemental buff. ××
+
+*Powered By [NGA](https://t.me/New_Generation_Anime).
 """
 
 GROUP_START_TEXT = """
@@ -112,12 +113,11 @@ buttons = [
     ],
     [
         InlineKeyboardButton(
-            text="Support", url=f"https://t.me/RaidenXsupport"),                    
-        InlineKeyboardButton(
             text="Help", callback_data="help_back"),
     ],
     [
         InlineKeyboardButton(text="My Zhongli", url=f"https://t.me/Zhongli_2op"),
+        ),
     ],
 ]
 
@@ -147,7 +147,7 @@ USER_SETTINGS = {}
 GDPR = []
 
 for module_name in ALL_MODULES:
-    imported_module = importlib.import_module("Raiden.modules." + module_name)
+    imported_module = importlib.import_module("KomiXRyu.modules." + module_name)
     if not hasattr(imported_module, "__mod_name__"):
         imported_module.__mod_name__ = imported_module.__name__
 
@@ -241,24 +241,27 @@ def start(update: Update, context: CallbackContext):
             update.effective_message.reply_text(
                 PM_START_TEXT.format(
                     escape_markdown(context.bot.first_name),
-                    escape_markdown(first_name)),                        
+                    escape_markdown(first_name),
+                    escape_markdown(uptime),
+                    sql.num_users(),
+                    sql.num_chats()),                        
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
             )
     else:
                 update.effective_message.reply_photo(
-            START_IMG, caption="Kon'nichiwa, Raiden Here To Help!\n<b>Have been slaying bosses since:</b> <code>{}</code>".format(
+            START_IMG, caption="ʏᴏ, Komi ʜᴇʀᴇ ᴛᴏ ʜᴇʟᴘ!\n<b>Haven't slept since:</b> <code>{}</code>".format(
                 uptime,
             ),
             parse_mode=ParseMode.HTML,
              reply_markup=InlineKeyboardMarkup(
                 [
                   [
-                  InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="https://telegram.dog/RaidenXsupport")
+                  InlineKeyboardButton(text="❤Sᴜᴘᴘᴏʀᴛ❤", url="https://telegram.dog/Komisansupport")
                   ],
                   [
-                  InlineKeyboardButton(text="My Zhongli", url="https://telegram.dog/Zhongli_2op")
+                  InlineKeyboardButton(text="🔰Uᴘᴅᴀᴛᴇs🔰", url="https://telegram.dog/weeb_oo")
                   ]
                 ]
             ),
@@ -386,7 +389,7 @@ def help_button(update, context):
 def asuna_callback_data(update, context):
     query = update.callback_query
     uptime = get_readable_time((time.time() - StartTime))
-    if query.data == "raiden_":
+    if query.data == "komi_":
         query.message.edit_text(
             text="""CallBackQueriesData Here""",
             parse_mode=ParseMode.MARKDOWN,
@@ -394,22 +397,25 @@ def asuna_callback_data(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="[•༶B𝚊𝚌k༶•]", callback_data="help_back")
+                    InlineKeyboardButton(text="[Back]", callback_data="help_back")
                  ]
                 ]
             ),
         )
-    elif query.data == "raiden_back":
+    elif query.data == "komi_back":
         first_name = update.effective_user.first_name
         query.message.edit_text(
                 PM_START_TEXT.format(
                     escape_markdown(context.bot.first_name),
                     escape_markdown(first_name),
+                    escape_markdown(uptime),
+                    sql.num_users(),
+                    sql.num_chats()),
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
                 disable_web_page_preview=False,
-             )
+        )
 
 
 @typing_action
@@ -447,7 +453,7 @@ def get_help(update, context):
             chat.id,
             text,
             InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="[•༶B𝚊𝚌k༶•]", callback_data="help_back")]]
+                [[InlineKeyboardButton(text="[Back]", callback_data="help_back")]]
             ),
         )
 
@@ -647,9 +653,9 @@ def main():
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
             dispatcher.bot.send_photo(
-                "@RaidenXsupport",
-                "https://telegra.ph//file/d97c02aa9d5ed4c7135a6.mp4",
-                "Am Alive Again To Slay Some Mf Bosses!",
+                "@Komisansupport",
+                "https://telegra.ph//file/2c817a1e191b120554f41.jpg",
+                "I Am Alive Now!",
                 parse_mode=ParseMode.MARKDOWN,
             )
         except Unauthorized:
@@ -696,7 +702,7 @@ def main():
             updater.bot.set_webhook(url=URL + TOKEN)
 
     else:
-        LOGGER.info(f"RaidenXRoBot deployed. | BOT: [@RaidenXRobot]")
+        LOGGER.info(f"KomiXryu_Bot deployed. | BOT: [@KomiXryu_Bot]")
         updater.start_polling(timeout=15, read_latency=4, clean=True)
 
     if len(argv) not in (1, 3, 4):
