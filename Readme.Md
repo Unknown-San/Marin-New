@@ -9,7 +9,7 @@ Can be found on telegram as [Raiden](https://t.me/RaidenXRobot).
 
 The Support group can be reached out to at [Support Raiden](https://t.me/RaidenXSupport), where you can ask for help about [Raiden](https://t.me/Zhongli_2op), discover/request new features, report bugs, and stay in the loop whenever a new update is available. 
 
-Bot Owner [Zhongli](https://t.me/Zhongli_2op) 
+Bot Owner [Zhongli](https://t.me/AIone_Being) 
 
 <h2 align="center">
     ──「 Deployment 」──
