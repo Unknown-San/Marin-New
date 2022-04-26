@@ -102,8 +102,8 @@ Hit /help to see the commands available after my elemental buff. ××
 """
 
 GROUP_START_TEXT = """
-I'm awake already!
-Haven't slept since: {}
+Baka!! I'm awake already!
+Have been slaying bosses since: {}
 """
 
 buttons = [
@@ -113,22 +113,26 @@ buttons = [
     ],
     [
         InlineKeyboardButton(
+            text="Support", url=f"https://t.me/RaidenXsupport"),                    
+        InlineKeyboardButton(
             text="Help", callback_data="help_back"),
     ],
     [
-        InlineKeyboardButton(text="My Zhongli", url=f"https://t.me/Zhongli_2op"),
-        ),
+        InlineKeyboardButton(text="My Zhongli", url=f"https://t.me/AIone_Being"),
     ],
 ]
-
                     
 HELP_STRINGS = """
+Hey there! Myself [Raiden](https://telegra.ph//file/98614588d823bda52551d.jpg).
+I'm a Queen For Fun and help admins manage their groups ! Have a look at the following for an idea of some of the things I can help you with.
 *Main* commands available:
  ➛ /help: PM's you this message.
  ➛ /help <module name>: PM's you info about that module.
- ➛ /settings:
-    in PM: will send you your settings for all supported modules.
-    in a group: will redirect you to pm, with all that chat's settings.
+ ➛ /bug <error name> : inform support about that error 
+ ➛ /donate: information on how to donate!
+ ➛ /settings: 
+   ❂ in PM: will send you your settings for all supported modules.
+   ❂ in a group: will redirect you to pm, with all that chat's settings.\n• *ʀᴇᴀᴄʜ ᴏᴜᴛ ғᴏʀ sᴜᴘᴘᴏʀᴛ:* [sᴜᴘᴘᴏʀᴛ](https://t.me/RaidenXSupport)
 """
 
 GROUP_START_IMG = ""
@@ -147,7 +151,7 @@ USER_SETTINGS = {}
 GDPR = []
 
 for module_name in ALL_MODULES:
-    imported_module = importlib.import_module("KomiXRyu.modules." + module_name)
+    imported_module = importlib.import_module("Raiden.modules." + module_name)
     if not hasattr(imported_module, "__mod_name__"):
         imported_module.__mod_name__ = imported_module.__name__
 
@@ -241,27 +245,24 @@ def start(update: Update, context: CallbackContext):
             update.effective_message.reply_text(
                 PM_START_TEXT.format(
                     escape_markdown(context.bot.first_name),
-                    escape_markdown(first_name),
-                    escape_markdown(uptime),
-                    sql.num_users(),
-                    sql.num_chats()),                        
+                    escape_markdown(first_name)),                        
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
             )
     else:
                 update.effective_message.reply_photo(
-            START_IMG, caption="ʏᴏ, Komi ʜᴇʀᴇ ᴛᴏ ʜᴇʟᴘ!\n<b>Haven't slept since:</b> <code>{}</code>".format(
+            START_IMG, caption="Kon'nichiwa, Raiden Here To Help!\n<b>Have been slaying bosses since:</b> <code>{}</code>".format(
                 uptime,
             ),
             parse_mode=ParseMode.HTML,
              reply_markup=InlineKeyboardMarkup(
                 [
                   [
-                  InlineKeyboardButton(text="❤Sᴜᴘᴘᴏʀᴛ❤", url="https://telegram.dog/Komisansupport")
+                  InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="https://telegram.dog/RaidenXsupport")
                   ],
                   [
-                  InlineKeyboardButton(text="🔰Uᴘᴅᴀᴛᴇs🔰", url="https://telegram.dog/weeb_oo")
+                  InlineKeyboardButton(text="Uᴘᴅᴀᴛᴇs", url="https://telegram.dog/RaidenXUpdates")
                   ]
                 ]
             ),
@@ -389,7 +390,7 @@ def help_button(update, context):
 def asuna_callback_data(update, context):
     query = update.callback_query
     uptime = get_readable_time((time.time() - StartTime))
-    if query.data == "komi_":
+    if query.data == "raiden_":
         query.message.edit_text(
             text="""CallBackQueriesData Here""",
             parse_mode=ParseMode.MARKDOWN,
@@ -402,15 +403,12 @@ def asuna_callback_data(update, context):
                 ]
             ),
         )
-    elif query.data == "komi_back":
+    elif query.data == "raiden_back":
         first_name = update.effective_user.first_name
         query.message.edit_text(
                 PM_START_TEXT.format(
                     escape_markdown(context.bot.first_name),
-                    escape_markdown(first_name),
-                    escape_markdown(uptime),
-                    sql.num_users(),
-                    sql.num_chats()),
+                    escape_markdown(first_name)),
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
@@ -653,9 +651,9 @@ def main():
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
             dispatcher.bot.send_photo(
-                "@Komisansupport",
-                "https://telegra.ph//file/2c817a1e191b120554f41.jpg",
-                "I Am Alive Now!",
+                "@RaidenXSupport",
+                "https://telegra.ph//file/d97c02aa9d5ed4c7135a6.mp4",
+                "Am Alive Again To Slay Some Mf Bosses!",
                 parse_mode=ParseMode.MARKDOWN,
             )
         except Unauthorized:
@@ -702,7 +700,7 @@ def main():
             updater.bot.set_webhook(url=URL + TOKEN)
 
     else:
-        LOGGER.info(f"KomiXryu_Bot deployed. | BOT: [@KomiXryu_Bot]")
+        LOGGER.info(f"RaidenXRobot deployed. | BOT: [@RaidenXRobot]")
         updater.start_polling(timeout=15, read_latency=4, clean=True)
 
     if len(argv) not in (1, 3, 4):
