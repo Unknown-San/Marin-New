@@ -409,10 +409,10 @@ def asuna_callback_data(update, context):
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
                 disable_web_page_preview=False,
-        )
+             )
 
 
-@yping_action
+@typing_action
 def get_help(update, context):
     chat = update.effective_chat  # type: Optional[Chat]
     args = update.effective_message.text.split(None, 1)
