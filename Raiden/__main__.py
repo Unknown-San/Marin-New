@@ -93,12 +93,15 @@ PM_START_TEXT = """
 ────「 [{}](https://telegra.ph//file/a814af57a80c825a18d4a.mp4) 」────
 Kon'nichiwa {} - San!
 I'm [Raiden Shogun](https://genshin-impact.fandom.com/wiki/Raiden_Shogun),
-➖➖➖➖➖➖➖➖➖➖➖➖➖
+
 I am an group management bot from [Genshin Impact](https://genshin.hoyoverse.com/m/en/)
+➖➖➖➖➖➖➖➖➖➖➖➖➖
+Uptime {}
+Users {} across {} chats
 ➖➖➖➖➖➖➖➖➖➖➖➖➖
 Hit /help to see the commands available after my elemental buff. ××
 
-*Powered By [NGA](https://t.me/New_Generation_Anime).
+*Powered By [NGA](https://t.me/New_Generation_Anime)*.
 """
 
 GROUP_START_TEXT = """
@@ -113,7 +116,7 @@ buttons = [
     ],
     [
         InlineKeyboardButton(
-            text="Support", url=f"https://t.me/RaidenXsupport"),                    
+            text="My home", url=f"https://t.me/RaidenXsupport"),                    
         InlineKeyboardButton(
             text="Help", callback_data="help_back"),
     ],
@@ -215,7 +218,7 @@ def start(update: Update, context: CallbackContext):
     if update.effective_chat.type == "private":
         if len(args) >= 1:
             if args[0].lower() == "help":
-                send_help(update.effective_chat.id, HELP_STRINGS)
+                send_help(update.effective_chat.id, HELP_IMG, HELP_STRINGS)
             elif args[0].lower().startswith("ghelp_"):
                 mod = args[0].lower().split("_", 1)[1]
                 if not HELPABLE.get(mod, False):
@@ -245,21 +248,24 @@ def start(update: Update, context: CallbackContext):
             update.effective_message.reply_text(
                 PM_START_TEXT.format(
                     escape_markdown(context.bot.first_name),
-                    escape_markdown(first_name)),                        
+                    escape_markdown(first_name),         
+                    escape_markdown(uptime),
+                    sql.num_users(),
+                    sql.num_chats()),               
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
             )
     else:
                 update.effective_message.reply_photo(
-            START_IMG, caption="Kon'nichiwa, Raiden Here To Help!\n<b>Have been slaying bosses since:</b> <code>{}</code>".format(
+            START_IMG, caption="Kon'nichiwa, Raiden Here To Help!\n Have been slaying bosses since: <code>{}</code>".format(
                 uptime,
             ),
             parse_mode=ParseMode.HTML,
              reply_markup=InlineKeyboardMarkup(
                 [
                   [
-                  InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="https://telegram.dog/RaidenXsupport")
+                  InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="https://telegram.dog/Raidensupport")
                   ],
                   [
                   InlineKeyboardButton(text="Uᴘᴅᴀᴛᴇs", url="https://telegram.dog/RaidenXUpdates")
@@ -354,7 +360,7 @@ def help_button(update, context):
         elif prev_match:
             curr_page = int(prev_match.group(1))
             query.message.edit_text(
-                text=HELP_STRINGS,
+                text=HELP_IMG, HELP_STRINGS,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(curr_page - 1, HELPABLE, "help")
@@ -364,7 +370,7 @@ def help_button(update, context):
         elif next_match:
             next_page = int(next_match.group(1))
             query.message.edit_text(
-                text=HELP_STRINGS,
+                text=HELP_IMG, HELP_STRINGS,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(next_page + 1, HELPABLE, "help")
@@ -373,7 +379,7 @@ def help_button(update, context):
 
         elif back_match:
             query.message.edit_text(
-                text=HELP_STRINGS,
+                text=HELP_IMG, HELP_STRINGS,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(0, HELPABLE, "help")
@@ -408,7 +414,10 @@ def asuna_callback_data(update, context):
         query.message.edit_text(
                 PM_START_TEXT.format(
                     escape_markdown(context.bot.first_name),
-                    escape_markdown(first_name)),
+                    escape_markdown(first_name),
+                    escape_markdown(uptime),
+                    sql.num_users(),
+                    sql.num_chats()),
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
@@ -424,7 +433,7 @@ def get_help(update, context):
     # ONLY send help in PM
     if chat.type != chat.PRIVATE:
 
-        update.effective_message.reply_photo(          
+        update.effective_message.reply_video(          
             START_IMG, HELP_MSG,
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -456,7 +465,7 @@ def get_help(update, context):
         )
 
     else:
-        send_help(chat.id, HELP_STRINGS)
+        send_help(chat.id, HELP_IMG, HELP_STRINGS)
 
 
 
@@ -536,7 +545,7 @@ def settings_button(update: Update, context: CallbackContext):
             curr_page = int(prev_match.group(2))
             chat = bot.get_chat(chat_id)
             query.message.reply_text(
-                "Hi there! There are quite a few settings for {} - go ahead and pick what "
+                "Hey Baka!! There are quite a few settings for {} - go ahead and pick what "
                 "you're interested in.".format(chat.title),
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(
@@ -550,7 +559,7 @@ def settings_button(update: Update, context: CallbackContext):
             next_page = int(next_match.group(2))
             chat = bot.get_chat(chat_id)
             query.message.reply_text(
-                "Hi there! There are quite a few settings for {} - go ahead and pick what "
+               "Hey Baka!! There are quite a few settings for {} - go ahead and pick what "
                 "you're interested in.".format(chat.title),
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(
@@ -563,7 +572,7 @@ def settings_button(update: Update, context: CallbackContext):
             chat_id = back_match.group(1)
             chat = bot.get_chat(chat_id)
             query.message.reply_text(
-                text="Hi there! There are quite a few settings for {} - go ahead and pick what "
+                text="Hey Baka!! There are quite a few settings for {} - go ahead and pick what "
                 "you're interested in.".format(escape_markdown(chat.title)),
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
@@ -619,7 +628,7 @@ def donate(update: Update, context: CallbackContext):
     bot = context.bot
     update.effective_message.reply_text(
         "You can also donate to the person currently running me "
-        "[here](https://ko-fi.com/AuraMoon55)",
+        "[here](https://Ko-fi.com/jinwoo)",
         parse_mode=ParseMode.MARKDOWN,
     )
 
@@ -650,9 +659,9 @@ def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.send_photo(
+            dispatcher.bot.send_video(
                 "@RaidenXSupport",
-                "https://telegra.ph//file/d97c02aa9d5ed4c7135a6.mp4",
+                "https://telegra.ph//file/d733f55d3f56c1161ec1a.mp4",
                 "Am Alive Again To Slay Some Mf Bosses!",
                 parse_mode=ParseMode.MARKDOWN,
             )
