@@ -393,7 +393,7 @@ def help_button(update, context):
     except BadRequest:
         pass
 
-def asuna_callback_data(update, context):
+def raiden_callback_data(update, context):
     query = update.callback_query
     uptime = get_readable_time((time.time() - StartTime))
     if query.data == "raiden_":
@@ -683,7 +683,7 @@ def main():
     settings_handler = DisableAbleCommandHandler("settings", get_settings)
     settings_callback_handler = CallbackQueryHandler(settings_button, pattern=r"stngs_")
 
-    data_callback_handler = CallbackQueryHandler(asuna_callback_data, pattern=r"asuna_")
+    data_callback_handler = CallbackQueryHandler(raiden_callback_data, pattern=r"shogun_")
     donate_handler = DisableAbleCommandHandler("donate", donate)
     migrate_handler = MessageHandler(Filters.status_update.migrate, migrate_chats)
 
