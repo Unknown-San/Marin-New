@@ -7,7 +7,7 @@ import re
 import sys
 import traceback
 import Raiden.modules.sql.users_sql as sql
-# @weeb_oo
+
 
 from sys import argv
 from typing import Optional
@@ -101,7 +101,7 @@ Users {} across {} chats
 ➖➖➖➖➖➖➖➖➖➖➖➖➖
 Hit /help to see the commands available after my elemental buff. ××
 
-*Powered By [NGA](https://t.me/New_Generation_Anime)*.
+Powered By [NGA](https://t.me/New_Generation_Anime).
 """
 
 GROUP_START_TEXT = """
@@ -257,7 +257,7 @@ def start(update: Update, context: CallbackContext):
                 timeout=60,
             )
     else:
-                update.effective_message.reply_photo(
+                update.effective_message.reply_video(
             START_IMG, caption="Kon'nichiwa, Raiden Here To Help!\n Have been slaying bosses since: <code>{}</code>".format(
                 uptime,
             ),
@@ -659,8 +659,8 @@ def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.send_video(
-                "@RaidenXSupport",
+            dispatcher.bot.sendMessage(
+                "@RaidenSupport",
                 "https://telegra.ph//file/d733f55d3f56c1161ec1a.mp4",
                 "Am Alive Again To Slay Some Mf Bosses!",
                 parse_mode=ParseMode.MARKDOWN,
