@@ -117,8 +117,8 @@ def info(update, context):
 
     text = (
         "╒═══ About {}".format(user.id, html.escape(user.first_name))
-        "\n\n»Id: <code>{}</code>"
-        "\n»First Name: {}".format(user.id, html.escape(user.first_name))
+        "\n\n »Id: <code>{}</code>"
+        "\n »First Name: {}".format(user.id, html.escape(user.first_name))
     )
 
     if user.last_name:
@@ -127,7 +127,7 @@ def info(update, context):
     if user.username:
         text += "\n»Username: @{}".format(html.escape(user.username))
 
-    text += "\n»No. of proifle pics: {}".format(
+    text += "\n»No. of profile pics: {}".format(
         context.bot.get_user_profile_photos(user.id).total_count
     )
 
