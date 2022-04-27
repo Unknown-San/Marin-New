@@ -493,8 +493,8 @@ def set_warn_strength(update, context):
 
 def __stats__():
     return (
-        "× {} overall warns, across {} chats.\n"
-        "× {} warn filters, across {} chats.".format(
+        "» {} Overall warns, Across {} groups.\n"
+        "» {} Warn filters, Across {} groups.".format(
             sql.num_warns(),
             sql.num_warn_chats(),
             sql.num_warn_filters(),
