@@ -2,18 +2,10 @@
 
 # Taken from Openuserbot.
 GDNIGHT = [
-    "`Good night keep your dreams alive`",
-    "`Night, night, to a dear friend! May you sleep well!`",
-    "`May the night fill with stars for you. May counting every one, give you contentment!`",
-    "`Wishing you comfort, happiness, and a good night’s sleep!`",
-    "`Now relax. The day is over. You did your best. And tomorrow you’ll do better. Good Night!`",
-    "`Good night to a friend who is the best! Get your forty winks!`",
-    "`May your pillow be soft, and your rest be long! Good night, friend!`",
-    "`Let there be no troubles, dear friend! Have a Good Night!`",
-    "`Rest soundly tonight, friend!`",
-    "`Have the best night’s sleep, friend! Sleep well!`",
-    "`Have a very, good night, friend! You are wonderful!`",
-    "`Relaxation is in order for you! Good night, friend!`",
+    "`Such a calming breeze... Perfect for taking a nap, don't you think?`",
+    "`It must almost be time for a nap...`",
+    "`You're still up? I'm getting sleepy...`",
+    "`I command the thunder in all corners of the world to cease. Rest well tonight.`",
     "`Good night. May you have sweet dreams tonight.`",
     "`Sleep well, dear friend and have sweet dreams.`",
     "`As we wait for a brand new day, good night and have beautiful dreams.`",
@@ -41,10 +33,8 @@ GDNIGHT = [
 
 # Taken from Openuserbot.
 GDMORNING = [
-    "`Life is full of uncertainties. But there will always be a sunrise after every sunset. Good morning!`",
-    "`It doesn’t matter how bad was your yesterday. Today, you are going to make it a good one. Wishing you a good morning!`",
-    "`If you want to gain health and beauty, you should wake up early. Good morning!`",
-    "`May this morning offer you new hope for life! May you be happy and enjoy every moment of it. Good morning!`",
+    "`*yawns* Good morning, Jean... Oh it's you! Sorry, dear.`",
+    "`Yawning without covering your mouth? Uncouth. I will pardon your rudeness this time. Good morning to you, too.`",
     "`May the sun shower you with blessings and prosperity in the days ahead. Good morning!`",
     "`Every sunrise marks the rise of life over death, hope over despair and happiness over suffering. Wishing you a very enjoyable morning today!`",
     "`Wake up and make yourself a part of this beautiful morning. A beautiful world is waiting outside your door. Have an enjoyable time!`",
@@ -70,12 +60,6 @@ GDMORNING = [
     "`This morning is so relaxing and beautiful that I really don’t want you to miss it in any way. So, wake up dear friend. A hearty good morning to you!`",
     "`Mornings come with a blank canvas. Paint it as you like and call it a day. Wake up now and start creating your perfect day. Good morning!`",
     "`Every morning brings you new hopes and new opportunities. Don’t miss any one of them while you’re sleeping. Good morning!`",
-    "`Start your day with solid determination and great attitude. You’re going to have a good day today. Good morning my friend!`",
-    "`Friendship is what makes life worth living. I want to thank you for being such a special friend of mine. Good morning to you!`",
-    "`A friend like you is pretty hard to come by in life. I must consider myself lucky enough to have you. Good morning. Wish you an amazing day ahead!`",
-    "`The more you count yourself as blessed, the more blessed you will be. Thank God for this beautiful morning and let friendship and love prevail this morning.`",
-    "`Wake up and sip a cup of loving friendship. Eat your heart out from a plate of hope. To top it up, a fork full of kindness and love. Enough for a happy good morning!`",
-    "`It is easy to imagine the world coming to an end. But it is difficult to imagine spending a day without my friends. Good morning.`",
 ]
 
 # Abuse strings credits @NotAMemeBot
@@ -403,9 +387,7 @@ DECIDE = ("Yes.", "NoU.", "Maybe.", "No.")
 
 # AFK strings credits: PaperPlaneExtended!
 AFKRPL = (
-    "<b>{}</b> is busy right now. Please talk in a bag and when they come back you can just give him the bag!",
-    "<b>{}</b> is away right now. If you need anything, leave a message after the beep:\n<code>beeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeep</code>!",
-    "You just missed <b>{}</b>, next time aim better.",
+    "Your body may have perished, but {} became the Sacred Sakura. This, too, is a form of Eternity.",
     "{} will be back in a few minutes and if not...,\nwait longer.",
     "Roses are red,\nViolets are blue,\nLeave me a message,\nAnd {} will get back to you.",
     "If you haven't figured it out already,\n{} is not here.",
@@ -423,6 +405,7 @@ NOAFK = (
     "{} is reincarnated!",
     "{} is back now wash your plates!",
     "{} is here All hail!",
+    "So, which element would you like to learn about today {}?"
     "Welcome back! {}",
     "OwO {} is here!",
 )
@@ -433,6 +416,7 @@ AFK = (
     "See you later {}!",
     "Goodbye {}!",
     "Come back soon {}!",
+    "Your body may have perished, but {} became the Sacred Sakura. This, too, is a form of Eternity."
     "Just die {}..",
 )
 
