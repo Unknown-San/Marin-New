@@ -47,6 +47,8 @@ from Raiden.modules.helper_funcs.string_handling import (
 from Raiden.modules.log_channel import loggable
 from Raiden.modules.sql.global_bans_sql import is_user_gbanned
 
+KAZUHA = "https://telegra.ph//file/c1c863f7df195ebf3a8b7.jpg"
+
 VALID_WELCOME_FORMATTERS = [
     "first",
     "last",
@@ -202,21 +204,21 @@ def new_member(update: Update, context: CallbackContext):  # sourcery no-metrics
 
             # Give the owner a special welcome
             if new_mem.id == OWNER_ID:
-                update.effective_message.reply_photo("https://telegra.ph/file/a1a2a107c7801afd8a948.jpg",
-                    "My Darling is in the Chat!!!",
-                    reply_to_message_id=reply,
+                update.effective_message.reply_photo(
+                    KAZUHA, caption=f"Behold The Power Of Ruka Akino. My Asmoday {html.escape(user.first_name)} Just joined.", reply_to_message_id=reply,
+                    parse_mode=ParseMode.HTML,
                 )
                 welcome_log = (
                     f"{html.escape(chat.title)}\n"
                     f"#USER_JOINED\n"
-                    f"Bot Owner just joined the chat"
+                    f"Kazuha just joined the group"
                 )
                 continue
 
             # Welcome Devs
             if new_mem.id in DEV_USERS:
                 update.effective_message.reply_text(
-                    "Be Cool! my Onii Chan just joined the group!",
+                    "Behold! One of my Archon just joined the group!",
                     reply_to_message_id=reply,
                 )
                 continue
@@ -224,7 +226,7 @@ def new_member(update: Update, context: CallbackContext):  # sourcery no-metrics
             # Welcome yourself
             if new_mem.id == bot.id:
                 update.effective_message.reply_text(
-                    "Kon'nichiwa {} - San, I'm {}! Thank you for adding me to {}\n"
+                    "Kon'nichiwa {}, I'm {}! Thank you for adding me to {}\n"
                     "Join support and channel update with clicking button below!".format(
                         user.first_name, context.bot.first_name, chat.title
                     ),
@@ -593,14 +595,14 @@ def left_member(update: Update, context: CallbackContext):  # sourcery no-metric
             # Give the owner a special goodbye
             if left_mem.id == OWNER_ID:
                 update.effective_message.reply_text(
-                    "See you later at school!", reply_to_message_id=reply
+                    "See you later at home :(", reply_to_message_id=reply
                 )
                 return
 
             # Give the devs a special goodbye
             if left_mem.id in DEV_USERS:
                 update.effective_message.reply_text(
-                    "See you later at school!",
+                    "See you later at home :(",
                     reply_to_message_id=reply,
                 )
                 return
