@@ -116,9 +116,9 @@ def info(update, context):
     )
 
     text = (
-        "╒═══ About {}".format(user.id, html.escape(user.first_name))
-        "\n\n »Id: <code>{}</code>"
-        "\n »First Name: {}".format(user.id, html.escape(user.first_name))
+        f"╒═══「<b> About {html.escape(user.first_name)} 」\n"
+        f"» ID: <code>{}</code>\n"
+        f"» First Name: {html.escape(user.first_name)}"
     )
 
     if user.last_name:
