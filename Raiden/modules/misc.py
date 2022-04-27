@@ -117,47 +117,47 @@ def info(update, context):
 
     text = (
         "╒═══ About {}".format(user.id, html.escape(user.first_name))
-        "\n\n┣|•ID: <code>{}</code>"
-        "\n┣|•First Name: {}".format(user.id, html.escape(user.first_name))
+        "\n\n»Id: <code>{}</code>"
+        "\n»Fɪʀsᴛ Nᴀᴍᴇ: {}".format(user.id, html.escape(user.first_name))
     )
 
     if user.last_name:
-        text += "\n┣|•Last Name: {}".format(html.escape(user.last_name))
+        text += "\n»Last Name: {}".format(html.escape(user.last_name))
 
     if user.username:
-        text += "\n┣|•Username: @{}".format(html.escape(user.username))
+        text += "\n»Username: @{}".format(html.escape(user.username))
 
-    text += "\n┣|•No. of proifle pics: {}".format(
+    text += "\n»No. of proifle pics: {}".format(
         context.bot.get_user_profile_photos(user.id).total_count
     )
 
     try:
         sw = spamwtc.get_ban(int(user.id))
         if sw:
-            text += "\n\n<b>┣|•This person is banned in Spamwatch!</b>"
-            text += f"\nResason: <pre>{sw.reason}</pre>"
+            text += "\n\n<b>»This person is banned in Spamwatch!</b>"
+            text += f"\n»Resason: <pre>{sw.reason}</pre>"
     except BaseException:
         pass  # Don't break on exceptions like if api is down?
 
     disaster_level_present = False
 
     if user.id == OWNER_ID:
-        text += ("\n\n┣|•This person is my <b>'Asmoday'</b>.")
+        text += ("\n\n»This person is my <b>'Asmoday'</b>.")
         disaster_level_present = True
     elif user.id in DEMONS:
-        text += ("\n\n┣|•This person is my <b>'Vision Holder'</b>.")
+        text += ("\n\n»This person is my <b>'Vision Holder'</b>.")
         disaster_level_present = True
     elif user.id in DEV_USERS:
-        text += ("\n\n┣|•This person is my <b>'Archon'</b>.")
+        text += ("\n\n»This person is my <b>'Archon'</b>.")
         disaster_level_present = True
     elif user.id in SUPPORT_USERS:
         text += (
-            "\n\n ┣|•This person is my <b>'Adepti'</b>"
+            "\n\n »This person is my <b>'Adepti'</b>"
         )
         disaster_level_present = True
     elif user.id in WHITELIST_USERS:
         text += (
-            "\n\n ┣|•This user is my <b>'Favonious Knight'</b>"
+            "\n\n »This user is my <b>'Favonious Knight'</b>"
         )
         disaster_level_present = True
 
@@ -166,7 +166,7 @@ def info(update, context):
         if memstatus in ["administrator", "creator"]:
             result = context.bot.get_chat_member(chat.id, user.id)
             if result.custom_title:
-                text += f"\n\n┣|•This user has custom title <b>{result.custom_title}</b> in this chat."
+                text += f"\n\n»This user has custom title <b>{result.custom_title}</b> in this chat."
     except BadRequest:
         pass
 
