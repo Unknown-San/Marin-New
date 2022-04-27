@@ -8,13 +8,13 @@ from sqlalchemy.sql.sqltypes import BigInteger
 from Raiden.modules.helper_funcs.msg_types import Types
 from Raiden.modules.sql import BASE, SESSION
 
-DEFAULT_WELCOME = "Hey {first}, how are you?"
-DEFAULT_GOODBYE = "Nice knowing ya!"
+DEFAULT_WELCOME = "{first} Stay close and you will live."
+DEFAULT_GOODBYE = "Shine down!"
 
 DEFAULT_WELCOME_MESSAGES = [
-    "{first} is here!",  # Discord welcome messages copied
-    "Ready everyone {first}",
-    "Teacher, {first} is here.",
+    "{first} Stay close and you will live.",  # Discord welcome messages copied
+    "So, which element would you like to learn about today {first}?",
+    "{first} I can be your teacher, your master, or your friend... or all three if you want....",
     "Why is {first} here? .",
     "{first} came in like Flirt!",
     "{first} has joined beware of simp.",
@@ -58,129 +58,10 @@ DEFAULT_WELCOME_MESSAGES = [
     "{first} has joined the battle bus.",
     "A new Challenger enters!",  # Tekken
     "Ok!",
-    "{first} just fell into the chat!",
-    "Something just fell from the sky! - oh, its {first}.",
-    "{first} Just teleported into the chat!",
-    "Hi, {first}, show me your Hunter License!",
-    "Welcome {first}, Leaving is not an option!",
-    "Run Forest! ..I mean...{first}.",
-    "Hey, {first}, Empty your pockets.",
-    "Hey, {first}!, Are you strong?",
-    "Call the Avengers! - {first} just joined the chat.",
-    "{first} joined. You must construct additional pylons.",
-    "Ermagherd. {first} is here.",
-    "Come for the Snail Racing, Stay for the Chimichangas!",
-    "Who needs Google? You're everything we were searching for.",
-    "This place must have free WiFi, cause I'm feeling a connection.",
-    "Speak friend and enter.",
-    "Welcome you are",
-    "Welcome {first}, your princess is in another castle.",
-    "Hi {first}, welcome to the dark side.",
-    "Hola {first}, beware of people with nation levels",
-    "Hey {first}, we have the droids you are looking for.",
-    "Hi {first}\nThis isn't a strange place, this is my home, it's the people who are strange.",
-    "Oh, hey {first} what's the password?",
-    "Hey {first}, I know what we're gonna do today",
-    "{first} just joined, be at alert they could be a spy.",
-    "{first} joined the group, read by Mark Zuckerberg, CIA and 35 others.",
-    "Welcome {first}, Watch out for falling monkeys.",
-    "Everyone stop what you’re doing, We are now in the presence of {first}.",
-    "Hey {first}, Do you wanna know how I got these scars?",
-    "Welcome {first}, drop your weapons and proceed to the spy scanner.",
-    "Stay safe {first}, Keep 3 meters social distances between your messages.",  # Corona memes lmao
-    "You’re here now {first}, Resistance is futile",
-    "{first} just arrived, the force is strong with this one.",
-    "{first} just joined on president’s orders.",
-    "Hi {first}, is the glass half full or half empty?",
-    "Yipee Kayaye {first} arrived.",
-    "Welcome {first}, if you’re a secret agent press 1, otherwise start a conversation",
-    "{first}, I have a feeling we’re not in Kansas anymore.",
-    "They may take our lives, but they’ll never take our {first}.",
-    "Coast is clear! You can come out guys, it’s just {first}.",
-    "Welcome {first}, Pay no attention to that guy lurking.",
-    "Welcome {first}, May the force be with you.",
-    "May the {first} be with you.",
-    "{first} just joined.Hey, where's Perry?",
-    "{first} just joined. Oh, there you are, Perry.",
-    "Ladies and gentlemen, I give you ...  {first}.",
-    "Behold my new evil scheme, the {first}-Inator.",
-    "Ah, {first} the Platypus, you're just in time... to be trapped.",
-    "*snaps fingers and teleports {first} here*",
-    "{first} just arrived. Diable Jamble!",  # One Piece Sanji
-    "{first} just arrived. Aschente!",  # No Game No Life
-    "{first} say Aschente to swear by the pledges.",  # No Game No Life
-    "{first} just joined. El psy congroo!",  # Steins Gate
-    "Irasshaimase {first}!",  # weeabo shit
-    "Hi {first}, What is 1000-7?",  # tokyo ghoul
-    "Come. I don't want to destroy this place",  # hunter x hunter
-    "I... am... Whitebeard!...wait..wrong anime.",  # one Piece
-    "Hey {first}...have you ever heard these words?",  # BNHA
-    "Can't a guy get a little sleep around here?",  # Kamina Falls – Gurren Lagann
-    "It's time someone put you in your place, {first}.",  # Hellsing
-    "Unit-01's reactivated..",  # Neon Genesis: Evangelion
-    "Prepare for trouble....And make it double",  # Pokemon
-    "Hey {first}, Are You Challenging Me?",  # Shaggy
-    "Oh? You're Approaching Me?",  # jojo
-    "{first} just warped into the group!",
-    "I..it's..it's just {first}.",
-    "Sugoi, Dekai. {first} Joined!",
-    "{first}, do you know Gods of death love apples?",  # Death Note owo
-    "I'll take a potato chip.... and eat it",  # Death Note owo
-    "Oshiete oshiete yo sono shikumi wo!",  # Tokyo Ghoul
-    "Kaizoku ou ni...nvm wrong anime.",  # op
-    "{first} just joined! Gear.....second!",  # Op
-    "Omae wa mou....shindeiru",
-    "Hey {first}, the leaf village lotus blooms twice!",  # Naruto stuff begins from here
-    "{first} Joined! Omote renge!",
-    "{first} joined!, Gate of Opening...open!",
-    "{first} joined!, Gate of Healing...open!",
-    "{first} joined!, Gate of Life...open!",
-    "{first} joined!, Gate of Pain...open!",
-    "{first} joined!, Gate of Limit...open!",
-    "{first} joined!, Gate of View...open!",
-    "{first} joined!, Gate of Shock...open!",
-    "{first} joined!, Gate of Death...open!",
-    "{first}! I, Madara! declare you the strongest",
-    "{first}, this time I'll lend you my power. ",  # Kyuubi to naruto
-    "{first}, welcome to the hidden leaf village!",  # Naruto thingies end here
-    "In the jungle you must wait...until the dice read five or eight.",  # Jumanji stuff
-    "Dr.{first} Famed archeologist and international explorer,\nWelcome to Jumanji!\nJumanji's Fate is up to you now.",
-    "{first}, this will not be an easy mission - monkeys slow the expedition.",  # End of jumanji stuff
 ]
 DEFAULT_GOODBYE_MESSAGES = [
-    "{first} will be missed.",
+    "{first} Shine down!",
     "{first} just went offline.",
-    "{first} has left the lobby.",
-    "{first} has left the clan.",
-    "{first} has left the game.",
-    "{first} has fled the area.",
-    "{first} is out of the running.",
-    "Nice knowing ya, {first}!",
-    "It was a fun time {first}.",
-    "We hope to see you again soon, {first}.",
-    "I donut want to say goodbye, {first}.",
-    "Goodbye {first}! Guess who's gonna miss you :')",
-    "Goodbye {first}! It's gonna be lonely without ya.",
-    "Please don't leave me alone in this place, {first}!",
-    "Good luck finding better shitposters than us, {first}!",
-    "You know we're gonna miss you {first}. Right? Right? Right?",
-    "Congratulations, {first}! You're officially free of this mess.",
-    "{first}. You were an opponent worth fighting.",
-    "You're leaving, {first}? Yare Yare Daze.",
-    "Bring him the photo",
-    "Go outside!",
-    "Ask again later",
-    "Think for yourself",
-    "Question authority",
-    "You are worshiping a sun god",
-    "Don't leave the house today",
-    "Give up!",
-    "Marry and reproduce",
-    "Stay asleep",
-    "Wake up",
-    "Look to la luna",
-    "Steven lives",
-    "Meet strangers without prejudice",
     "A hanged man will bring you no luck today",
     "What do you want to do today?",
     "You are dark inside",
