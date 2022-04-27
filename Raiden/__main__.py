@@ -116,18 +116,18 @@ buttons = [
     ],
     [
         InlineKeyboardButton(
-            text="My home", url=f"https://t.me/RaidenXsupport"),                    
+            text="My home", url=f"https://t.me/RaidenSupport"),                    
         InlineKeyboardButton(
             text="Help", callback_data="help_back"),
     ],
     [
-        InlineKeyboardButton(text="My Zhongli", url=f"https://t.me/AIone_Being"),
+        InlineKeyboardButton(text="Kazuha", url=f"https://t.me/Kaedehara_Kaazuha"),
     ],
 ]
                     
 HELP_STRINGS = """
 Hey there! Myself [Raiden](https://telegra.ph//file/98614588d823bda52551d.jpg).
-I'm a Queen For Fun and help admins manage their groups ! Have a look at the following for an idea of some of the things I can help you with.
+Have a look at the following for an idea of some of the things I can help you with.
 *Main* commands available:
  ➛ /help: PM's you this message.
  ➛ /help <module name>: PM's you info about that module.
@@ -135,7 +135,7 @@ I'm a Queen For Fun and help admins manage their groups ! Have a look at the fol
  ➛ /donate: information on how to donate!
  ➛ /settings: 
    ❂ in PM: will send you your settings for all supported modules.
-   ❂ in a group: will redirect you to pm, with all that chat's settings.\n• *ʀᴇᴀᴄʜ ᴏᴜᴛ ғᴏʀ sᴜᴘᴘᴏʀᴛ:* [sᴜᴘᴘᴏʀᴛ](https://t.me/RaidenXSupport)
+   ❂ in a group: will redirect you to pm, with all that chat's settings.\n• *ʀᴇᴀᴄʜ ᴏᴜᴛ ғᴏʀ sᴜᴘᴘᴏʀᴛ:* [sᴜᴘᴘᴏʀᴛ](https://t.me/RaidenSupport)
 """
 
 GROUP_START_IMG = ""
