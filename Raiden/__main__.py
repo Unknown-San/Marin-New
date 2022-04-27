@@ -683,7 +683,7 @@ def main():
     settings_handler = DisableAbleCommandHandler("settings", get_settings)
     settings_callback_handler = CallbackQueryHandler(settings_button, pattern=r"stngs_")
 
-    data_callback_handler = CallbackQueryHandler(raiden_callback_data, pattern=r"shogun_")
+    data_callback_handler = CallbackQueryHandler(raiden_callback_data, pattern=r"raiden_")
     donate_handler = DisableAbleCommandHandler("donate", donate)
     migrate_handler = MessageHandler(Filters.status_update.migrate, migrate_chats)
 
