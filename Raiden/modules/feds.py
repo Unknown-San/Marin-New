@@ -2193,7 +2193,7 @@ def welcome_fed(update, context):
 def __stats__():
     all_fbanned = sql.get_all_fban_users_global()
     all_feds = sql.get_all_feds_users_global()
-    return "× {} users banned, in {} federations".format(
+    return "» {} Users banned, In {} federations".format(
         len(all_fbanned), len(all_feds)
     )
 
