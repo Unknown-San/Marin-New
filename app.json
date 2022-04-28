@@ -158,7 +158,7 @@
     },
     "BOT_NAME": {
       "description": "Name of the bot obv noob"
-      "required": True,
+      "required": true,
       "value": "Raiden Shogun"
     },
     "BAN_STICKER": {
