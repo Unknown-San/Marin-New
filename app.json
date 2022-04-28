@@ -156,14 +156,8 @@
       "description": "Set this to True if you want to delete command messages from users who don't have the perms to run that command.",
       "value": "True"
     },
-    "BOT_NAME": {
-      "description": "Name of the bot obv noob"
-      "required": true,
-      "value": "Raiden Shogun"
-    },
     "BOT_USERNAME": {
-      "description": "Username of the bot without @ example:- RaidenXRobot"
-      "required": true,
+      "description": "The number of processes to run.",
       "value": "RaidenXRobot"
     },
     "BAN_STICKER": {
