@@ -52,6 +52,10 @@
       "required": false,
       "value": ""
     },
+    "STRING_SESSION": {
+      "description": "Your Telethon string session.",
+      "value": "get from tg"
+    },
     "OWNER_ID": {
       "description": "Your user ID as an integer.",
       "required": true,
