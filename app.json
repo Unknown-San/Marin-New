@@ -159,6 +159,7 @@
     "BOT_NAME": {
       "description": "Name of the bot duhh!",
       "value": "Raiden Shogun"
+    },
     "BOT_USERNAME": {
       "description": "The Username of bot without @.",
       "value": "RaidenXRobot"
