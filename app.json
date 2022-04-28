@@ -156,6 +156,11 @@
       "description": "Set this to True if you want to delete command messages from users who don't have the perms to run that command.",
       "value": "True"
     },
+    "BOT_NAME": {
+      "description": "Name of the bot obv noob"
+      "required": True,
+      "value": "Raiden Shogun"
+    },
     "BAN_STICKER": {
       "description": "ID of the sticker you want to use when banning people.",
       "required": false,
