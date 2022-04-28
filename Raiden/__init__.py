@@ -10,7 +10,7 @@ import telegram.ext as tg
 from pyrogram import Client, errors
 from redis import StrictRedis
 from telethon import TelegramClient
-from telethon.sessions import StringSession
+from telethon.sessions import StringSession, MemorySession
 
 StartTime = time.time()
 
