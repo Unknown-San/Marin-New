@@ -102,6 +102,7 @@ if ENV:
     MONGO_DB_URI = os.environ.get("MONGO_DB_URI", None)
     DB_URI = os.environ.get("SQLALCHEMY_DATABASE_URI")
     REDIS_URL = os.environ.get("REDIS_URL")
+    INFOPIC = bool(os.environ.get("INFOPIC", False))
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME")
     HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY")
     DONATION_LINK = os.environ.get("DONATION_LINK")
@@ -125,6 +126,7 @@ if ENV:
     API_HASH = os.environ.get("API_HASH", None)
     SPAMWATCH = os.environ.get("SPAMWATCH_API", None)
     SPAMMERS = os.environ.get("SPAMMERS", None)
+    STRING_SESSION = os.environ.get("STRING_SESSION", None)
 
 else:
     from Raiden.config import Development as Config
@@ -203,6 +205,8 @@ else:
     API_ID = Config.API_ID
     SPAMWATCH = Config.SPAMWATCH_API
     SPAMMERS = Config.SPAMMERS
+    STRING_SESSION = Config.STRING_SESSION
+    INFOPIC = Config.INFOPIC
 
 # Dont Remove This!!!
 DEV_USERS.add(OWNER_ID)
@@ -216,6 +220,13 @@ if SPAMWATCH is None:
     LOGGER.warning("[Raiden] Invalid spamwatch api")
 else:
     spamwtc = spamwatch.Client(SPAMWATCH)
+
+ubot = TelegramClient(StringSession(STRING_SESSION), API_ID, API_HASH)
+try:
+    ubot.start()
+except BaseException:
+    print("Userbot Error ! Have you added a STRING_SESSION in deploying??")
+    sys.exit(1)
 
 REDIS = StrictRedis.from_url(REDIS_URL, decode_responses=True)
 try:
