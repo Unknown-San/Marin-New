@@ -11,7 +11,7 @@
   ],
   "repository": "https://github.com/Yoriichi-Tsugikuni/Raiden.git",
   "website": "https://Yoriichi-Tsugikuni.github.io",
-  "success_url": "t.me/Zhongli_2op",
+  "success_url": "t.me/Kaedehara_Kaazuha",
   "addons": [
    {
      "options": {
@@ -55,7 +55,7 @@
     "OWNER_ID": {
       "description": "Your user ID as an integer.",
       "required": true,
-      "value": "645739169"
+      "value": "5297261589"
     },
     "HEROKU_API_KEY": {
       "description": "Your Heroku API key, get it from 'https://dashboard.heroku.com/account'",
@@ -67,17 +67,17 @@
     },
     "OWNER_USERNAME": {
       "description": "Your username without the @",
-      "value": "Anomaliii"
+      "value": "Kaedehara_Kaazuha"
     },
     "SUPPORT_CHAT": {
       "description": "Your Telegram support group chat username where your users will go and bother you with shit But be like: MyGroupChatUsernameBlah. If this ever points to zeldris support than consider you made an enemy.",
       "required": true,
-      "value": "IDNCoderX"
+      "value": "RaidenSupport"
     },
     "MESSAGE_DUMP": {
       "description": "Event logs channel to note down important bot level events, recommend to make this public. ex: '-123456'",
       "required": true,
-      "value": "-1001599383497"
+      "value": "-1001734372965"
     },
     "DEV_USERS": {
       "description": "ID of users who are Devs of your bot (can use /py etc.). If you are a noob and would come and bother Masha support then keep the current ID's here at they are and add yours.",
