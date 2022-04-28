@@ -240,6 +240,7 @@ finally:
 
 # Telethon
 telethn = TelegramClient("Shikimori", API_ID, API_HASH)
+client = TelegramClient(MemorySession(), API_ID, API_HASH)
 updater = tg.Updater(
     TOKEN,
     workers=min(32, os.cpu_count() + 4),
