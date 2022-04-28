@@ -1,42 +1,15 @@
+
 import html
-import os
-import json
 import importlib
-import time
+import json
 import re
 import sys
+import time
 import traceback
-import Raiden.modules.sql.users_sql as sql
-
-
 from sys import argv
 from typing import Optional
-from Raiden import (
-    ALLOW_EXCL,
-    CERT_PATH,
-    DONATION_LINK,
-    LOGGER,
-    OWNER_ID,
-    PORT,
-    TOKEN,
-    URL,
-    WEBHOOK,
-    SUPPORT_CHAT,
-    dispatcher,
-    StartTime,
-    client as telethn,
-    updater,
-    pbot
-    )
 
-# needed to dynamically load modules
-# NOTE: Module order is not guaranteed, specify that in the config file!
-from Raiden.events import register
-from Raiden.modules import ALL_MODULES
-from Raiden.modules.helper_funcs.chat_status import is_user_admin
-from Raiden.modules.helper_funcs.alternate import typing_action
-from Raiden.modules.helper_funcs.misc import paginate_modules
-from Raiden.modules.disable import DisableAbleCommandHandler
+from pyrogram import idle
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from telegram.error import (
     BadRequest,
@@ -46,20 +19,43 @@ from telegram.error import (
     TimedOut,
     Unauthorized,
 )
-from telegram.ext import (
-    CallbackContext,
-    CallbackQueryHandler,
-    CommandHandler,
-    Filters,
-    MessageHandler,
+from telegram.ext import CallbackContext, CallbackQueryHandler, Filters, MessageHandler
+from telegram.ext.dispatcher import DispatcherHandlerStop
+from telegram.utils.helpers import escape_markdown
+
+import Raiden.modules.sql.users_sql as sql
+from Raiden import (
+    BOT_NAME,
+    BOT_USERNAME,
+    CERT_PATH,
+    DONATION_LINK,
+    GROUP_START_IMG,
+    HELP_IMG,
+    LOGGER,
+    OWNER_ID,
+    PORT,
+    SUPPORT_CHAT,
+    TOKEN,
+    URL,
+    WEBHOOK,
+    StartTime,
+    dispatcher,
+    pbot,
+    telethn,
+    ubot,
+    updater,
 )
 
-from telegram.ext.dispatcher import DispatcherHandlerStop, run_async
-from telegram.utils.helpers import escape_markdown
-from pyrogram import Client, idle
-from telethon import Button
+# needed to dynamically load modules
+# NOTE: Module order is not guaranteed, specify that in the config file!
+from Raiden.modules import ALL_MODULES
+from Raiden.modules.disable import DisableAbleCommandHandler
+from Raiden.modules.helper_funcs.alternate import typing_action
+from Raiden.modules.helper_funcs.chat_status import is_user_admin
+from Raiden.modules.helper_funcs.misc import paginate_modules
 
-    
+
+
 def get_readable_time(seconds: int) -> str:
     count = 0
     ping_time = ""
@@ -84,47 +80,41 @@ def get_readable_time(seconds: int) -> str:
 
     return ping_time
 
+
 HELP_IMG = "https://telegra.ph//file/98614588d823bda52551d.jpg"
-HELP_MSG = "Baka!! Click the button below to get help to know my abilities."
-START_MSG = "I'm awake already Baka!\n<b>Have being slaying Bosses since:</b> <code>{}</code>"
-START_IMG = "https://telegra.ph//file/6bcfa7906c19acd6aca6b.mp4"
-    
+
+RAIDEN_START = "https://telegra.ph//file/6bcfa7906c19acd6aca6b.mp4"
+
 PM_START_TEXT = """
 ────「 [{}](https://telegra.ph//file/a814af57a80c825a18d4a.mp4) 」────
-Kon'nichiwa {} - San!
-I'm [Raiden Shogun](https://genshin-impact.fandom.com/wiki/Raiden_Shogun),
+ᴋᴏɴ'ɴɪᴄʜɪᴡᴀ {} - sᴀɴ!  
 
-I am an group management bot from [Genshin Impact](https://genshin.hoyoverse.com/m/en/)
+ɪ'ᴍ [𝙍𝙖𝙞𝙙𝙚𝙣 𝙎𝙝𝙤𝙜𝙪𝙣](https://genshin-impact.fandom.com/wiki/Raiden_Shogun) ᴀɴ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ғʀᴏᴍ [ɢᴇɴsʜɪɴ ɪᴍᴘᴀᴄᴛ](https://genshin.hoyoverse.com/m/en/).
 ➖➖➖➖➖➖➖➖➖➖➖➖➖
-Uptime {}
-Users {} across {} chats
+» ᴜᴘᴛɪᴍᴇ {} 
+» ᴜsᴇʀs {} ᴀᴄʀᴏss {} ᴄʜᴀᴛs 
 ➖➖➖➖➖➖➖➖➖➖➖➖➖
-Hit /help to see the commands available after my elemental buff. ××
+ʜɪᴛ /help ᴛᴏ sᴇᴇ ᴛʜᴇ ᴄᴏᴍᴍᴀɴᴅs ᴀᴠᴀɪʟᴀʙʟᴇ ᴀғᴛᴇʀ ᴍʏ ᴇʟᴇᴍᴇɴᴛᴀʟ ʙᴜғғ. ××  
 
-Powered By [NGA](https://t.me/New_Generation_Anime).
+𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 [𝙉𝙂𝘼](https://t.me/New_Generation_Anime).
 """
 
-GROUP_START_TEXT = """
-Baka!! I'm awake already!
-Have been slaying bosses since: {}
-"""
 
 buttons = [
     [
         InlineKeyboardButton(
-            text="➕️ Add Raiden In Your Group ➕️",url="t.me/RaidenXRobot_Bot?startgroup=true"),
+        text="➕️ ᴀᴅᴅ ʀᴀɪᴅᴇɴ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕️", url=f"t.me/RaidenXRobot_Bot?startgroup=true"),
     ],
     [
-        InlineKeyboardButton(
-            text="My home", url=f"https://t.me/RaidenSupport"),                    
-        InlineKeyboardButton(
-            text="Help", callback_data="help_back"),
+        InlineKeyboardButton(text="ᴍʏ ʜᴏᴍᴇ", url="https://t.me/RaidenSupport"),
+        InlineKeyboardButton(text="ᴋᴀᴢᴜʜᴀ", url="https://t.me/Kaedehara_Kaazuha"),
     ],
     [
-        InlineKeyboardButton(text="Kazuha", url=f"https://t.me/Kaedehara_Kaazuha"),
+        InlineKeyboardButton(text="ʜᴇʟᴘ", callback_data="help_back"),
     ],
 ]
-                    
+
+
 HELP_STRINGS = """
 Hey there! Myself [Raiden](https://telegra.ph//file/98614588d823bda52551d.jpg).
 Have a look at the following for an idea of some of the things I can help you with.
@@ -138,7 +128,7 @@ Have a look at the following for an idea of some of the things I can help you wi
    ❂ in a group: will redirect you to pm, with all that chat's settings.\n• *ʀᴇᴀᴄʜ ᴏᴜᴛ ғᴏʀ sᴜᴘᴘᴏʀᴛ:* [sᴜᴘᴘᴏʀᴛ](https://t.me/RaidenSupport)
 """
 
-GROUP_START_IMG = ""
+DONATE_STRING = """❂ I'm Free for Everyone ❂"""
 
 
 IMPORTED = {}
@@ -150,8 +140,6 @@ DATA_IMPORT = []
 DATA_EXPORT = []
 CHAT_SETTINGS = {}
 USER_SETTINGS = {}
-
-GDPR = []
 
 for module_name in ALL_MODULES:
     imported_module = importlib.import_module("Raiden.modules." + module_name)
@@ -176,9 +164,6 @@ for module_name in ALL_MODULES:
     if hasattr(imported_module, "__user_info__"):
         USER_INFO.append(imported_module)
 
-    if hasattr(imported_module, "__gdpr__"):
-        GDPR.append(imported_module)
-
     if hasattr(imported_module, "__import_data__"):
         DATA_IMPORT.append(imported_module)
 
@@ -190,6 +175,8 @@ for module_name in ALL_MODULES:
 
     if hasattr(imported_module, "__user_settings__"):
         USER_SETTINGS[imported_module.__mod_name__.lower()] = imported_module
+
+GROUP_START_IMG ="https://telegra.ph/file/89f70fbae029b7c8b94dd.mp4"
 
 
 # do not async
@@ -227,10 +214,15 @@ def start(update: Update, context: CallbackContext):
                     update.effective_chat.id,
                     HELPABLE[mod].__help__,
                     InlineKeyboardMarkup(
-                        [[InlineKeyboardButton(text="Back", callback_data="help_back")]]
+                        [
+                            [
+                                InlineKeyboardButton(
+                                    text="[•༶B𝚊𝚌k༶•]", callback_data="help_back"
+                                )
+                            ]
+                        ]
                     ),
                 )
-
             elif args[0].lower().startswith("stngs_"):
                 match = re.match("stngs_(.*)", args[0].lower())
                 chat = dispatcher.bot.getChat(match.group(1))
@@ -248,28 +240,33 @@ def start(update: Update, context: CallbackContext):
             update.effective_message.reply_text(
                 PM_START_TEXT.format(
                     escape_markdown(context.bot.first_name),
-                    escape_markdown(first_name),         
+                    escape_markdown(first_name),
                     escape_markdown(uptime),
                     sql.num_users(),
-                    sql.num_chats()),               
+                    sql.num_chats(),
+                ),
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
             )
     else:
-                update.effective_message.reply_video(
-            START_IMG, caption="Kon'nichiwa, Raiden Here To Help!\n Have been slaying bosses since: <code>{}</code>".format(
-                uptime,
+        first_name = update.effective_user.first_name
+        update.effective_message.reply_video(
+           RAIDEN_START, caption= "Kon'nichiwa {}, Raiden Here To Help!\n Have been slaying bosses since: <code>{}</code>".format(
+                escape_markdown(first_name),
+                uptime
             ),
             parse_mode=ParseMode.HTML,
-             reply_markup=InlineKeyboardMarkup(
+            reply_markup=InlineKeyboardMarkup(
                 [
-                  [
-                  InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="https://telegram.dog/Raidensupport")
-                  ],
-                  [
-                  InlineKeyboardButton(text="Uᴘᴅᴀᴛᴇs", url="https://telegram.dog/RaidenXUpdates")
-                  ]
+                    [
+                         InlineKeyboardButton(text="ᴍʏ ʜᴏᴍᴇ", url="https://t.me/RaidenSupport"),
+                         InlineKeyboardButton(text="ʜᴇʟᴘ", url=f"https://t.me/RaidenXRobot?start=help"),
+                    ],
+                    [
+                         InlineKeyboardButton(
+                          text="ᴋᴀᴢᴜʜᴀ", url="https://t.me/Kaedehara_Kazuha"),  
+                    ]
                 ]
             ),
         )
@@ -300,7 +297,7 @@ def error_handler(update, context):
     if len(message) >= 4096:
         message = message[:4096]
     # Finally, send the message
-    context.bot.send_message(chat_id=-1001501815938, text=message, parse_mode=ParseMode.HTML)
+    context.bot.send_message(chat_id=OWNER_ID, text=message, parse_mode=ParseMode.HTML)
 
 
 # for test purposes
@@ -322,7 +319,7 @@ def error_callback(update, context):
     except NetworkError:
         pass
         # handle other connection problems
-    except ChatMigrated as e:
+    except ChatMigrated:
         pass
         # the chat_id of a group has changed, use e.new_chat_id instead
     except TelegramError:
@@ -343,9 +340,7 @@ def help_button(update, context):
         if mod_match:
             module = mod_match.group(1)
             text = (
-                "╒═══「 *{}* module: 」\n".format(
-                    HELPABLE[module].__mod_name__
-                )
+                "╒═══≼ ᴍᴇɴᴜ ᴏғ「 *{}* 」ᴍᴏᴅᴜʟᴇ: \n".format(HELPABLE[module].__mod_name__)
                 + HELPABLE[module].__help__
             )
             query.message.edit_text(
@@ -353,7 +348,16 @@ def help_button(update, context):
                 parse_mode=ParseMode.MARKDOWN,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton(text="[ Back ]", callback_data="help_back")]]
+                    [
+                        [
+                            InlineKeyboardButton(
+                                text="【༶Bᴀᴄᴋ༶】", callback_data="help_back"
+                            ),
+                            InlineKeyboardButton(
+                                text="【༶Hᴏᴍᴇ༶】", callback_data="raiden_back"
+                            ),
+                        ]
+                    ]
                 ),
             )
 
@@ -398,30 +402,31 @@ def raiden_callback_data(update, context):
     uptime = get_readable_time((time.time() - StartTime))
     if query.data == "raiden_":
         query.message.edit_text(
-            text="""CallBackQueriesData Here""",
+            text="""
+        ❍[Suppσrt](https://t.me/RaidenSupport)🤍
+        ❍[Updates](https://t.me/RaidenXUpdates)🧡
+        ❍[Dev](https://t.me/Kaedehara_Kaazuha)💚
+        ✨[Vc Player Help](https://telegra.ph/file/a9dadf7c0d308b0389ec5.jpg)✨""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [
-                 [
-                    InlineKeyboardButton(text="[Back]", callback_data="help_back")
-                 ]
-                ]
+                [[InlineKeyboardButton(text="•༶Bᴀᴄᴋ༶•", callback_data="raiden_back")]]
             ),
         )
     elif query.data == "raiden_back":
         first_name = update.effective_user.first_name
         query.message.edit_text(
-                PM_START_TEXT.format(
-                    escape_markdown(context.bot.first_name),
-                    escape_markdown(first_name),
-                    escape_markdown(uptime),
-                    sql.num_users(),
-                    sql.num_chats()),
-                reply_markup=InlineKeyboardMarkup(buttons),
-                parse_mode=ParseMode.MARKDOWN,
-                timeout=60,
-                disable_web_page_preview=False,
+            PM_START_TEXT.format(
+                escape_markdown(context.bot.first_name),
+                escape_markdown(first_name),
+                escape_markdown(uptime),
+                sql.num_users(),
+                sql.num_chats(),
+            ),
+            reply_markup=InlineKeyboardMarkup(buttons),
+            parse_mode=ParseMode.MARKDOWN,
+            timeout=60,
+            disable_web_page_preview=False,
         )
 
 
@@ -433,8 +438,9 @@ def get_help(update, context):
     # ONLY send help in PM
     if chat.type != chat.PRIVATE:
 
-        update.effective_message.reply_video(          
-            START_IMG, HELP_MSG,
+        update.effective_message.reply_video(
+            RAIDEN_START,
+ caption= "Baka!! Click the button below to get help to know my abilities.",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -451,22 +457,19 @@ def get_help(update, context):
     if len(args) >= 2 and any(args[1].lower() == x for x in HELPABLE):
         module = args[1].lower()
         text = (
-            " 〔 *{}* 〕\n".format(
-                HELPABLE[module].__mod_name__
-            )
+            " 〔 *{}* 〕\n".format(HELPABLE[module].__mod_name__)
             + HELPABLE[module].__help__
         )
         send_help(
             chat.id,
             text,
             InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="[Back]", callback_data="help_back")]]
+                [[InlineKeyboardButton(text="[•༶Bᴀᴄᴋ༶•]", callback_data="help_back")]]
             ),
         )
 
     else:
         send_help(chat.id, HELP_STRINGS)
-
 
 
 def send_settings(chat_id, user_id, user=False):
@@ -532,7 +535,7 @@ def settings_button(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                text="Back",
+                                text="•༶Bᴀᴄᴋ༶•",
                                 callback_data="stngs_back({})".format(chat_id),
                             )
                         ]
@@ -545,7 +548,7 @@ def settings_button(update: Update, context: CallbackContext):
             curr_page = int(prev_match.group(2))
             chat = bot.get_chat(chat_id)
             query.message.reply_text(
-                "Hey Baka!! There are quite a few settings for {} - go ahead and pick what "
+                "Hi there! There are quite a few settings for {} - go ahead and pick what "
                 "you're interested in.".format(chat.title),
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(
@@ -559,7 +562,7 @@ def settings_button(update: Update, context: CallbackContext):
             next_page = int(next_match.group(2))
             chat = bot.get_chat(chat_id)
             query.message.reply_text(
-               "Hey Baka!! There are quite a few settings for {} - go ahead and pick what "
+                "Hi there! There are quite a few settings for {} - go ahead and pick what "
                 "you're interested in.".format(chat.title),
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(
@@ -572,7 +575,7 @@ def settings_button(update: Update, context: CallbackContext):
             chat_id = back_match.group(1)
             chat = bot.get_chat(chat_id)
             query.message.reply_text(
-                text="Hey Baka!! There are quite a few settings for {} - go ahead and pick what "
+                text="Hi there! There are quite a few settings for {} - go ahead and pick what "
                 "you're interested in.".format(escape_markdown(chat.title)),
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
@@ -626,12 +629,34 @@ def donate(update: Update, context: CallbackContext):
     user = update.effective_message.from_user
     chat = update.effective_chat  # type: Optional[Chat]
     bot = context.bot
-    update.effective_message.reply_text(
-        "You can also donate to the person currently running me "
-        "[here](https://Ko-fi.com/jinwoo)",
-        parse_mode=ParseMode.MARKDOWN,
-    )
+    if chat.type == "private":
+        update.effective_message.reply_text(
+            DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True
+        )
 
+        if OWNER_ID != 2070119160 and DONATION_LINK:
+            update.effective_message.reply_text(
+                "You can also donate to the person currently running me "
+                "[here]({})".format(DONATION_LINK),
+                parse_mode=ParseMode.MARKDOWN,
+            )
+
+    else:
+        try:
+            bot.send_message(
+                user.id,
+                DONATE_STRING,
+                parse_mode=ParseMode.MARKDOWN,
+                disable_web_page_preview=True,
+            )
+
+            update.effective_message.reply_text(
+                "I've PM'ed you about donating to my creator!"
+            )
+        except Unauthorized:
+            update.effective_message.reply_text(
+                "Contact me in PM first to get donation information."
+            )
 
 
 def migrate_chats(update: Update, context: CallbackContext):
@@ -647,45 +672,48 @@ def migrate_chats(update: Update, context: CallbackContext):
 
     LOGGER.info("Migrating from %s, to %s", str(old_chat), str(new_chat))
     for mod in MIGRATEABLE:
-        try:
-            mod.__migrate__(old_chat, new_chat)
-        except BaseException:
-            pass  # Some sql modules make errors.
+        mod.__migrate__(old_chat, new_chat)
 
     LOGGER.info("Successfully migrated!")
     raise DispatcherHandlerStop
-    
+
+
 def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.send_video(
+            dispatcher.bot.sendMessage(
                 "@RaidenSupport",
-                "https://telegra.ph//file/d733f55d3f56c1161ec1a.mp4",
-                "Am Alive Again To Slay Some Mf Bosses!",
+                "Am Alive Again To Slay Some Mf Bosses! [](https://telegra.ph//file/d733f55d3f56c1161ec1a.mp4)",
                 parse_mode=ParseMode.MARKDOWN,
             )
         except Unauthorized:
             LOGGER.warning(
-                "Bot isnt able to send message to support_chat, go and check!"
+                "Bot isnt able to send message to support_chat, go and check!",
             )
         except BadRequest as e:
             LOGGER.warning(e.message)
-     
 
-    test_handler = CommandHandler("test", test)
-    start_handler = CommandHandler("start", start)
+    test_handler = DisableAbleCommandHandler("test", test, run_async=True)
+    start_handler = DisableAbleCommandHandler("start", start, run_async=True)
 
-
-    help_handler = DisableAbleCommandHandler("help", get_help)
-    help_callback_handler = CallbackQueryHandler(help_button, pattern=r"help_.*")
+    help_handler = DisableAbleCommandHandler("help", get_help, run_async=True)
+    help_callback_handler = CallbackQueryHandler(
+        help_button, pattern=r"help_.*", run_async=True
+    )
 
     settings_handler = DisableAbleCommandHandler("settings", get_settings)
-    settings_callback_handler = CallbackQueryHandler(settings_button, pattern=r"stngs_")
+    settings_callback_handler = CallbackQueryHandler(
+        settings_button, pattern=r"stngs_", run_async=True
+    )
 
-    data_callback_handler = CallbackQueryHandler(raiden_callback_data, pattern=r"raiden_")
-    donate_handler = DisableAbleCommandHandler("donate", donate)
-    migrate_handler = MessageHandler(Filters.status_update.migrate, migrate_chats)
+    data_callback_handler = CallbackQueryHandler(
+        raiden_callback_data, pattern=r"raiden_", run_async=True
+    )
+    donate_handler = DisableAbleCommandHandler("donate", donate, run_async=True)
+    migrate_handler = MessageHandler(
+        Filters.status_update.migrate, migrate_chats, run_async=True
+    )
 
     # dispatcher.add_handler(test_handler)
     dispatcher.add_handler(start_handler)
@@ -709,8 +737,15 @@ def main():
             updater.bot.set_webhook(url=URL + TOKEN)
 
     else:
-        LOGGER.info(f"RaidenXRobot deployed. | BOT: [@RaidenXRobot]")
-        updater.start_polling(timeout=15, read_latency=4, clean=True)
+        LOGGER.info(
+            f"Nakiri started, Using long polling. | BOT: [@{dispatcher.bot.username}]"
+        )
+        updater.start_polling(
+            timeout=15,
+            read_latency=4,
+            drop_pending_updates=True,
+            allowed_updates=Update.ALL_TYPES,
+        )
 
     if len(argv) not in (1, 3, 4):
         telethn.disconnect()
@@ -720,8 +755,15 @@ def main():
     updater.idle()
 
 
-if __name__ == '__main__':
+try:
+    ubot.start()
+except BaseException:
+    print("Userbot Error! Have you added a STRING_SESSION in deploying??")
+    sys.exit(1)
+
+if __name__ == "__main__":
     LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
     telethn.start(bot_token=TOKEN)
+    pbot.start()
     main()
     idle()
