@@ -5,7 +5,7 @@ import time
 from telethon import events
 
 from Raiden import telethn
-from Raiden.modules.helper_funcs.telethn.chatstatus import (
+from Raiden.modules.helper_funcs.chatstatus import (
     can_delete_messages,
     user_is_admin,
 )
