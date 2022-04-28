@@ -61,6 +61,10 @@
       "required": true,
       "value": "5297261589"
     },
+    "INFOPIC": {
+      "description": "To display info",
+      "value": "True"
+    },
     "HEROKU_API_KEY": {
       "description": "Your Heroku API key, get it from 'https://dashboard.heroku.com/account'",
       "value": ""
