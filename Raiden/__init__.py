@@ -113,6 +113,7 @@ if ENV:
  
     WORKERS = int(os.environ.get("WORKERS", 8))
     BAN_STICKER = os.environ.get("BAN_STICKER", "CAADAgADOwADPPEcAXkko5EB3YGYAg")
+    BOT_NAME = os.environ.get("BOT_NAME", True)  # Name Of your Bot.4
     ALLOW_EXCL = os.environ.get("ALLOW_EXCL", False)
     CUSTOM_CMD = os.environ.get("CUSTOM_CMD", False)
     API_WEATHER = os.environ.get("API_OPENWEATHER", None)
@@ -188,6 +189,7 @@ else:
     STRICT_GBAN = Config.STRICT_GBAN
     WORKERS = Config.WORKERS
     BAN_STICKER = Config.BAN_STICKER
+    BOT_NAME = Config.BOT_NAME
     ALLOW_EXCL = Config.ALLOW_EXCL
     CUSTOM_CMD = Config.CUSTOM_CMD
     API_WEATHER = Config.API_OPENWEATHER
