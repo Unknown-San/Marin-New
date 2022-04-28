@@ -10,7 +10,7 @@ import telegram.ext as tg
 from pyrogram import Client, errors
 from redis import StrictRedis
 from telethon import TelegramClient
-from telethon.sessions import MemorySession
+from telethon.sessions import StringSession
 
 StartTime = time.time()
 
@@ -227,7 +227,7 @@ finally:
     LOGGER.info("[Raiden] Your redis server is now alive!")
 
 # Telethon
-client = TelegramClient(MemorySession(), API_ID, API_HASH)
+telethn = TelegramClient("Shikimori", API_ID, API_HASH)
 updater = tg.Updater(
     TOKEN,
     workers=min(32, os.cpu_count() + 4),
