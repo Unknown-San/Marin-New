@@ -659,7 +659,7 @@ def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.sendMessage(
+            dispatcher.bot.send_video(
                 "@RaidenSupport",
                 "https://telegra.ph//file/d733f55d3f56c1161ec1a.mp4",
                 "Am Alive Again To Slay Some Mf Bosses!",
