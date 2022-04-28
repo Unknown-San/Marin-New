@@ -161,6 +161,11 @@
       "required": true,
       "value": "Raiden Shogun"
     },
+    "BOT_USERNAME": {
+      "description": "Username of the bot without @ example:- RaidenXRobot"
+      "required": true,
+      "value": "RaidenXRobot"
+    },
     "BAN_STICKER": {
       "description": "ID of the sticker you want to use when banning people.",
       "required": false,
