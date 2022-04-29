@@ -32,7 +32,7 @@ from Raiden import (
     TOKEN,
     WEBHOOK,
     CERT_PATH,
-    SUPPORT_CHAT,
+    MESSAGE_DUMP,
     PORT,
     URL,
     LOGGER,
@@ -667,20 +667,23 @@ def main():
     else:
         LOGGER.info("[Raiden] Using long polling.")
         updater.start_polling(timeout=15, read_latency=4, drop_pending_updates=True)
-        if MESSAGE_DUMP:
-            updater.bot.send_message(
-                "@RaidenSupport"
-                "https://telegra.ph//file/d733f55d3f56c1161ec1a.mp4",
-                "Am Alive Again To Slay Some Mf Bosses!",
+    if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
+        try:
+            dispatcher.bot.send_message(
+                "@Komisansupport",
+                "https://telegra.ph//file/2c817a1e191b120554f41.jpg",
+                "I Am Alive Now!",
+                "@Komisansupport",
+                "https://telegra.ph//file/2c817a1e191b120554f41.jpg",
+                "I Am Alive Now!",
                 parse_mode=ParseMode.MARKDOWN,
             )
         except Unauthorized:
             LOGGER.warning(
-                "Bot isnt able to send message to support_chat, go and check!"
+                "Bot isn't able to send message to support_chat, go and check!",
             )
         except BadRequest as e:
             LOGGER.warning(e.message)
-
     if len(argv) in {1, 3, 4}:
         client.run_until_disconnected()
     else:
