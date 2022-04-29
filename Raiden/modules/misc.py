@@ -111,53 +111,53 @@ def info(update, context):
         return
 
     del_msg = msg.reply_text(
-        "Chotto Matte Kudasai Collecting info from <b>My Home</b>...",
+        "Chotto matte kudasai getting your info from <b>My Home</b>...",
         parse_mode=ParseMode.HTML,
     )
 
     text = (
-        "╒═══「 User Info 」\n"
-        "\n\n»ID: <code>{}</code>"
-        "\n»First Name: {}".format(user.id, html.escape(user.first_name))
+        "╒═══「 User Info 」"
+        "\n\n» ID: <code>{}</code>"
+        "\n» First Name: {}".format(user.id, html.escape(user.first_name))
     )
 
     if user.last_name:
-        text += "\n»Last Name: {}".format(html.escape(user.last_name))
+        text += "\n» Last Name: {}".format(html.escape(user.last_name))
 
     if user.username:
-        text += "\n»Username: @{}".format(html.escape(user.username))
+        text += "\n» Username: @{}".format(html.escape(user.username))
 
-    text += "\n»No. of profile pics: {}".format(
+    text += "\n» No. of pfps: {}".format(
         context.bot.get_user_profile_photos(user.id).total_count
     )
 
     try:
         sw = spamwtc.get_ban(int(user.id))
         if sw:
-            text += "\n\n<b>»This person is banned in Spamwatch!</b>"
-            text += f"\n»Resason: <pre>{sw.reason}</pre>"
+            text += "\n\n<b>» This person is banned in Spamwatch!</b>"
+            text += f"\n» Resason: <pre>{sw.reason}</pre>"
     except BaseException:
         pass  # Don't break on exceptions like if api is down?
 
     disaster_level_present = False
 
     if user.id == OWNER_ID:
-        text += ("\n\n»This person is my <b>'Asmoday'</b>.")
+        text += ("\n\n» This person is my <b>'Asmoday'</b>.")
         disaster_level_present = True
     elif user.id in DEMONS:
-        text += ("\n\n»This person is my <b>'Vision Holder'</b>.")
+        text += ("\n\n» This person is my <b>'Vision Holder'</b>.")
         disaster_level_present = True
     elif user.id in DEV_USERS:
-        text += ("\n\n»This person is my <b>'Archon'</b>.")
+        text += ("\n\n» This person is my <b>'Archon'</b>.")
         disaster_level_present = True
     elif user.id in SUPPORT_USERS:
         text += (
-            "\n\n »This person is my <b>'Adepti'</b>"
+            "\n\n » This person is my <b>'Adepti'</b>"
         )
         disaster_level_present = True
     elif user.id in WHITELIST_USERS:
         text += (
-            "\n\n »This user is my <b>'Favonious Knight'</b>"
+            "\n\n » This user is my <b>'Favonious Knight'</b>"
         )
         disaster_level_present = True
 
@@ -166,7 +166,7 @@ def info(update, context):
         if memstatus in ["administrator", "creator"]:
             result = context.bot.get_chat_member(chat.id, user.id)
             if result.custom_title:
-                text += f"\n\n»This user has custom title <b>{result.custom_title}</b> in this chat."
+                text += f"\n\n» This user has custom title <b>{result.custom_title}</b> in this chat."
     except BadRequest:
         pass
 
@@ -178,11 +178,10 @@ def info(update, context):
         if mod_info:
             text += "\n\n" + mod_info
 
-        try:
-            username=update.effective_user.username
-            profile = context.bot.get_user_profile_photos(user.id).photos[0][-1]
-            context.bot.sendChatAction(chat.id, "upload_photo")
-            context.bot.send_photo(
+    try:
+        profile = context.bot.get_user_profile_photos(user.id).photos[0][-1]
+        context.bot.sendChatAction(chat.id, "upload_photo")
+        context.bot.send_photo(
             chat.id,
             photo=profile,
                 caption=(text),
@@ -202,12 +201,9 @@ def info(update, context):
                 ),
                 parse_mode=ParseMode.HTML,
             )
-
-           
-        # Incase user don't have profile pic, send normal text
-        except IndexError:
-            message.reply_text(
-                text, 
+    except IndexError:
+        context.bot.sendChatAction(chat.id, "typing")
+        msg.reply_text(
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
@@ -225,8 +221,8 @@ def info(update, context):
                 parse_mode=ParseMode.HTML,
                 disable_web_page_preview=True
             )
-
-    del_msg.delete()
+    finally:
+        del_msg.delete()
 
 
 @typing_action
@@ -527,7 +523,7 @@ def support_ids(update: Update, context: CallbackContext):
 
 def stats(update, _):
     update.effective_message.reply_text(
-        "Current stats:\n" + "\n".join([mod.__stats__() for mod in STATS])
+        "Raiden stats:\n" + "\n".join([mod.__stats__() for mod in STATS])
     )
 
 
@@ -637,4 +633,3 @@ dispatcher.add_handler(SUPPLIST_HANDLER)
 dispatcher.add_handler(REDDIT_MEMES_HANDLER)
 dispatcher.add_handler(SRC_HANDLER)
 dispatcher.add_handler(PASTE_HANDLER)
-
