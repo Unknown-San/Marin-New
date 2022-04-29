@@ -396,17 +396,17 @@ def get_help(update: Update, context: CallbackContext):
             RAIDEN_IMG,
  caption= "Baka!! Click the button below to get help to know my abilities.",
                 reply_markup=InlineKeyboardMarkup(
+                [
                     [
-                        [
-                            InlineKeyboardButton(
-                                text="Open In Private Chat",
-                                url=f"t.me/{context.bot.username}?start=ghelp_{module}",
-                            )
-                        ]
+                        InlineKeyboardButton(
+                            text="Open In Private Chat",
+                            url="t.me/{}?start=help".format(context.bot.username),
+                        )
                     ]
-                ),
-            )
-            return
+                ]
+            ),
+        )
+        return
 
     if len(args) >= 2 and any(args[1].lower() == x for x in HELPABLE):
         module = args[1].lower()
