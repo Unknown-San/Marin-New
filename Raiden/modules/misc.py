@@ -619,4 +619,22 @@ REDDIT_MEMES_HANDLER = DisableAbleCommandHandler("rmeme", rmemes, run_async=True
 SRC_HANDLER = CommandHandler(
     ["source", "repo"], src, filters=Filters.chat_type.groups, run_async=True
 )
-P
+PASTE_HANDLER = DisableAbleCommandHandler("paste", paste, run_async=True)
+
+dispatcher.add_handler(UD_HANDLER)
+dispatcher.add_handler(ID_HANDLER)
+dispatcher.add_handler(INFO_HANDLER)
+dispatcher.add_handler(ECHO_HANDLER)
+dispatcher.add_handler(MD_HELP_HANDLER)
+dispatcher.add_handler(STATS_HANDLER)
+dispatcher.add_handler(GDPR_HANDLER)
+dispatcher.add_handler(GDCR_HANDLER)
+dispatcher.add_handler(WIKI_HANDLER)
+dispatcher.add_handler(GETLINK_HANDLER)
+dispatcher.add_handler(DEVLIST_HANDLER)
+dispatcher.add_handler(SUDOLIST_HANDLER)
+dispatcher.add_handler(SUPPLIST_HANDLER)
+dispatcher.add_handler(REDDIT_MEMES_HANDLER)
+dispatcher.add_handler(SRC_HANDLER)
+dispatcher.add_handler(PASTE_HANDLER)
+
