@@ -37,6 +37,7 @@ from Raiden import (
     CERT_PATH,
     MESSAGE_DUMP,
     PORT,
+    SUPPORT_CHAT,
     URL,
     client as telethn,
     LOGGER,
