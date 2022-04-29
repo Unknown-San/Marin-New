@@ -38,6 +38,7 @@ from Raiden import (
     MESSAGE_DUMP,
     PORT,
     URL,
+    client as telethn,
     LOGGER,
     BLACKLIST_CHATS,
     WHITELIST_CHATS,
@@ -671,12 +672,9 @@ def main():
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
             dispatcher.bot.send_message(
-                "@Komisansupport",
-                "https://telegra.ph//file/2c817a1e191b120554f41.jpg",
-                "I Am Alive Now!",
-                "@Komisansupport",
-                "https://telegra.ph//file/2c817a1e191b120554f41.jpg",
-                "I Am Alive Now!",
+                "@RaidenSupport",
+                "https://telegra.ph/file/4f73cf9c1d1bad7dc679f.mp4",
+                "Am Alive Again To Slay Some Mf Bosses!",
                 parse_mode=ParseMode.MARKDOWN,
             )
         except Unauthorized:
@@ -685,14 +683,16 @@ def main():
             )
         except BadRequest as e:
             LOGGER.warning(e.message)
-    if len(argv) in {1, 3, 4}:
-        client.run_until_disconnected()
+    if len(argv) not in (1, 3, 4):
+        telethn.disconnect()
     else:
-        client.disconnect()
+        telethn.run_until_disconnected()
+
     updater.idle()
 
 
-if __name__ == "__main__":
-    LOGGER.info(f"[Raiden] Successfully loaded modules: {str(ALL_MODULES)}")
-    client.start(bot_token=TOKEN)
+if __name__ == '__main__':
+    LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
+    telethn.start(bot_token=TOKEN)
     main()
+    idle()
