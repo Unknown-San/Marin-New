@@ -10,7 +10,7 @@ import telegram.ext as tg
 from pyrogram import Client, errors
 from redis import StrictRedis
 from telethon import TelegramClient
-from telethon.sessions import StringSession, MemorySession
+from telethon.sessions import MemorySession
 
 StartTime = time.time()
 
@@ -102,7 +102,6 @@ if ENV:
     MONGO_DB_URI = os.environ.get("MONGO_DB_URI", None)
     DB_URI = os.environ.get("SQLALCHEMY_DATABASE_URI")
     REDIS_URL = os.environ.get("REDIS_URL")
-    INFOPIC = bool(os.environ.get("INFOPIC", False))
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME")
     HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY")
     DONATION_LINK = os.environ.get("DONATION_LINK")
@@ -114,19 +113,15 @@ if ENV:
  
     WORKERS = int(os.environ.get("WORKERS", 8))
     BAN_STICKER = os.environ.get("BAN_STICKER", "CAADAgADOwADPPEcAXkko5EB3YGYAg")
-    BOT_NAME = os.environ.get("BOT_NAME", True)  # Name Of your Bot.4
-    BOT_USERNAME = os.environ.get("BOT_USERNAME", None)
     ALLOW_EXCL = os.environ.get("ALLOW_EXCL", False)
     CUSTOM_CMD = os.environ.get("CUSTOM_CMD", False)
     API_WEATHER = os.environ.get("API_OPENWEATHER", None)
-    GROUP_START_IMG = os.environ.get("GROUP_START_IMG", True)
     WALL_API = os.environ.get("WALL_API", None)
     SUPPORT_CHAT = os.environ.get("SUPPORT_CHAT", None)
     API_ID = int(os.environ.get("API_ID", None))
     API_HASH = os.environ.get("API_HASH", None)
     SPAMWATCH = os.environ.get("SPAMWATCH_API", None)
     SPAMMERS = os.environ.get("SPAMMERS", None)
-    STRING_SESSION = os.environ.get("STRING_SESSION", None)
 
 else:
     from Raiden.config import Development as Config
@@ -184,9 +179,6 @@ else:
     PORT = Config.PORT
     CERT_PATH = Config.CERT_PATH
 
-    BOT_USERNAME = Config.BOT_USERNAME
-    BOT_NAME = Config.BOT_NAME
-
     DB_URI = Config.SQLALCHEMY_DATABASE_URI
     REDIS_URL = Config.REDIS_URL
     DONATION_LINK = Config.DONATION_LINK
@@ -205,14 +197,10 @@ else:
     API_ID = Config.API_ID
     SPAMWATCH = Config.SPAMWATCH_API
     SPAMMERS = Config.SPAMMERS
-    STRING_SESSION = Config.STRING_SESSION
-    INFOPIC = Config.INFOPIC
 
-# Dont Remove This!!!
 DEV_USERS.add(OWNER_ID)
 DEV_USERS.add(925572303)
 DEV_USERS.add(1956078011)
-BOT_ID = 5309383517
 
 # Pass if SpamWatch token not set.
 if SPAMWATCH is None:
@@ -220,13 +208,6 @@ if SPAMWATCH is None:
     LOGGER.warning("[Raiden] Invalid spamwatch api")
 else:
     spamwtc = spamwatch.Client(SPAMWATCH)
-
-ubot = TelegramClient(StringSession(STRING_SESSION), API_ID, API_HASH)
-try:
-    ubot.start()
-except BaseException:
-    print("Userbot Error ! Have you added a STRING_SESSION in deploying??")
-    sys.exit(1)
 
 REDIS = StrictRedis.from_url(REDIS_URL, decode_responses=True)
 try:
@@ -239,7 +220,6 @@ finally:
     LOGGER.info("[Raiden] Your redis server is now alive!")
 
 # Telethon
-telethn = TelegramClient("Shikimori", API_ID, API_HASH)
 client = TelegramClient(MemorySession(), API_ID, API_HASH)
 updater = tg.Updater(
     TOKEN,
