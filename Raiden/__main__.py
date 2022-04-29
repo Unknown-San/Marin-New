@@ -5,6 +5,7 @@ import re
 import time
 from sys import argv
 from typing import Optional
+import Raiden.modules.sql.users_sql as sql
 
 from telegram import Message, Chat, User, Update
 from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton
@@ -24,6 +25,8 @@ from telegram.ext import (
 )
 from telegram.ext.dispatcher import DispatcherHandlerStop
 from telegram.utils.helpers import escape_markdown
+from pyrogram import Client, idle
+from telethon import Button
 
 from Raiden import (
     dispatcher,
@@ -46,8 +49,6 @@ from Raiden.modules import ALL_MODULES
 from Raiden.modules.disable import DisableAbleCommandHandler
 from Raiden.modules.helper_funcs.chat_status import is_user_admin
 from Raiden.modules.helper_funcs.misc import paginate_modules
-from Raiden.modules.purge import client
-from Raiden.modules.no_sql import users_db as db
 
 
 def get_readable_time(seconds: int) -> str:
