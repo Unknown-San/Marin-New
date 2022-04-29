@@ -1,8 +1,13 @@
 
 import contextlib
 import importlib
+import sys
 import re
 import time
+import json
+import traceback
+import html
+import os
 from sys import argv
 from typing import Optional
 import Raiden.modules.sql.users_sql as sql
@@ -236,7 +241,8 @@ def start(update: Update, context: CallbackContext):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
-            message.reply_text(
+            first_name = update.effective_user.first_name
+            update.effective_message.reply_text(
                 PM_START_TEXT.format(
                     escape_markdown(context.bot.first_name),
                     escape_markdown(first_name),
@@ -364,8 +370,9 @@ def rai_cb(update: Update, context: CallbackContext):
             ),
         )
     elif query.data == "rai_back":
+        first_name = update.effective_user.first_name
         query.message.edit_text(
-            PM_START_TEXT.format(
+                PM_START_TEXT.format(
                 escape_markdown(context.bot.first_name),
                 escape_markdown(first_name),
                 escape_markdown(uptime),
@@ -384,9 +391,8 @@ def get_help(update: Update, context: CallbackContext):
 
     # ONLY send help in PM
     if chat.type != chat.PRIVATE:
-        if len(args) >= 2 and any(args[1].lower() == x for x in HELPABLE):
-            module = args[1].lower()
-            update.effective_message.reply_video(
+
+        update.effective_message.reply_video(
             RAIDEN_IMG,
  caption= "Baka!! Click the button below to get help to know my abilities.",
                 reply_markup=InlineKeyboardMarkup(
@@ -670,20 +676,8 @@ def main():
     else:
         LOGGER.info("[Raiden] Using long polling.")
         updater.start_polling(timeout=15, read_latency=4, drop_pending_updates=True)
-    if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
-        try:
-            dispatcher.bot.send_message(
-                "@RaidenSupport",
-                "https://telegra.ph/file/4f73cf9c1d1bad7dc679f.mp4",
-                "Am Alive Again To Slay Some Mf Bosses!",
-                parse_mode=ParseMode.MARKDOWN,
-            )
-        except Unauthorized:
-            LOGGER.warning(
-                "Bot isn't able to send message to support_chat, go and check!",
-            )
-        except BadRequest as e:
-            LOGGER.warning(e.message)
+if MESSAGE_DUMP:
+            updater.bot.send_message(chat_id=MESSAGE_DUMP, text="Am Alive Again To Slay Some Mf Bosses!!![!](https://telegra.ph/file/4f73cf9c1d1bad7dc679f.mp4)")
     if len(argv) not in (1, 3, 4):
         telethn.disconnect()
     else:
