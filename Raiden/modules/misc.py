@@ -116,7 +116,7 @@ def info(update, context):
     )
 
     text = (
-        "╒═══「 About {} 」\n"
+        "╒═══「 User Info 」\n"
         "\n\n»ID: <code>{}</code>"
         "\n»First Name: {}".format(user.id, html.escape(user.first_name))
     )
