@@ -111,7 +111,7 @@ def info(update, context):
         return
 
     del_msg = msg.reply_text(
-        "Chotto matte Kudasai..."
+        "Chotto Matte Kudasai Collecting info from <b>My Home</b>...",
         parse_mode=ParseMode.HTML,
     )
 
