@@ -100,7 +100,7 @@ def paginate_modules(page_n: int, module_dict: Dict, prefix, chat=None) -> List:
                 ),
                 EqInlineKeyboardButton(
                     "Back",
-                    callback_data="shasa_back",
+                    url="https://t.me/Raidenxrobot?start=",
                 ),
                 EqInlineKeyboardButton(
                     "❯",
