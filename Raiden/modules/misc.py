@@ -111,7 +111,7 @@ def info(update, context):
         return
 
     del_msg = msg.reply_text(
-        "Chotto matte Kudasai {}...".format(user.id, html.escape(user.first_name)
+        "Chotto matte Kudasai {}...".format(user.id, html.escape(user.first_name),
         parse_mode=ParseMode.HTML,
     )
 
