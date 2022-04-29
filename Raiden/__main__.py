@@ -406,7 +406,6 @@ def get_help(update: Update, context: CallbackContext):
                     ]
                 ),
             )
-
             return
 
     if len(args) >= 2 and any(args[1].lower() == x for x in HELPABLE):
