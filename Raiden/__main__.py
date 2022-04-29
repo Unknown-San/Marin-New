@@ -107,7 +107,7 @@ buttons = [
     [
         InlineKeyboardButton(
             text="ᴍʏ ʜᴏᴍᴇ",
-            callback_data="t.me/RaidenSupport",
+            url="t.me/RaidenSupport",
         ),
         InlineKeyboardButton(
             text="ᴋᴀᴢᴜʜᴀ",
@@ -257,8 +257,7 @@ def start(update: Update, context: CallbackContext):
     else:
         message.reply_video(
             RAIDEN_IMG,
-            caption="Kon'nichiwa {}, Raiden Here To Help!\n Have been slaying bosses since: <code>{}</code>".format(
-                escape_markdown(first_name),
+            caption="Kon'nichiwa, Raiden Here To Help!\n Have been slaying bosses since: <code>{}</code>".format(
                 uptime
             ),
             parse_mode=ParseMode.HTML,
