@@ -116,9 +116,9 @@ def info(update, context):
     )
 
     text = (
-        "╒═══「 About {html.escape(user.first_name)} 」\n"
-        "\n\n»ID: <code>{}</code>"
-        "\n»First Name: {html.escape(user.first_name)}"
+        "╒═══「 About {} 」\n".format(user.id, html.escape(user.first_name))
+        "\n\n»ID: <code>{}</code>"user.id
+        "\n»First Name: {}".format(user.id, html.escape(user.first_name))
     )
 
     if user.last_name:
@@ -226,7 +226,7 @@ def info(update, context):
                 disable_web_page_preview=True
             )
 
-    rep.delete()
+    del_msg.delete()
 
 
 @typing_action
