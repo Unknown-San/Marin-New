@@ -31,7 +31,7 @@ class Config(object):
     API_ID = None
 
     # RECOMMENDED
-    SQLALCHEMY_DATABASE_URI = "postgresql://xlzbhnyp:FVQzpp344W5yDcXc_cupZHy5qZoehDbN@castor.db.elephantsql.com/xlzbhnyp"  # needed for any database modules
+    SQLALCHEMY_DATABASE_URL = "postgresql://xlzbhnyp:FVQzpp344W5yDcXc_cupZHy5qZoehDbN@castor.db.elephantsql.com/xlzbhnyp"  # needed for any database modules
     MESSAGE_DUMP = -1001501815938  # needed to make sure 'save from' messages persist
     REDIS_URL = ""  # needed for afk module, get from redislab
     LOAD = []
