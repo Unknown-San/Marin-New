@@ -120,6 +120,10 @@ buttons = [
             text="ʜᴇʟᴘ",
             callback_data="help_back",
         ),
+        InlineKeyboardButton(
+            text="𝙉𝙂𝘼"
+            url="https://t.me/New_Generation_Anime",
+        ),
     ],
 ]
 
