@@ -682,7 +682,7 @@ def main():
         updater.start_polling(timeout=15, read_latency=4, drop_pending_updates=True)
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            updater.bot.send_message(
+            dispatcher.bot.send_video(
                 "@Raidensupport",
                 "https://telegra.ph/file/4f73cf9c1d1bad7dc679f.mp4",
                 "Am Alive Again To Slay Some Mf Bosses!!",
