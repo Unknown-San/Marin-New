@@ -142,22 +142,22 @@ def info(update, context):
     disaster_level_present = False
 
     if user.id == OWNER_ID:
-        text += ("\n\n» This person is my <b>'Asmoday'</b>.")
+        text += ("\n\n» This person is a appointed <b>'Asmoday'</b>.")
         disaster_level_present = True
     elif user.id in DEMONS:
-        text += ("\n\n» This person is my <b>'Vision Holder'</b>.")
+        text += ("\n\n» This person is a appointed <b>'Vision Holder'</b>.")
         disaster_level_present = True
     elif user.id in DEV_USERS:
-        text += ("\n\n» This person is my <b>'Archon'</b>.")
+        text += ("\n\n» This person is a appointed <b>'Archon'</b>.")
         disaster_level_present = True
     elif user.id in SUPPORT_USERS:
         text += (
-            "\n\n » This person is my <b>'Adepti'</b>"
+            "\n\n » This person is a appointed <b>'Adepti'</b>"
         )
         disaster_level_present = True
     elif user.id in WHITELIST_USERS:
         text += (
-            "\n\n » This user is my <b>'Favonious Knight'</b>"
+            "\n\n » This person is a appointed <b>'Favonious Knight'</b>"
         )
         disaster_level_present = True
 
