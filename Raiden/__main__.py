@@ -83,36 +83,36 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 
-RAIDEN_IMG = "https://telegra.ph//file/6bcfa7906c19acd6aca6b.mp4"
-RAIDEN_START = "https://telegra.ph/file/4f73cf9c1d1bad7dc679f.mp4"
+RAIDEN_IMG = "https://telegra.ph/file/d5c772de35d67ef20785c.mp4"
+RAIDEN_START = "https://telegra.ph/file/967ce7a412d042499c98e.mp4"
 
 PM_START_TEXT = """
-────「 [{}](https://telegra.ph//file/a814af57a80c825a18d4a.mp4) 」────
+────「 [{}](https://telegra.ph/file/967ce7a412d042499c98e.mp4) 」────
 ᴋᴏɴ'ɴɪᴄʜɪᴡᴀ {} - sᴀɴ!  
-ɪ'ᴍ [𝙍𝙖𝙞𝙙𝙚𝙣 𝙎𝙝𝙤𝙜𝙪𝙣](https://genshin-impact.fandom.com/wiki/Raiden_Shogun) ᴀɴ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ғʀᴏᴍ [ɢᴇɴsʜɪɴ ɪᴍᴘᴀᴄᴛ](https://genshin.hoyoverse.com/m/en/).
+ɪ'ᴍ [𝙎𝙚𝙣𝙠𝙤 𝙎𝙖𝙣](https://senkosan.fandom.com/wiki/Senko) ᴀɴ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ.
 ➖➖➖➖➖➖➖➖➖➖➖➖➖
 » ᴜᴘᴛɪᴍᴇ {} 
 » ᴜsᴇʀs {} ᴀᴄʀᴏss {} ᴄʜᴀᴛs 
 ➖➖➖➖➖➖➖➖➖➖➖➖➖
 ʜɪᴛ /help ᴛᴏ sᴇᴇ ᴛʜᴇ ᴄᴏᴍᴍᴀɴᴅs ᴀᴠᴀɪʟᴀʙʟᴇ ᴀғᴛᴇʀ ᴍʏ ᴇʟᴇᴍᴇɴᴛᴀʟ ʙᴜғғ. ××  
-𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 [𝙉𝙂𝘼](https://t.me/New_Generation_Anime).
+𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 [𝘼𝙊𝙂𝙄𝙍𝙄](https://t.me/AogiriNetwork).
 """
 
 buttons = [
     [
         InlineKeyboardButton(
-            text="➕️ ᴀᴅᴅ ʀᴀɪᴅᴇɴ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕️",
-            url="t.me/RaidenXRobot?startgroup=true",
+            text="➕️ ᴀᴅᴅ sᴇɴᴋᴏ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕️",
+            url="t.me/SenkoSanRoot?startgroup=true",
         ),
     ],
     [
         InlineKeyboardButton(
             text="ᴍʏ ʜᴏᴍᴇ",
-            url="t.me/RaidenSupport",
+            url="t.me/SenkoSupport",
         ),
         InlineKeyboardButton(
-            text="ᴋᴀᴢᴜʜᴀ",
-            url="https://t.me/Kaedehara_Kaazuha",
+            text="ᴛʜᴇ ᴀʟᴍɪɢʜᴛʏ ∞",
+            url="https://t.me/Xultim8",
         ),
     ],
     [
@@ -121,14 +121,14 @@ buttons = [
             callback_data="help_back",
         ),
         InlineKeyboardButton(
-            text="𝙉𝙂𝘼",
-            url="https://t.me/New_Generation_Anime",
+            text="ᴀᴏɢɪʀɪ",
+            url="https://t.me/AogiriNetwork",
         ),
     ],
 ]
 
 HELP_STRINGS = """
-Hey there! Myself [Raiden](https://telegra.ph//file/98614588d823bda52551d.jpg).
+Hey there! Myself [Senko](https://telegra.ph/file/e80e2df61a867182f359d.mp4).
 Have a look at the following for an idea of some of the things I can help you with.
 *Main* commands available:
  ➛ /help: PM's you this message.
@@ -137,7 +137,7 @@ Have a look at the following for an idea of some of the things I can help you wi
  ➛ /donate: information on how to donate!
  ➛ /settings: 
    ❂ in PM: will send you your settings for all supported modules.
-   ❂ in a group: will redirect you to pm, with all that chat's settings.\n• *ʀᴇᴀᴄʜ ᴏᴜᴛ ғᴏʀ sᴜᴘᴘᴏʀᴛ:* [sᴜᴘᴘᴏʀᴛ](https://t.me/RaidenSupport)
+   ❂ in a group: will redirect you to pm, with all that chat's settings.\n• *ʀᴇᴀᴄʜ ᴏᴜᴛ ғᴏʀ sᴜᴘᴘᴏʀᴛ:* [sᴜᴘᴘᴏʀᴛ](https://t.me/SenkoXSupport)
 """
 
 IMPORTED = {}
@@ -262,7 +262,7 @@ def start(update: Update, context: CallbackContext):
     else:
         message.reply_video(
             RAIDEN_IMG,
-            caption="Kon'nichiwa, Raiden Here To Help!\n Have been slaying bosses since: <code>{}</code>".format(
+            caption="Kon'nichiwa, Senko san Desu~ Here To Help!\n: <code>{}</code>".format(
                 uptime
             ),
             parse_mode=ParseMode.HTML,
@@ -271,11 +271,11 @@ def start(update: Update, context: CallbackContext):
                     [
                         InlineKeyboardButton(
                             text="ᴍʏ ʜᴏᴍᴇ",
-                            url="https://t.me/RaidenSupport",
+                            url="https://t.me/SenkoXSupport",
                         ),
                         InlineKeyboardButton(
                             text="ʜᴇʟᴘ",
-                            url=f"https://t.me/RaidenXRobot?start=help",
+                            url=f"https://t.me/SenkoSanRobot?start=help",
                         ),
                     ]
                 ]
