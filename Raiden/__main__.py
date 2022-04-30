@@ -676,8 +676,18 @@ def main():
     else:
         LOGGER.info("[Raiden] Using long polling.")
         updater.start_polling(timeout=15, read_latency=4, drop_pending_updates=True)
-        if MESSAGE_DUMP:
-            updater.bot.send_message(chat_id=MESSAGE_DUMP, RAIDEN_START, caption="Am Alive Again To Slay Some Mf Bosses!!!"
+    if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
+        try:
+            dispatcher.bot.send_photo(
+                "@Raidensupport",
+                "https://telegra.ph/file/4f73cf9c1d1bad7dc679f.mp4",
+                "Am Alive Again To Slay Some Mf Bosses!!",
+                parse_mode=ParseMode.MARKDOWN,
+            )
+        except Unauthorized:
+            LOGGER.warning(
+                "Bot isnt able to send message to support_chat, go and check!"
+            )
     if len(argv) not in (1, 3, 4):
         telethn.disconnect()
     else:
