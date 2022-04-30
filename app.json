@@ -35,22 +35,22 @@
     "TOKEN": {
       "description": "Your bot token. Get one from @BotFather duh",
       "required": true,
-      "value": ""
+      "value": "5309383517:AAEbuUQ52PYu2qnVJxz7LKJGu2FZYI95O5U"
     },
     "API_ID": {
       "description": "Get API_ID from my.telegram.org, used for telethon based modules.",
       "required": true,
-      "value": ""
+      "value": "17868017"
     },
     "API_HASH": {
       "description": "Get API_HASH from my.telegram.org, used for telethon based modules.",
       "required": true,
-      "value": ""
+      "value": "d1621fd9baa388087ea385200d977b72"
     },
-    "SQLALCHEMY_DATABASE_URI": {
+    "SQLALCHEMY_DATABASE_URL": {
       "description": "Your postgres sql db, empty this field if you dont have one.ex: sqldbtype://username:pw@hostname:port/db_name",
       "required": false,
-      "value": ""
+      "value": "postgresql://yadzttso:VQl7Cbf0AnaUDGRcs1lvm7CqiOzOQTut@rosie.db.elephantsql.com/yadzttso"
     },
     "OWNER_ID": {
       "description": "Your user ID as an integer.",
@@ -59,7 +59,7 @@
     },
     "HEROKU_API_KEY": {
       "description": "Your Heroku API key, get it from 'https://dashboard.heroku.com/account'",
-      "value": ""
+      "value": "1c21abeb-2737-4743-93d0-ca113af57277"
     },
     "HEROKU_APP_NAME": {
       "description": "Enter the Heroku app name here (Must an exact same name with your input above).",
@@ -77,7 +77,7 @@
     "MESSAGE_DUMP": {
       "description": "Event logs channel to note down important bot level events, recommend to make this public. ex: '-123456'",
       "required": true,
-      "value": "-1001734372965"
+      "value": "-1001751144618"
     },
     "DEV_USERS": {
       "description": "ID of users who are Devs of your bot (can use /py etc.). If you are a noob and would come and bother Masha support then keep the current ID's here at they are and add yours.",
@@ -92,7 +92,7 @@
     "MONGO_DB_URI": {
       "description": "MONGO DB URI from mongo",
       "required": true,
-      "value": ""
+      "value": "mongodb+srv://Sawada-Tsunayoshi: sawada@cluster0.ox8wd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
     },
 
     "WHITELIST_USERS": {
@@ -103,7 +103,7 @@
     "SPAMWATCH_API": {
       "description": "Spamwatch API Token, Get one from @SpamWatchBot.",
       "required": false,
-      "value": ""
+      "value": "qsxW~ihouHZZ6ccLXU0tlaz1mxz5e0IdDyq2c9lJL2xqaaUixyITaooU~K~aGv77"
     },
     "STRICT_GBAN": {
       "description": "Enforce gbans across new groups as well as old groups. When a gbanned user talks, he will be banned.",
@@ -150,7 +150,7 @@
     "DONATION_LINK": {
       "description": "Optional: link where you would like to receive donations. If you are a noob, better leave it linking to paul",
       "required": false,
-      "value": "https://t.me/IDNCoderX"
+      "value": "https://t.me/Kaedehara_kaazuha"
     },
     "DEL_CMDS": {
       "description": "Set this to True if you want to delete command messages from users who don't have the perms to run that command.",
@@ -164,7 +164,7 @@
     "WALL_API": {
       "description": "Required for wallpaper. Get your's from https://wall.alphacoders.com/",
       "required": false,
-      "value": ""
+      "value": "k11uK42WoMa5Efax9bBnJ6cn"
     },
     "API_OPENWEATHER": {
       "description": "Required for weather module.",
@@ -174,7 +174,7 @@
     "REDIS_URL": {
       "description": "Take it from redislabs.com and the format should be redis://username:password@cluster/",
       "required": "True",
-      "value": ""
+      "value": "redis://:LBVYsRjHCjJWb5xbyJXZdoHChpKVUJGr@redis-16484.c15.us-east-1-4.ec2.cloud.redislabs.com:16484"
     }
   }
 }
