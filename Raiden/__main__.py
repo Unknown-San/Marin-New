@@ -677,7 +677,7 @@ def main():
         LOGGER.info("[Raiden] Using long polling.")
         updater.start_polling(timeout=15, read_latency=4, drop_pending_updates=True)
         if MESSAGE_DUMP:
-            updater.bot.send_message(chat_id=MESSAGE_DUMP, RAIDEN_SYART, caption="Am Alive Again To Slay Some Mf Bosses!!!"
+            updater.bot.send_message(chat_id=MESSAGE_DUMP, RAIDEN_START, caption="Am Alive Again To Slay Some Mf Bosses!!!"
     if len(argv) not in (1, 3, 4):
         telethn.disconnect()
     else:
