@@ -84,6 +84,7 @@ def get_readable_time(seconds: int) -> str:
 
 
 RAIDEN_IMG = "https://telegra.ph//file/6bcfa7906c19acd6aca6b.mp4"
+RAIDEN_START = "https://telegra.ph/file/4f73cf9c1d1bad7dc679f.mp4"
 
 PM_START_TEXT = """
 ────「 [{}](https://telegra.ph//file/a814af57a80c825a18d4a.mp4) 」────
@@ -676,7 +677,7 @@ def main():
         LOGGER.info("[Raiden] Using long polling.")
         updater.start_polling(timeout=15, read_latency=4, drop_pending_updates=True)
         if MESSAGE_DUMP:
-            updater.bot.send_message(chat_id=MESSAGE_DUMP, text="Am Alive Again To Slay Some Mf Bosses!!![!](https://telegra.ph/file/4f73cf9c1d1bad7dc679f.mp4)")
+            updater.bot.send_message(chat_id=MESSAGE_DUMP, RAIDEN_SYART, caption="Am Alive Again To Slay Some Mf Bosses!!!"
     if len(argv) not in (1, 3, 4):
         telethn.disconnect()
     else:
