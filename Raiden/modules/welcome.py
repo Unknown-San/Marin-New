@@ -206,7 +206,7 @@ def new_member(update: Update, context: CallbackContext):  # sourcery no-metrics
             # Give the owner a special welcome
             if new_mem.id == OWNER_ID:
                 update.effective_message.reply_photo(
-                    KAZUHA, caption=f"Aizen Sama The Son Of Destruction {html.escape(user.first_name)} Just joined.", reply_to_message_id=reply,
+                    KAZUHA, caption=f"The Almighty {html.escape(user.first_name)} Just joined.", reply_to_message_id=reply,
                     parse_mode=ParseMode.HTML,
                 )
                 welcome_log = (
