@@ -47,7 +47,7 @@ from Raiden.modules.helper_funcs.string_handling import (
 from Raiden.modules.log_channel import loggable
 from Raiden.modules.sql.global_bans_sql import is_user_gbanned
 
-KAZUHA = "https://telegra.ph/file/545dcd6f681388d1b0ecf.jpg"
+KAZUHA = "https://telegra.ph/file/548cf80d2957258a71337.jpg"
 SUKUNA = "https://telegra.ph/file/575fa2ebc03366fa89dfe.jpg"
 
 VALID_WELCOME_FORMATTERS = [
