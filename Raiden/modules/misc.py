@@ -397,7 +397,7 @@ def src(update, _) -> None:
                 [
                     InlineKeyboardButton(
                         text="GitHub repo",
-                        url="https://t.me/villainevil_Support/5643",
+                        url="https://t.me/Anime_Chat_Folks",
                     ),
                 ],
             ],
