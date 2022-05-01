@@ -48,7 +48,7 @@ from Raiden.modules.helper_funcs.string_handling import (
 from Raiden.modules.log_channel import loggable
 from Raiden.modules.sql.global_bans_sql import is_user_gbanned
 
-KAZUHA = "https://telegra.ph//file/c1c863f7df195ebf3a8b7.jpg"
+KAZUHA = "https://telegra.ph/file/545dcd6f681388d1b0ecf.jpg"
 SUKUNA = "https://telegra.ph/file/575fa2ebc03366fa89dfe.jpg"
 
 VALID_WELCOME_FORMATTERS = [
@@ -207,25 +207,13 @@ def new_member(update: Update, context: CallbackContext):  # sourcery no-metrics
             # Give the owner a special welcome
             if new_mem.id == OWNER_ID:
                 update.effective_message.reply_photo(
-                    KAZUHA, caption=f"Behold The Power Of Ruka Akino. My Asmoday {html.escape(user.first_name)} Just joined.", reply_to_message_id=reply,
+                    KAZUHA, caption=f"Aizen Sama The Son Of Destruction {html.escape(user.first_name)} Just joined.", reply_to_message_id=reply,
                     parse_mode=ParseMode.HTML,
                 )
                 welcome_log = (
                     f"{html.escape(chat.title)}\n"
                     f"#USER_JOINED\n"
-                    f"Kazuha just joined the group"
-                )
-                continue
-
-            if new_mem.id == SUKUNA_ID:
-                update.effective_message.reply_photo(
-                    SUKUNA, caption=f"My Archon 𝑳𝑶𝑰𝑫 𝑭𝑶𝑹𝑮𝑬𝑹 〄 Just Joined The Group!\n Don't Trigger Him or you'll be torned to oblivion.", reply_to_message_id=reply,
-                    parse_mode=ParseMode.HTML,
-                )
-                welcome_log = (
-                    f"{html.escape(chat.title)}\n"
-                    f"#USER_JOINED\n"
-                    f"𝑳𝑶𝑰𝑫 𝑭𝑶𝑹𝑮𝑬𝑹 〄 just joined the group"
+                    f"aizen just joined the group"
                 )
                 continue
 
