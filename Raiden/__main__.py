@@ -108,7 +108,7 @@ buttons = [
     [
         InlineKeyboardButton(
             text="ᴍʏ ʜᴏᴍᴇ",
-            url="t.me/SenkoSupport",
+            url="t.me/SenkoxSupport",
         ),
         InlineKeyboardButton(
             text="ᴛʜᴇ ᴀʟᴍɪɢʜᴛʏ ∞",
@@ -683,9 +683,9 @@ def main():
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
             dispatcher.bot.send_video(
-                "@Raidensupport",
-                "https://telegra.ph/file/4f73cf9c1d1bad7dc679f.mp4",
-                "Am Alive Again To Slay Some Mf Bosses!!",
+                "@SenkoXSupport",
+                "https://telegra.ph/file/a3519d803e811ec8bd572.jpg",
+                "Am Alive Again ~ UwU ~",
                 parse_mode=ParseMode.MARKDOWN,
             )
         except Unauthorized:
