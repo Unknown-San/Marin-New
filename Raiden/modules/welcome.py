@@ -1,4 +1,3 @@
-
 import html
 import random
 import re
@@ -237,10 +236,10 @@ def new_member(update: Update, context: CallbackContext):  # sourcery no-metrics
                         [
                             [
                                 InlineKeyboardButton(
-                                    text="Support", url="https://t.me/RaidenXsupport"
+                                    text="Support", url="https://t.me/SenkoXSupport"
                                 ),
                                 InlineKeyboardButton(
-                                    text="Updates", url="https://t.me/RaidenXUpdates"
+                                    text="Updates", url="https://t.me/SenkoUpdates"
                                 ),
                             ]
                         ],
