@@ -523,7 +523,7 @@ def support_ids(update: Update, context: CallbackContext):
 
 def stats(update, _):
     update.effective_message.reply_text(
-        "Raiden stats:\n" + "\n".join([mod.__stats__() for mod in STATS])
+        "Senko🦊 stats:\n" + "\n".join([mod.__stats__() for mod in STATS])
     )
 
 
