@@ -111,7 +111,7 @@ def info(update, context):
         return
 
     del_msg = msg.reply_text(
-        "Chotto matte kudasai getting your info from <b>My Home</b>...",
+        "Chotto matte kudasai getting your info from <b>Database</b>...",
         parse_mode=ParseMode.HTML,
     )
 
@@ -142,17 +142,17 @@ def info(update, context):
     disaster_level_present = False
 
     if user.id == OWNER_ID:
-        text += ("\n\n» This person is a appointed <b>'Asmoday'</b>.")
+        text += ("\n\n» This person is a appointed <b>'GOD'</b>.")
         disaster_level_present = True
     elif user.id in DEMONS:
-        text += ("\n\n» This person is a appointed <b>'Vision Holder'</b>.")
+        text += ("\n\n» This person is a appointed <b>'Demon'</b>.")
         disaster_level_present = True
     elif user.id in DEV_USERS:
-        text += ("\n\n» This person is a appointed <b>'Archon'</b>.")
+        text += ("\n\n» This person is a appointed <b>'Dev User'</b>.")
         disaster_level_present = True
     elif user.id in SUPPORT_USERS:
         text += (
-            "\n\n » This person is a appointed <b>'Adepti'</b>"
+            "\n\n » This person is a appointed <b>'Dragon'</b>"
         )
         disaster_level_present = True
     elif user.id in WHITELIST_USERS:
@@ -189,9 +189,9 @@ def info(update, context):
                     [
                         [
                             InlineKeyboardButton(
-                                "Support", url="https://t.me/RaidenSupport"),
+                                "Support", url="https://t.me/SenkoxSupport"),
                             InlineKeyboardButton(
-                                "Disaster", url="https://t.me/RaidenXUpdates/13"),
+                                "Disaster", url="https://t.me/SenkoUpdates"),
                          ],
                          [
                             InlineKeyboardButton(
@@ -208,9 +208,9 @@ def info(update, context):
                     [
                         [
                             InlineKeyboardButton(
-                                "Support", url="https://t.me/RaidenSupport"),
+                                "Support", url="https://t.me/SenkoXSupport"),
                             InlineKeyboardButton(
-                                "Disaster", url="https://t.me/RaidenXUpdates/13"),
+                                "Disaster", url="https://t.me/SenkoUpdates"),
                          ],
                          [
                             InlineKeyboardButton(
