@@ -1,7 +1,7 @@
 {
-  "name": "Raiden Shogun",
-  "description": "Telegram group management bot from Genshin Impact.",
-  "logo": "https://telegra.ph//file/c1c863f7df195ebf3a8b7.jpg",
+  "name": "Senko-San",
+  "description": "Telegram group management bot.",
+  "logo": "https://telegra.ph/file/cf3fb271d70f132e3794a.jpg",
   "keywords": [
     "telegram",
     "anime",
@@ -35,31 +35,31 @@
     "TOKEN": {
       "description": "Your bot token. Get one from @BotFather duh",
       "required": true,
-      "value": "5309383517:AAEbuUQ52PYu2qnVJxz7LKJGu2FZYI95O5U"
+      "value": ""
     },
     "API_ID": {
       "description": "Get API_ID from my.telegram.org, used for telethon based modules.",
       "required": true,
-      "value": "17868017"
+      "value": ""
     },
     "API_HASH": {
       "description": "Get API_HASH from my.telegram.org, used for telethon based modules.",
       "required": true,
-      "value": "d1621fd9baa388087ea385200d977b72"
+      "value": ""
     },
     "SQLALCHEMY_DATABASE_URL": {
       "description": "Your postgres sql db, empty this field if you dont have one.ex: sqldbtype://username:pw@hostname:port/db_name",
       "required": false,
-      "value": "postgresql://yadzttso:VQl7Cbf0AnaUDGRcs1lvm7CqiOzOQTut@rosie.db.elephantsql.com/yadzttso"
+      "value": ""
     },
     "OWNER_ID": {
       "description": "Your user ID as an integer.",
       "required": true,
-      "value": "5297261589"
+      "value": "1802324609"
     },
     "HEROKU_API_KEY": {
       "description": "Your Heroku API key, get it from 'https://dashboard.heroku.com/account'",
-      "value": "1c21abeb-2737-4743-93d0-ca113af57277"
+      "value": "f5764101-8e83-47e2-b03c-7234aa2dea12"
     },
     "HEROKU_APP_NAME": {
       "description": "Enter the Heroku app name here (Must an exact same name with your input above).",
@@ -67,17 +67,17 @@
     },
     "OWNER_USERNAME": {
       "description": "Your username without the @",
-      "value": "Kaedehara_Kaazuha"
+      "value": "XultiM8"
     },
     "SUPPORT_CHAT": {
       "description": "Your Telegram support group chat username where your users will go and bother you with shit But be like: MyGroupChatUsernameBlah. If this ever points to zeldris support than consider you made an enemy.",
       "required": true,
-      "value": "RaidenSupport"
+      "value": "SenkoXSUPPORT"
     },
     "MESSAGE_DUMP": {
       "description": "Event logs channel to note down important bot level events, recommend to make this public. ex: '-123456'",
       "required": true,
-      "value": "-1001751144618"
+      "value": "-1001497553436"
     },
     "DEV_USERS": {
       "description": "ID of users who are Devs of your bot (can use /py etc.). If you are a noob and would come and bother Masha support then keep the current ID's here at they are and add yours.",
@@ -150,7 +150,7 @@
     "DONATION_LINK": {
       "description": "Optional: link where you would like to receive donations. If you are a noob, better leave it linking to paul",
       "required": false,
-      "value": "https://t.me/Kaedehara_kaazuha"
+      "value": "https://t.me/XultiM8"
     },
     "DEL_CMDS": {
       "description": "Set this to True if you want to delete command messages from users who don't have the perms to run that command.",
