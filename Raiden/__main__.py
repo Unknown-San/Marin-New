@@ -83,13 +83,13 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 
-RAIDEN_IMG = "https://telegra.ph/file/d5c772de35d67ef20785c.mp4"
-RAIDEN_START = "https://telegra.ph/file/967ce7a412d042499c98e.mp4"
+RAIDEN_IMG = "https://telegra.ph/file/9f266a0cd571586b79f1e.mp4"
+RAIDEN_START = "https://telegra.ph/file/125747f3dbd6325207cdf.mp4"
 
 PM_START_TEXT = """
-────「 [{}](https://telegra.ph/file/967ce7a412d042499c98e.mp4) 」────
+────「 [{}](https://telegra.ph/file/3f3548e8a4334922aa3a4.mp4) 」────
 ᴋᴏɴ'ɴɪᴄʜɪᴡᴀ {} - sᴀɴ!  
-ɪ'ᴍ [𝙎𝙚𝙣𝙠𝙤 𝙎𝙖𝙣](https://senkosan.fandom.com/wiki/Senko) ᴀɴ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ.
+ɪ'ᴍ [𝙈𝙖𝙧𝙞𝙣](https://sono-bisque-doll-wa-koi-wo-suru.fandom.com/wiki/Marin_Kitagawa) ᴀɴ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ.
 ➖➖➖➖➖➖➖➖➖➖➖➖➖
 » ᴜᴘᴛɪᴍᴇ {} 
 » ᴜsᴇʀs {} ᴀᴄʀᴏss {} ᴄʜᴀᴛs 
@@ -101,7 +101,7 @@ PM_START_TEXT = """
 buttons = [
     [
         InlineKeyboardButton(
-            text="➕️ ᴀᴅᴅ sᴇɴᴋᴏ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕️",
+            text="➕️ ᴀᴅᴅ ᴍᴀʀɪɴ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕️",
             url="t.me/SenkoSanRobot?startgroup=true",
         ),
     ],
@@ -128,7 +128,7 @@ buttons = [
 ]
 
 HELP_STRINGS = """
-Hey there! Myself [Senko](https://telegra.ph/file/e80e2df61a867182f359d.mp4).
+Hey there! Myself [ᴍᴀʀɪɴ](https://telegra.ph/file/c95d5ef1b7abbf3238f3e.mp4).
 Have a look at the following for an idea of some of the things I can help you with.
 *Main* commands available:
  ➛ /help: PM's you this message.
@@ -137,7 +137,7 @@ Have a look at the following for an idea of some of the things I can help you wi
  ➛ /donate: information on how to donate!
  ➛ /settings: 
    ❂ in PM: will send you your settings for all supported modules.
-   ❂ in a group: will redirect you to pm, with all that chat's settings.\n• *ʀᴇᴀᴄʜ ᴏᴜᴛ ғᴏʀ sᴜᴘᴘᴏʀᴛ:* [sᴜᴘᴘᴏʀᴛ](https://t.me/SenkoXSupport)
+   ❂ in a group: will redirect you to pm, with all that chat's settings.\n• *ʀᴇᴀᴄʜ ᴏᴜᴛ ғᴏʀ sᴜᴘᴘᴏʀᴛ:* [sᴜᴘᴘᴏʀᴛ](https://t.me/MarinSupport)
 """
 
 IMPORTED = {}
@@ -262,7 +262,7 @@ def start(update: Update, context: CallbackContext):
     else:
         message.reply_video(
             RAIDEN_IMG,
-            caption="Kon'nichiwa, Senko san Desu~ Here To Help!\n: <code>{}</code>".format(
+            caption="Kon'nichiwa, Marin san Desu~ Here To Help!\n: <code>{}</code>".format(
                 uptime
             ),
             parse_mode=ParseMode.HTML,
@@ -271,11 +271,11 @@ def start(update: Update, context: CallbackContext):
                     [
                         InlineKeyboardButton(
                             text="ᴍʏ ʜᴏᴍᴇ",
-                            url="https://t.me/SenkoXSupport",
+                            url="https://t.me/MarinSupport",
                         ),
                         InlineKeyboardButton(
                             text="ʜᴇʟᴘ",
-                            url=f"https://t.me/SenkoSanRobot?start=help",
+                            url=f"https://t.me/MarinRobot?start=help",
                         ),
                     ]
                 ]
@@ -683,7 +683,7 @@ def main():
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
             dispatcher.bot.send_video(
-                "@SenkoXSupport",
+                "@MarinSupport",
                 "https://telegra.ph/file/a3519d803e811ec8bd572.jpg",
                 "Am Alive Again ~ UwU ~",
                 parse_mode=ParseMode.MARKDOWN,
