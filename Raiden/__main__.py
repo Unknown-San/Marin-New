@@ -102,7 +102,7 @@ buttons = [
     [
         InlineKeyboardButton(
             text="➕️ ᴀᴅᴅ sᴇɴᴋᴏ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕️",
-            url="t.me/SenkoSanRoot?startgroup=true",
+            url="t.me/SenkoSanRobot?startgroup=true",
         ),
     ],
     [
