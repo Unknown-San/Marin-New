@@ -189,9 +189,9 @@ def info(update, context):
                     [
                         [
                             InlineKeyboardButton(
-                                "Support", url="https://t.me/SenkoxSupport"),
+                                "Support", url="https://t.me/MarinSupport"),
                             InlineKeyboardButton(
-                                "Disaster", url="https://t.me/SenkoUpdates"),
+                                "Disaster", url="https://t.me/MarinXUpdates"),
                          ],
                          [
                             InlineKeyboardButton(
@@ -208,9 +208,9 @@ def info(update, context):
                     [
                         [
                             InlineKeyboardButton(
-                                "Support", url="https://t.me/SenkoXSupport"),
+                                "Support", url="https://t.me/MarinRobot"),
                             InlineKeyboardButton(
-                                "Disaster", url="https://t.me/SenkoUpdates"),
+                                "Disaster", url="https://t.me/MarinXUpdates"),
                          ],
                          [
                             InlineKeyboardButton(
@@ -523,7 +523,7 @@ def support_ids(update: Update, context: CallbackContext):
 
 def stats(update, _):
     update.effective_message.reply_text(
-        "Senko🦊 stats:\n" + "\n".join([mod.__stats__() for mod in STATS])
+        "Marin Stats:\n" + "\n".join([mod.__stats__() for mod in STATS])
     )
 
 
