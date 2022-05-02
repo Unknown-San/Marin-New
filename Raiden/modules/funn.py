@@ -12,7 +12,7 @@ from telegram.error import BadRequest
 from telegram.ext import CallbackContext
 
 GIF_ID = "CgACAgQAAx0CaGBYqgADjmJfFgwbdNVR9ybRq-4G2G41yg6jAALrAgACHHq0UotcIqygBXUOJAQ"
-
+GIF_IDD = "CgACAgUAAxkBAAERsBZiYsG9X1OWzSLb1IFh0J2S6yE0fAAC4wQAAjE7EVSwEIPLpn7PDyQE"
 
 def runs(update: Update, context: CallbackContext):
     temp = random.choice(fun_strings.RUN_STRINGS)
@@ -35,6 +35,37 @@ def sanitize(update: Update, context: CallbackContext):
     )
     reply_animation(GIF_ID, caption=f"*Sanitizes {name}*")
 
+@dev_plus
+def verify(update: Update, context: CallbackContext):
+    message = update.effective_message
+    args = context.bot, context.args
+    user_id = extract_user(message, args)
+    name = (
+        message.reply_to_message.from_user.first_name
+        if message.reply_to_message
+        else message.from_user.first_name
+    )
+    reply_animation = (
+        message.reply_to_message.reply_animation
+        if message.reply_to_message
+        else message.reply_animation
+    )
+    reply_animation(GIF_IDD, caption=f"""<b>*Verified  ★{name}★*
+    *User ID ★{user_id}★*</b>
+    """)
+    
+    buttons = [
+    [
+        InlineKeyboardButton(
+            text="★ AOGIRI UNION ★",url="t.me/AogiriUnion"),
+    ],
+    [
+        InlineKeyboardButton(
+            text="★ Anime Chat ★", url=f"https://t.me/Anime_Chat_Folks"),
+
+              
+    ]
+]
 
 def sanitize(update: Update, context: CallbackContext):
     message = update.effective_message
@@ -708,7 +739,7 @@ __help__ = """
 
 
 """
-
+VERIFY_HANDLER = DisableAbleCommandHandler("verify", verify, run_async=True)
 SANITIZE_HANDLER = DisableAbleCommandHandler("sanitize", sanitize, run_async=True)
 RUNS_HANDLER = DisableAbleCommandHandler("runs", runs, run_async=True)
 SLAP_HANDLER = DisableAbleCommandHandler("slap", slap, run_async=True)
@@ -752,6 +783,7 @@ dispatcher.add_handler(BUBBIFY_HANDLER)
 dispatcher.add_handler(FBUBBIFY_HANDLER)
 dispatcher.add_handler(SQUARIFY_HANDLER)
 dispatcher.add_handler(FSQUARIFY_HANDLER)
+dispatcher.add_handler(VERIFY_HANDLER)
 
 __mod_name__ = "Fun"
 __command_list__ = [
@@ -798,5 +830,7 @@ __handlers__ = [
     FSQUARIFY_HANDLER,
     SQUARIFY_HANDLER,
     BUBBIFY_HANDLER,
-    FBUBBIFY_HANDLER
+    FBUBBIFY_HANDLER,
+    VERIFY_HANDLER,
+
 ]
