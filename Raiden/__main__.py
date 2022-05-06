@@ -89,30 +89,30 @@ RAIDEN_START = "https://telegra.ph/file/125747f3dbd6325207cdf.mp4"
 PM_START_TEXT = """
 ────「 [{}](https://telegra.ph/file/3f3548e8a4334922aa3a4.mp4) 」────
 ᴋᴏɴ'ɴɪᴄʜɪᴡᴀ {} - sᴀɴ!  
-ɪ'ᴍ [𝙈𝙖𝙧𝙞𝙣](https://sono-bisque-doll-wa-koi-wo-suru.fandom.com/wiki/Marin_Kitagawa) ᴀɴ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ.
+ɪ'ᴍ Ruka Sarashina ,  ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ.
 ➖➖➖➖➖➖➖➖➖➖➖➖➖
 » ᴜᴘᴛɪᴍᴇ {} 
 » ᴜsᴇʀs {} ᴀᴄʀᴏss {} ᴄʜᴀᴛs 
 ➖➖➖➖➖➖➖➖➖➖➖➖➖
 ʜɪᴛ /help ᴛᴏ sᴇᴇ ᴛʜᴇ ᴄᴏᴍᴍᴀɴᴅs ᴀᴠᴀɪʟᴀʙʟᴇ ᴀғᴛᴇʀ ᴍʏ ᴇʟᴇᴍᴇɴᴛᴀʟ ʙᴜғғ. ××  
-𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 [𝘼𝙊𝙂𝙄𝙍𝙄](https://t.me/AogiriNetwork).
+𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 [Kaizuryu](https://t.me/TheKaizuryu).
 """
 
 buttons = [
     [
         InlineKeyboardButton(
-            text="➕️ ᴀᴅᴅ ᴍᴀʀɪɴ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕️",
-            url="t.me/SenkoSanRobot?startgroup=true",
+            text="➕️ ᴀᴅᴅ Ruka ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕️",
+            url="t.me/Ruka_Group_bot?startgroup=true",
         ),
     ],
     [
         InlineKeyboardButton(
             text="ᴍʏ ʜᴏᴍᴇ",
-            url="t.me/SenkoxSupport",
+            url="t.me/RukaBotSupport",
         ),
         InlineKeyboardButton(
-            text="ᴛʜᴇ ᴀʟᴍɪɢʜᴛʏ ∞",
-            url="https://t.me/Xultim8",
+            text="Owner",
+            url="t.me/xelcius",
         ),
     ],
     [
@@ -121,14 +121,14 @@ buttons = [
             callback_data="help_back",
         ),
         InlineKeyboardButton(
-            text="ᴀᴏɢɪʀɪ",
-            url="https://t.me/AogiriNetwork",
+            text="Kaizuryu",
+            url="https://t.me/TheKaizuryu",
         ),
     ],
 ]
 
 HELP_STRINGS = """
-Hey there! Myself [ᴍᴀʀɪɴ](https://telegra.ph/file/c95d5ef1b7abbf3238f3e.mp4).
+Hey there! Myself [Ruka sarashina]( https://telegra.ph/file/ca853a06b881130ff4205.jpg).
 Have a look at the following for an idea of some of the things I can help you with.
 *Main* commands available:
  ➛ /help: PM's you this message.
@@ -137,7 +137,7 @@ Have a look at the following for an idea of some of the things I can help you wi
  ➛ /donate: information on how to donate!
  ➛ /settings: 
    ❂ in PM: will send you your settings for all supported modules.
-   ❂ in a group: will redirect you to pm, with all that chat's settings.\n• *ʀᴇᴀᴄʜ ᴏᴜᴛ ғᴏʀ sᴜᴘᴘᴏʀᴛ:* [sᴜᴘᴘᴏʀᴛ](https://t.me/MarinSupport)
+   ❂ in a group: will redirect you to pm, with all that chat's settings.\n• *ʀᴇᴀᴄʜ ᴏᴜᴛ ғᴏʀ sᴜᴘᴘᴏʀᴛ:* [sᴜᴘᴘᴏʀᴛ](https://t.me/RukaBotSupport)
 """
 
 IMPORTED = {}
@@ -262,7 +262,7 @@ def start(update: Update, context: CallbackContext):
     else:
         message.reply_video(
             RAIDEN_IMG,
-            caption="Kon'nichiwa, Marin san Desu~ Here To Help!\n: <code>{}</code>".format(
+            caption="Kon'nichiwa, Ruka Chan Desu~ Here To Help!\n: <code>{}</code>".format(
                 uptime
             ),
             parse_mode=ParseMode.HTML,
@@ -271,11 +271,11 @@ def start(update: Update, context: CallbackContext):
                     [
                         InlineKeyboardButton(
                             text="ᴍʏ ʜᴏᴍᴇ",
-                            url="https://t.me/MarinSupport",
+                            url="https://t.me/RukaBotSupport",
                         ),
                         InlineKeyboardButton(
                             text="ʜᴇʟᴘ",
-                            url=f"https://t.me/MarinRobot?start=help",
+                            url=f"https://t.me/Ruka_Group_Bot?start=help",
                         ),
                     ]
                 ]
@@ -678,13 +678,13 @@ def main():
             client.run_until_disconnected()
 
     else:
-        LOGGER.info("[Raiden] Using long polling.")
+        LOGGER.info("[Ruka] Using long polling.")
         updater.start_polling(timeout=15, read_latency=4, drop_pending_updates=True)
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
             dispatcher.bot.send_video(
-                "@MarinSupport",
-                "https://telegra.ph/file/a3519d803e811ec8bd572.jpg",
+                "@RukaBotSupport",
+                "https://telegra.ph/file/675f13a251cbc1a6a082f.jpg",
                 "Am Alive Again ~ UwU ~",
                 parse_mode=ParseMode.MARKDOWN,
             )
