@@ -7,7 +7,7 @@ from telethon import types
 from telethon.tl import functions
 import asyncio, os
 
-@register(pattern="Senko (.*)")
+@register(pattern="Ruka (.*)")
 async def hmm(event):
   test = event.pattern_match.group(1)
    
@@ -28,7 +28,7 @@ async def hmm(event):
   result = (lodu['message']['text'])
   
   if "no no" in result:
-   pro = "I am fairly young and I was made by @Xultim8"
+   pro = "I am fairly young and I was made by @xelcius"
    try:
       async with telethn.action(event.chat_id, 'typing'):
            await asyncio.sleep(2)
@@ -36,7 +36,7 @@ async def hmm(event):
    except CFError as e:
            print(e)
   elif "ann" in result:
-   pro = "My name is Senko"
+   pro = "My name is Ruka"
    try:
       async with telethn.action(event.chat_id, 'typing'):
            await asyncio.sleep(2)
