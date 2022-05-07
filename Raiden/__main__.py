@@ -83,11 +83,11 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 
-RAIDEN_IMG = "https://telegra.ph/file/3393e97abc774b580d402.jpg"
-RAIDEN_START = "https://telegra.ph/file/600c81e8f423ad3fc5a0f.jpg"
+RAIDEN_IMG = "https://telegra.ph/file/b1387628184b3a9b9193d.mp4"
+RAIDEN_START = "https://telegra.ph/file/b1387628184b3a9b9193d.mp4"
 
 PM_START_TEXT = """
-────「 [{}](https://kanojo-okarishimasu.fandom.com/wiki/Ruka_Sarashina) 」────
+────「 [{}] 」────
 ᴋᴏɴ'ɴɪᴄʜɪᴡᴀ {} - sᴀɴ!  
 ɪ'ᴍ Ruka Sarashina ,  ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ.
 ➖➖➖➖➖➖➖➖➖➖➖➖➖
