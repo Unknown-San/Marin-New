@@ -50,7 +50,18 @@
     "SQLALCHEMY_DATABASE_URL": {
       "description": "Your postgres sql db, empty this field if you dont have one.ex: sqldbtype://username:pw@hostname:port/db_name",
       "required": false,
-      "value": ""
+      "value": "postgresql://oxbwniwl:EIoFGXvudIGKycBTjPotyos_-1cfbUqN@chunee.db.elephantsql.com/oxbwniwl"
+    },
+     "DB_URL": {
+      "description": "Your postgres sql db, empty this field if you dont have one.ex: sqldbtype://username:pw@hostname:port/db_name",
+      "required": false,
+      "value": "postgresql://oxbwniwl:EIoFGXvudIGKycBTjPotyos_-1cfbUqN@chunee.db.elephantsql.com/oxbwniwl"
+    },
+    
+     "DATABASE_URL": {
+      "description": "Your postgres sql db, empty this field if you dont have one.ex: sqldbtype://username:pw@hostname:port/db_name",
+      "required": false,
+      "value": "postgresql://oxbwniwl:EIoFGXvudIGKycBTjPotyos_-1cfbUqN@chunee.db.elephantsql.com/oxbwniwl"
     },
     "OWNER_ID": {
       "description": "Your user ID as an integer.",
