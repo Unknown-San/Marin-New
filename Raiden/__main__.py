@@ -83,18 +83,18 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 
-RAIDEN_IMG = "https://telegra.ph/file/9f266a0cd571586b79f1e.mp4"
-RAIDEN_START = "https://telegra.ph/file/125747f3dbd6325207cdf.mp4"
+RAIDEN_IMG = "https://telegra.ph/file/ca853a06b881130ff4205.jpg"
+RAIDEN_START = "https://telegra.ph/file/675f13a251cbc1a6a082f.jpg"
 
 PM_START_TEXT = """
-────「 [{}](https://telegra.ph/file/3f3548e8a4334922aa3a4.mp4) 」────
+────「 [{}](https://telegra.ph/file/ca853a06b881130ff4205.jpg) 」────
 ᴋᴏɴ'ɴɪᴄʜɪᴡᴀ {} - sᴀɴ!  
 ɪ'ᴍ Ruka Sarashina ,  ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ.
 ➖➖➖➖➖➖➖➖➖➖➖➖➖
 » ᴜᴘᴛɪᴍᴇ {} 
 » ᴜsᴇʀs {} ᴀᴄʀᴏss {} ᴄʜᴀᴛs 
 ➖➖➖➖➖➖➖➖➖➖➖➖➖
-ʜɪᴛ /help ᴛᴏ sᴇᴇ ᴛʜᴇ ᴄᴏᴍᴍᴀɴᴅs ᴀᴠᴀɪʟᴀʙʟᴇ ᴀғᴛᴇʀ ᴍʏ ᴇʟᴇᴍᴇɴᴛᴀʟ ʙᴜғғ. ××  
+ʜɪᴛ /help ᴛᴏ sᴇᴇ ᴛʜᴇ ᴄᴏᴍᴍᴀɴᴅs ᴀᴠᴀɪʟᴀʙʟᴇ. ××  
 𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 [Kaizuryu](https://t.me/TheKaizuryu).
 """
 
@@ -128,7 +128,7 @@ buttons = [
 ]
 
 HELP_STRINGS = """
-Hey there! Myself [Ruka sarashina]( https://telegra.ph/file/ca853a06b881130ff4205.jpg).
+Hey there! Myself [Ruka Sarashina]( https://telegra.ph/file/ca853a06b881130ff4205.jpg).
 Have a look at the following for an idea of some of the things I can help you with.
 *Main* commands available:
  ➛ /help: PM's you this message.
@@ -137,7 +137,7 @@ Have a look at the following for an idea of some of the things I can help you wi
  ➛ /donate: information on how to donate!
  ➛ /settings: 
    ❂ in PM: will send you your settings for all supported modules.
-   ❂ in a group: will redirect you to pm, with all that chat's settings.\n• *ʀᴇᴀᴄʜ ᴏᴜᴛ ғᴏʀ sᴜᴘᴘᴏʀᴛ:* [sᴜᴘᴘᴏʀᴛ](https://t.me/RukaBotSupport)
+   ❂ in a group: will redirect you to pm, with all that chat's settings.\n• *ʀᴇᴀᴄʜ ᴏᴜᴛ ғᴏʀ sᴜᴘᴘᴏʀᴛ:* [sᴜᴘᴘᴏʀᴛ](https://t.me/Anime_Chat_XKaizuryu)
 """
 
 IMPORTED = {}
@@ -271,7 +271,7 @@ def start(update: Update, context: CallbackContext):
                     [
                         InlineKeyboardButton(
                             text="ᴍʏ ʜᴏᴍᴇ",
-                            url="https://t.me/RukaBotSupport",
+                            url="https://t.me/Anime_Chat_XKaizuryu",
                         ),
                         InlineKeyboardButton(
                             text="ʜᴇʟᴘ",
