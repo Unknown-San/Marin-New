@@ -116,7 +116,7 @@ def info(update, context):
     )
 
     text = (
-        "╒═══「 User Info 」"
+        "╒═══「 User Info By Ruka 」"
         "\n\n» ID: <code>{}</code>"
         "\n» First Name: {}".format(user.id, html.escape(user.first_name))
     )
@@ -189,9 +189,9 @@ def info(update, context):
                     [
                         [
                             InlineKeyboardButton(
-                                "Support", url="https://t.me/MarinSupport"),
+                                "Support", url="https://t.me/Anime_Chat_XKaizuryu"),
                             InlineKeyboardButton(
-                                "Disaster", url="https://t.me/MarinXUpdates"),
+                                "Disaster", url="https://t.me/TheKaizuryu"),
                          ],
                          [
                             InlineKeyboardButton(
@@ -208,9 +208,9 @@ def info(update, context):
                     [
                         [
                             InlineKeyboardButton(
-                                "Support", url="https://t.me/MarinRobot"),
+                                "Support", url="https://t.me/Anime_Chat_XKaizuryu"),
                             InlineKeyboardButton(
-                                "Disaster", url="https://t.me/MarinXUpdates"),
+                                "Disaster", url="https://t.me/TheKaizuryu"),
                          ],
                          [
                             InlineKeyboardButton(
@@ -397,7 +397,7 @@ def src(update, _) -> None:
                 [
                     InlineKeyboardButton(
                         text="GitHub repo",
-                        url="https://t.me/Anime_Chat_Folks",
+                        url="https://t.me/Anime_Chat_XKaizuryu",
                     ),
                 ],
             ],
@@ -523,7 +523,7 @@ def support_ids(update: Update, context: CallbackContext):
 
 def stats(update, _):
     update.effective_message.reply_text(
-        "Marin Stats:\n" + "\n".join([mod.__stats__() for mod in STATS])
+        "Ruka Stats:\n" + "\n".join([mod.__stats__() for mod in STATS])
     )
 
 
