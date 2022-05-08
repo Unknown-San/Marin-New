@@ -1,3 +1,4 @@
+
 import html
 import random
 import re
@@ -29,6 +30,7 @@ from Raiden import (
     LOGGER,
     OWNER_ID,
     SUKUNA_ID,
+    KAZUHA_ID,
     WHITELIST_USERS,
     SUPPORT_USERS,
     spamwtc,
@@ -47,7 +49,7 @@ from Raiden.modules.helper_funcs.string_handling import (
 from Raiden.modules.log_channel import loggable
 from Raiden.modules.sql.global_bans_sql import is_user_gbanned
 
-KAZUHA = "https://telegra.ph/file/548cf80d2957258a71337.jpg"
+KAZUHA = "https://telegra.ph//file/c1c863f7df195ebf3a8b7.jpg"
 SUKUNA = "https://telegra.ph/file/575fa2ebc03366fa89dfe.jpg"
 
 VALID_WELCOME_FORMATTERS = [
@@ -206,13 +208,37 @@ def new_member(update: Update, context: CallbackContext):  # sourcery no-metrics
             # Give the owner a special welcome
             if new_mem.id == OWNER_ID:
                 update.effective_message.reply_photo(
-                    KAZUHA, caption=f"The Almighty {html.escape(user.first_name)} Just joined.", reply_to_message_id=reply,
+                    KAZUHA, caption=f"Behold The Power Of Ruka Akino. My Asmoday {html.escape(user.first_name)} Just joined.", reply_to_message_id=reply,
                     parse_mode=ParseMode.HTML,
                 )
                 welcome_log = (
                     f"{html.escape(chat.title)}\n"
                     f"#USER_JOINED\n"
-                    f"aizen just joined the group"
+                    f"Kazuha just joined the group"
+                )
+                continue
+
+            if new_mem.id == SUKUNA_ID:
+                update.effective_message.reply_photo(
+                    SUKUNA, caption=f"My Archon 𝑳𝑶𝑰𝑫 𝑭𝑶𝑹𝑮𝑬𝑹 〄 Just Joined The Group!\n Don't Trigger Him or you'll be torned to oblivion.", reply_to_message_id=reply,
+                    parse_mode=ParseMode.HTML,
+                )
+                welcome_log = (
+                    f"{html.escape(chat.title)}\n"
+                    f"#USER_JOINED\n"
+                    f"𝑳𝑶𝑰𝑫 𝑭𝑶𝑹𝑮𝑬𝑹 〄 just joined the group"
+                )
+                continue
+
+            if new_mem.id == KAZUHA_ID:
+                update.effective_message.reply_photo(
+                    KAZUHA, caption=f"Behold The Power Of Ruka Akino. My Sensei {html.escape(user.first_name)} Just joined.", reply_to_message_id=reply,
+                    parse_mode=ParseMode.HTML,
+                )
+                welcome_log = (
+                    f"{html.escape(chat.title)}\n"
+                    f"#USER_JOINED\n"
+                    f"Kazuha just joined the group"
                 )
                 continue
 
@@ -236,10 +262,10 @@ def new_member(update: Update, context: CallbackContext):  # sourcery no-metrics
                         [
                             [
                                 InlineKeyboardButton(
-                                    text="Support", url="https://t.me/SenkoXSupport"
+                                    text="Support", url="https://t.me/RaidenXsupport"
                                 ),
                                 InlineKeyboardButton(
-                                    text="Updates", url="https://t.me/SenkoUpdates"
+                                    text="Updates", url="https://t.me/RaidenXUpdates"
                                 ),
                             ]
                         ],
