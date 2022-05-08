@@ -47,8 +47,8 @@ from Raiden.modules.helper_funcs.string_handling import (
 from Raiden.modules.log_channel import loggable
 from Raiden.modules.sql.global_bans_sql import is_user_gbanned
 
-KAZUHA = "https://telegra.ph/file/548cf80d2957258a71337.jpg"
-SUKUNA = "https://telegra.ph/file/575fa2ebc03366fa89dfe.jpg"
+KAZUHA = "https://telegra.ph/file/35e30502e0efcd0355f27.jpg"
+SUKUNA = "https://telegra.ph/file/7e89dd192e2a4cb31c2a0.jpg"
 
 VALID_WELCOME_FORMATTERS = [
     "first",
@@ -206,13 +206,13 @@ def new_member(update: Update, context: CallbackContext):  # sourcery no-metrics
             # Give the owner a special welcome
             if new_mem.id == OWNER_ID:
                 update.effective_message.reply_photo(
-                    KAZUHA, caption=f"The Almighty {html.escape(user.first_name)} Just joined.", reply_to_message_id=reply,
+                    KAZUHA, caption=f"Xelcius {html.escape(user.first_name)} Just joined.", reply_to_message_id=reply,
                     parse_mode=ParseMode.HTML,
                 )
                 welcome_log = (
                     f"{html.escape(chat.title)}\n"
                     f"#USER_JOINED\n"
-                    f"aizen just joined the group"
+                    f"Xelcius just joined the group"
                 )
                 continue
 
@@ -236,10 +236,10 @@ def new_member(update: Update, context: CallbackContext):  # sourcery no-metrics
                         [
                             [
                                 InlineKeyboardButton(
-                                    text="Support", url="https://t.me/SenkoXSupport"
+                                    text="Support", url="https://t.me/Anime_Chat_XKaizuryu"
                                 ),
                                 InlineKeyboardButton(
-                                    text="Updates", url="https://t.me/SenkoUpdates"
+                                    text="Updates", url="https://t.me/TheKaizuryu"
                                 ),
                             ]
                         ],
