@@ -108,7 +108,7 @@ buttons = [
     [
         InlineKeyboardButton(
             text="ᴍʏ ʜᴏᴍᴇ",
-            url="t.me/RukaBotSupport",
+            url="t.me/Anime_Chat_XKaizuryu",
         ),
         InlineKeyboardButton(
             text="Owner",
