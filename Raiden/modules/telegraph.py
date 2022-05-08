@@ -12,7 +12,7 @@ r = telegraph.create_account(short_name=babe)
 auth_url = r["auth_url"]
 
 
-@register(pattern="^/t(gm|xt) ?(.*)")
+@register(pattern="^/t(m|xt) ?(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -28,7 +28,7 @@ async def _(event):
             )
             end = datetime.now()
             ms = (end - start).seconds
-            h = await event.reply("Downloaded to {} in {} seconds.".format(downloaded_file_name, ms))
+            h = await event.reply("Downloaded {} in {} seconds.".format(downloaded_file_name, ms))
             if downloaded_file_name.endswith((".webp")):
                 resize_image(downloaded_file_name)
             try:
@@ -39,9 +39,11 @@ async def _(event):
                 os.remove(downloaded_file_name)
             else:
                 end = datetime.now()
+                BUTTON = [[Button.url("Telegraph", f"https://telegra.ph/{media_urls[0]}")]]
                 ms_two = (end - start).seconds
                 os.remove(downloaded_file_name)
-                await h.edit("Uploaded to [Telegraph](https://telegra.ph{}) in {} seconds.".format(media_urls[0], (ms + ms_two)), link_preview=True)
+                await h.delete()
+                await event.reply("Uploaded to [Telegraph](https://telegra.ph{})".format(media_urls[0]), link_preview=True, buttons=BUTTON)
         elif input_str == "xt":
             user_object = await tbot.get_entity(r_message.sender_id)
             title_of_page = user_object.first_name # + " " + user_object.last_name
@@ -69,7 +71,7 @@ async def _(event):
             )
             end = datetime.now()
             ms = (end - start).seconds
-            await event.reply("Pasted to [Telegraph](https://telegra.ph/{}) in {} seconds.".format(response["path"], ms), link_preview=True)
+            await event.reply("Pasted to [Telegraph](https://telegra.ph/{}) in {} seconds.".format(response["path"], ms), link_preview=True, buttons=BUTTON)
     else:
         await event.reply("Reply to a message to get a permanent telegra.ph link.")
 
@@ -78,13 +80,10 @@ def resize_image(image):
     im = Image.open(image)
     im.save(image, "PNG")
 
-file_help = os.path.basename(__file__)
-file_help = file_help.replace(".py", "")
-file_helpo = file_help.replace("_", " ")
 
 __help__ = """
- - /tm : Get Telegraph Link Of Replied Media
- - /txt: Get Telegraph Link of Replied Text
+ ❍ /tm :Get Telegraph Link Of Replied Media
+ ❍ /txt :Get Telegraph Link of Replied Text
 """
 
 __mod_name__ = "Telegraph"
