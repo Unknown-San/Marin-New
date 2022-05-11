@@ -88,32 +88,25 @@ RAIDEN_START = "https://telegra.ph/file/125747f3dbd6325207cdf.mp4"
 
 PM_START_TEXT = """
 ────「 [{}](https://telegra.ph/file/3f3548e8a4334922aa3a4.mp4) 」────
-ᴋᴏɴ'ɴɪᴄʜɪᴡᴀ {} - sᴀɴ!  
-ɪ'ᴍ [𝙈𝙖𝙧𝙞𝙣](https://sono-bisque-doll-wa-koi-wo-suru.fandom.com/wiki/Marin_Kitagawa) ᴀɴ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ.
-➖➖➖➖➖➖➖➖➖➖➖➖➖
-» ᴜᴘᴛɪᴍᴇ {} 
-» ᴜsᴇʀs {} ᴀᴄʀᴏss {} ᴄʜᴀᴛs 
-➖➖➖➖➖➖➖➖➖➖➖➖➖
-ʜɪᴛ /help ᴛᴏ sᴇᴇ ᴛʜᴇ ᴄᴏᴍᴍᴀɴᴅs ᴀᴠᴀɪʟᴀʙʟᴇ ᴀғᴛᴇʀ ᴍʏ ᴇʟᴇᴍᴇɴᴛᴀʟ ʙᴜғғ. ××  
-𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 [𝘼𝙊𝙂𝙄𝙍𝙄](https://t.me/AogiriNetwork).
-"""
+I'm a Powerful Group Management Bot With Many New Features
+Powered By @Zoroooo
 
 buttons = [
     [
         InlineKeyboardButton(
             text="➕️ ᴀᴅᴅ ᴍᴀʀɪɴ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕️",
-            url="t.me/SenkoSanRobot?startgroup=true",
+            url="t.me/yourbot?startgroup=true",
         ),
     ],
     [
         InlineKeyboardButton(
-            text="ᴍʏ ʜᴏᴍᴇ",
-            url="t.me/SenkoxSupport",
+            text="button name",
+            url="t.me/link",
         ),
         InlineKeyboardButton(
             text="ᴛʜᴇ ᴀʟᴍɪɢʜᴛʏ ∞",
             url="https://t.me/Xultim8",
-        ),
+        ), Same here button name and link in " "
     ],
     [
         InlineKeyboardButton(
@@ -138,7 +131,7 @@ Have a look at the following for an idea of some of the things I can help you wi
  ➛ /settings: 
    ❂ in PM: will send you your settings for all supported modules.
    ❂ in a group: will redirect you to pm, with all that chat's settings.\n• *ʀᴇᴀᴄʜ ᴏᴜᴛ ғᴏʀ sᴜᴘᴘᴏʀᴛ:* [sᴜᴘᴘᴏʀᴛ](https://t.me/MarinSupport)
-"""
+"""Edit what ever you want as help txlext in this one
 
 IMPORTED = {}
 MIGRATEABLE = []
