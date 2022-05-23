@@ -5,6 +5,7 @@ import time
 
 import spamwatch
 import telegram.ext as tg
+from redis import StrictRedis
 from Python_ARQ import ARQ
 from pyrogram import Client, errors
 from telethon.sessions import StringSession
