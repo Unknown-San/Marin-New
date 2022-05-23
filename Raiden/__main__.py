@@ -44,7 +44,7 @@ from Raiden import (
     PORT,
     SUPPORT_CHAT,
     URL,
-    client as telethn,
+    telethn,
     LOGGER,
     BLACKLIST_CHATS,
     WHITELIST_CHATS,
