@@ -28,7 +28,7 @@ from Raiden import (
     DEMONS,
     LOGGER,
     OWNER_ID,
-    SUKUNA_ID,
+    KAZUHA_ID,
     WHITELIST_USERS,
     SUPPORT_USERS,
     spamwtc,
@@ -48,7 +48,7 @@ from Raiden.modules.log_channel import loggable
 from Raiden.modules.sql.global_bans_sql import is_user_gbanned
 
 KAZUHA = "https://telegra.ph/file/548cf80d2957258a71337.jpg"
-SUKUNA = "https://telegra.ph/file/575fa2ebc03366fa89dfe.jpg"
+CYRUS = "https://telegra.ph//file/e6b21e163fd7f2d5b9e4a.jpg"
 
 VALID_WELCOME_FORMATTERS = [
     "first",
@@ -216,10 +216,22 @@ def new_member(update: Update, context: CallbackContext):  # sourcery no-metrics
                 )
                 continue
 
+            if new_mem.id == KAZUHA_ID:
+                update.effective_message.reply_photo(
+                    CYRUS, caption=f"The Shadow Monarch {html.escape(user.first_name)} Just joined.", reply_to_message_id=reply,
+                    parse_mode=ParseMode.HTML,
+                )
+                welcome_log = (
+                    f"{html.escape(chat.title)}\n"
+                    f"#USER_JOINED\n"
+                    f"jinwoo just joined the group"
+                )
+                continue     
+
             # Welcome Devs
             if new_mem.id in DEV_USERS:
                 update.effective_message.reply_text(
-                    "Behold! One of my Archon just joined the group!",
+                    "Behold! One of my dev just joined the group!",
                     reply_to_message_id=reply,
                 )
                 continue
