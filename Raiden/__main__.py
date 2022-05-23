@@ -102,13 +102,13 @@ buttons = [
     [
         InlineKeyboardButton(
             text="➕️ ᴀᴅᴅ ᴍᴀʀɪɴ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕️",
-            url="t.me/SenkoSanRobot?startgroup=true",
+            url="t.me/MarinRobot?startgroup=true",
         ),
     ],
     [
         InlineKeyboardButton(
             text="ᴍʏ ʜᴏᴍᴇ",
-            url="t.me/SenkoxSupport",
+            url="t.me/MarinSupport",
         ),
         InlineKeyboardButton(
             text="ᴛʜᴇ ᴀʟᴍɪɢʜᴛʏ ∞",
