@@ -31,7 +31,7 @@ class Config(object):
     API_ID = None
 
     # RECOMMENDED
-    SQLALCHEMY_DATABASE_URL = "postgresql://xlzbhnyp:FVQzpp344W5yDcXc_cupZHy5qZoehDbN@castor.db.elephantsql.com/xlzbhnyp"  # needed for any database modules
+    DB_URL = "awoo" # bsdk apna db daalna
     MESSAGE_DUMP = -1001501815938  # needed to make sure 'save from' messages persist
     REDIS_URL = ""  # needed for afk module, get from redislab
     LOAD = []
@@ -50,6 +50,7 @@ class Config(object):
     DONATION_LINK = None  # EG, paypal
     CERT_PATH = None
     PORT = 5000
+    SQLALCHEMY_DATABASE_URI = 'something://somewhat:user@hosturl:port/databasename'  # needed for any database modules
     DEL_CMDS = True  # Whether or not you should delete "blue text must click" commands
     STRICT_GBAN = True
     WORKERS = 8  # Number of subthreads to use. This is the recommended amount - see for yourself what works best!
