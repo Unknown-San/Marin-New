@@ -1,6 +1,6 @@
 import requests
 url = "https://iamai.p.rapidapi.com/ask"
-from Raiden import client as telethn, OWNER_ID
+from Raiden import telethn, OWNER_ID
 from Raiden.events import register
 from telethon import events
 from telethon import types
