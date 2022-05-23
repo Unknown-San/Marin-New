@@ -1,7 +1,8 @@
-from Raiden import client as tbot
 import os
-from Raiden.events import register
 import secureme
+
+from Raiden import telethn
+from Raiden.events import register
 
 @register(pattern="^/encrypt ?(.*)")
 async def hmm(event):
@@ -28,7 +29,6 @@ async def hmm(event):
 __mod_name__ = "Encrypt"
 __help__ = """
 Module Help For *Encrypt*
-
 /encrypt <message> - Encrypts a text
 /decrypt <message> - Decrypts a text
 """
