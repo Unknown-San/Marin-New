@@ -103,7 +103,7 @@ if ENV:
     MONGO_DB_URI = os.environ.get("MONGO_DB_URI", None)
     ARQ_API_URL = os.environ.get("ARQ_API_URL", None)
     ARQ_API_KEY = os.environ.get("ARQ_API_KEY", None)
-    DB_URL = os.environ.get("SQLALCHEMY_DATABASE_URL")
+    DB_URL = os.environ.get("DATABASE_URL") # Any SQL Database Link (RECOMMENDED:- PostgreSQL & https://www.elephantsql.com)
     REDIS_URL = os.environ.get("REDIS_URL")
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME")
     HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY")
@@ -183,7 +183,7 @@ else:
     PORT = Config.PORT
     CERT_PATH = Config.CERT_PATH
 
-    DB_URL = Config.SQLALCHEMY_DATABASE_URL
+    DB_URL = Config.DB_URL
     REDIS_URL = Config.REDIS_URL
     DONATION_LINK = Config.DONATION_LINK
     LOAD = Config.LOAD
