@@ -69,6 +69,10 @@
       "description": "Your username without the @",
       "value": "XultiM8"
     },
+    "DB_URL": {
+      "description": "your database url",
+      "value": "cyrus"
+    },
     "SUPPORT_CHAT": {
       "description": "Your Telegram support group chat username where your users will go and bother you with shit But be like: MyGroupChatUsernameBlah. If this ever points to zeldris support than consider you made an enemy.",
       "required": true,
