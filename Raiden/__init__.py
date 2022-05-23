@@ -5,10 +5,12 @@ import time
 
 import spamwatch
 import telegram.ext as tg
+from Python_ARQ import ARQ
 from pyrogram import Client, errors
-from redis import StrictRedis
+from telethon.sessions import StringSession
 from telethon import TelegramClient
-from telethon.sessions import MemorySession
+from aiohttp import ClientSession
+from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
 
 StartTime = time.time()
 
@@ -98,6 +100,8 @@ if ENV:
     PORT = int(os.environ.get("PORT", 5000))
     CERT_PATH = os.environ.get("CERT_PATH")
     MONGO_DB_URI = os.environ.get("MONGO_DB_URI", None)
+    ARQ_API_URL = os.environ.get("ARQ_API_URL", None)
+    ARQ_API_KEY = os.environ.get("ARQ_API_KEY", None)
     DB_URL = os.environ.get("SQLALCHEMY_DATABASE_URL")
     REDIS_URL = os.environ.get("REDIS_URL")
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME")
@@ -188,6 +192,8 @@ else:
     WORKERS = Config.WORKERS
     BAN_STICKER = Config.BAN_STICKER
     ALLOW_EXCL = Config.ALLOW_EXCL
+    ARQ_API_URL = Config.ARQ_API_URL
+    ARQ_API_KEY = Config.ARQ_API_KEY
     CUSTOM_CMD = Config.CUSTOM_CMD
     API_WEATHER = Config.API_OPENWEATHER
     WALL_API = Config.WALL_API
@@ -199,7 +205,7 @@ else:
 
 DEV_USERS.add(OWNER_ID)
 DEV_USERS.add(KAZUHA_ID)
-BOT_ID = 1961763742
+BOT_ID = 5035068218
 
 
 # Pass if SpamWatch token not set.
@@ -219,19 +225,20 @@ finally:
     REDIS.ping()
     LOGGER.info("[Raiden] Your redis server is now alive!")
 
-# Telethon
-client = TelegramClient(MemorySession(), API_ID, API_HASH)
-telethn = TelegramClient("Raiden", API_ID, API_HASH)
-updater = tg.Updater(
-    TOKEN,
-    workers=min(32, os.cpu_count() + 4),
-    request_kwargs={"read_timeout": 10, "connect_timeout": 10},
-)
-dispatcher = updater.dispatcher
+session_name = TOKEN.split(":")[0]
+pgram = Client(session_name, api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 
-pbot = Client("ErenPyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
-pbot.start()
-    
+#install aiohttp session
+print("Scanning AIO http session")
+aiohttpsession = ClientSession() 
+
+#install arq
+print("Connecting ARQ Client")
+arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)
+updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
+telethn = TelegramClient("Raiden", API_ID, API_HASH)
+mongo_client = MongoClient(MONGO_DB_URI)
+dispatcher = updater.dispatcher   
 
 DEV_USERS = list(DEV_USERS)
 WHITELIST_USERS = list(WHITELIST_USERS)
