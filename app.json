@@ -40,12 +40,12 @@
     "API_ID": {
       "description": "Get API_ID from my.telegram.org, used for telethon based modules.",
       "required": true,
-      "value": ""
+      "value": "17868017"
     },
     "API_HASH": {
       "description": "Get API_HASH from my.telegram.org, used for telethon based modules.",
       "required": true,
-      "value": ""
+      "value": "d1621fd9baa388087ea385200d977b72"
     },
     "SQLALCHEMY_DATABASE_URL": {
       "description": "Your postgres sql db, empty this field if you dont have one.ex: sqldbtype://username:pw@hostname:port/db_name",
