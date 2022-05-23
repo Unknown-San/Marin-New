@@ -5,7 +5,7 @@ import os
 import heroku3
 import requests
 
-from Raiden import client as borg, HEROKU_APP_NAME, HEROKU_API_KEY, DEV_USERS
+from Raiden import telethn as borg, HEROKU_APP_NAME, HEROKU_API_KEY, DEV_USERS
 from Raiden.events import register
 
 heroku_api = "https://api.heroku.com"
