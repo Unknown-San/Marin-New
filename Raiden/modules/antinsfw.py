@@ -1,6 +1,6 @@
 from os import remove
 from pyrogram import filters
-from Raiden import DEV_USERS, SUPPORT_USERS, WHITELIST_USERS, pbot as app
+from Raiden import DEV_USERS, SUPPORT_USERS, WHITELIST_USERS, pgram as app
 from Raiden.modules.wall import arq
 from Raiden.utlis.error import capture_err
 from Raiden.modules.helper_funcs.chun import adminsOnly
