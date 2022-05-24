@@ -1,4 +1,4 @@
-from Raiden import pbot as app
+from Raiden import pgram as app
 from Raiden.modules.helper_funcs.section import section
 
 from telegram import ParseMode
