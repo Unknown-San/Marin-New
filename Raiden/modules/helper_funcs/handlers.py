@@ -1,27 +1,16 @@
-
-import telegram.ext as tg
-from pyrate_limiter import (
-    BucketFullException,
-    Duration,
-    RequestRate,
-    Limiter,
-    MemoryListBucket,
-)
-from telegram import Update
-
 import Raiden.modules.sql.blacklistusers_sql as sql
-from Raiden import LOGGER, DEV_USERS, SUPPORT_USERS, WHITELIST_USERS
+from Raiden import ALLOW_EXCL
+from Raiden import (DEV_USERS, SUPPORT_USERS, WHITELIST_USERS)
 
-try:
-    from Raiden import CUSTOM_CMD
-except BaseException:
-    CUSTOM_CMD = False
+from telegram import Update
+from telegram.ext import CommandHandler, MessageHandler, RegexHandler, Filters
+from pyrate_limiter import (BucketFullException, Duration, RequestRate, Limiter,
+                            MemoryListBucket)
 
-if CUSTOM_CMD:
-    CMD_STARTERS = CUSTOM_CMD
-    LOGGER.debug('Bot custom command handler = "%s"', CMD_STARTERS)
+if ALLOW_EXCL:
+    CMD_STARTERS = ('/', '!', '?', '.', '~')
 else:
-    CMD_STARTERS = ("/", "!")
+    CMD_STARTERS = ('/',)
 
 
 class AntiSpam:
