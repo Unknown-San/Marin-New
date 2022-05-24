@@ -1,6 +1,6 @@
 import requests
 
-from Raiden import pbot as pgram
+from Raiden import pgram
 from pyrogram import filters
 from bs4 import BeautifulSoup
 
