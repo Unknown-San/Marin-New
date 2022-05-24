@@ -1,6 +1,6 @@
 from pyrogram import filters
 
-from Raiden import pbot as app
+from Raiden import pgram as app
 from Raiden.utlis.error import capture_err
 
 __mod_name__ = "WebSS"
