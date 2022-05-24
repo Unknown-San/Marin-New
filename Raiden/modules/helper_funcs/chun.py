@@ -1,7 +1,7 @@
 from functools import wraps
 from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
 from pyrogram.types import Message
-from Raiden import pbot as app
+from Raiden import pgram as app
 from Raiden import DEV_USERS , SUPPORT_USERS , WHITELIST_USERS
 from Raiden.modules.Fullpro import member_permissions
 
