@@ -247,17 +247,23 @@ SUPPORT_USERS = list(SUPPORT_USERS)
 DEMONS = list(DEMONS)
 
 # Load at end to ensure all prev variables have been set
-# pylint: disable=C0413
-from Raiden.modules.helper_funcs.handlers import CustomCommandHandler
+from Raiden.modules.helper_funcs.handlers import (CustomCommandHandler,
+                                                        CustomMessageHandler,
+                                                        CustomRegexHandler)
 
-if CUSTOM_CMD and len(CUSTOM_CMD) >= 1:
-    tg.CommandHandler = CustomCommandHandler
+# make sure the regex handler can take extra kwargs
+tg.RegexHandler = CustomRegexHandler
+tg.CommandHandler = CustomCommandHandler
+tg.MessageHandler = CustomMessageHandler
 
+print("Connecting Pyrogram Client")
+pgram.start()
 
-def spamfilters(text, user_id, chat_id):
-    # print("{} | {} | {}".format(text, user_id, chat_id))
-    if int(user_id) not in SPAMMERS:
-        return False
+print("Checking Errors")
 
-    print("[Raiden] This user is a spammer!")
-    return True
+raiden = pgram.get_me()
+
+BOT_ID = raiden.id
+BOT_USERNAME = raiden.username
+BOT_NAME = raiden.first_name
+BOT_MENTION = raiden.mention
