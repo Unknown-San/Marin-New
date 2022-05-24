@@ -1,7 +1,7 @@
 
 import aiohttp
 from pyrogram import filters
-from Raiden import pbot
+from Raiden import pgram as pbot
 from Raiden.utlis.error import capture_err
 
 
