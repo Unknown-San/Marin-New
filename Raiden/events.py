@@ -1,5 +1,5 @@
 from telethon import events
-from Raiden import client as telethn
+from Raiden import telethn
 
 
 def register(**args):
