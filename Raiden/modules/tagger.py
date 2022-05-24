@@ -3,7 +3,7 @@ import asyncio
 from telethon import events
 from telethon.tl.types import ChannelParticipantsAdmins
 
-from Raiden import client as telethn
+from Raiden import telethn
 from Raiden.events import register as nobara
 
 from telegram.utils.helpers import escape_markdown, mention_html, mention_markdown
