@@ -1,3 +1,4 @@
+import telegram.ext as tg
 import Raiden.modules.sql.blacklistusers_sql as sql
 from Raiden import ALLOW_EXCL
 from Raiden import (DEV_USERS, SUPPORT_USERS, WHITELIST_USERS)
