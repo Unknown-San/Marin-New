@@ -4,7 +4,7 @@ import aiohttp
 import youtube_dl
 
 from pyrogram import filters
-from Raiden import pbot
+from Raiden import pgram as pbot
 from youtube_search import YoutubeSearch
 
 
