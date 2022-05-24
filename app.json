@@ -73,6 +73,14 @@
       "description": "your database url",
       "value": "cyrus"
     },
+    "ARQ_API_URL": {
+      "description": "leave it just like it is.",
+      "value": "https://thearq.tech"
+    },
+    "ARQ_API_KEY": {
+      "description": "Get your token from @ArqRobot.",
+      "value": "BCPTGR-IJATEA-VGXIYU-RSTXGL-ARQ"
+    },
     "SUPPORT_CHAT": {
       "description": "Your Telegram support group chat username where your users will go and bother you with shit But be like: MyGroupChatUsernameBlah. If this ever points to zeldris support than consider you made an enemy.",
       "required": true,
