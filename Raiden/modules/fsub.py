@@ -15,7 +15,7 @@ from pyrogram.types import ChatPermissions, InlineKeyboardButton, InlineKeyboard
 from Raiden import BOT_ID
 
 # from Raiden import OWNER_ID as SUDO_USERS
-from Raiden import pbot as pgram
+from Raiden import pgram
 from Raiden.modules.sql import forceSubscribe_sql as sql
 
 logging.basicConfig(level=logging.INFO)
