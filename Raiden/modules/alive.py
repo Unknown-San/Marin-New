@@ -23,7 +23,7 @@ async def awake(event):
 @register(pattern=("/repo"))
 async def repo(event):
     Nobara = f"**Hey [{event.sender.first_name}](tg://user?id={event.sender.id}), Click The Button Below To Get My Repo**\n\n"
-    BUTTON = [[Button.url("sᴜᴘᴘᴏʀᴛ", "https://t.me/MarinSupport"), Button.url("ʀᴇᴘᴏ", "https://t.me/MarinSupport)]]
+    BUTTON = [[Button.url("sᴜᴘᴘᴏʀᴛ", "https://t.me/MarinSupport"), Button.url("ʀᴇᴘᴏ", "https://t.me/MarinSupport")]]
     await borg.send_file(event.chat_id, file="https://telegra.ph//file/bd6fb2f171846d16073e1.mp4", caption=Nobara, buttons=BUTTON)
 
 
