@@ -15,10 +15,10 @@ MARIN = "https://telegra.ph//file/bec5d30ae2b54c2a0421e.mp4"
 
 @register(pattern=("/alive"))
 async def awake(event):
-  TEXT = f"Hey [{event.sender.first_name}](tg://user?id={event.sender.id})! I'm Marin Kitagawa♡\nI'm here to manage your groups so give enough rights\nFor any doubts realated to Marin come to the support by clicking the button below.n\n"
+  TEXT = f"Hey [{event.sender.first_name}](tg://user?id={event.sender.id})! I'm Marin Kitagawa♡\nI'm here to manage your groups so give enough rights\nFor any doubts realated to Marin come to the support by clicking the button below.\n\n"
   TEXT += "**Thanks for adding me in your group♡**"
   BUTTON = [[Button.url("Help", "https://t.me/MarinRobot?start=help"), Button.url("My Home", "https://t.me/MarinSupport")]]
-  await tbot.send_file(event.chat_id, MARIN, caption=TEXT,  buttons=BUTTON)
+  await borg.send_file(event.chat_id, MARIN, caption=TEXT,  buttons=BUTTON)
 
 @register(pattern=("/repo"))
 async def repo(event):
