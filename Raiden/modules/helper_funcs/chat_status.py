@@ -7,11 +7,10 @@ from threading import RLock
 from Raiden import (
     DEL_CMDS,
     DEV_USERS,
-    DRAGONS,
+    WHITELIST_USERS,
     SUPPORT_CHAT,
     DEMONS,
-    TIGERS,
-    WOLVES,
+    SUPPORT_USERS,
     dispatcher,
     # KING,
 )
@@ -25,15 +24,15 @@ THREAD_LOCK = RLock()
 
 
 def is_wolve_plus(chat: Chat, user_id: int, member: ChatMember = None) -> bool:
-    return any(user_id in user for user in [WOLVES, TIGERS, DEMONS, DRAGONS, DEV_USERS])
+    return any(user_id in user for user in [SUPPORT_USERS, DEMONS, WHITELIST_USERS, DEV_USERS])
 
 
 def is_demon_plus(chat: Chat, user_id: int, member: ChatMember = None) -> bool:
-    return user_id in DEMONS or user_id in DRAGONS or user_id in DEV_USERS
+    return user_id in DEMONS or user_id in WHITLIST_USERS or user_id in DEV_USERS
 
 
 def is_sudo_plus(chat: Chat, user_id: int, member: ChatMember = None) -> bool:
-    return user_id in DRAGONS or user_id in DEV_USERS
+    return user_id in WHITLIST_USERS or user_id in DEV_USERS
 
 def is_stats_plus(chat: Chat, user_id: int, member: ChatMember = None) -> bool:
     return user_id in DEV_USERS
@@ -53,7 +52,7 @@ def user_can_pin(chat: Chat, user: User, bot_id: int) -> bool:
 def is_user_admin(chat: Chat, user_id: int, member: ChatMember = None) -> bool:
     if (
         chat.type == "private"
-        or user_id in DRAGONS
+        or user_id in WHITELIST_USERS
         or user_id in DEV_USERS
         or chat.all_members_are_administrators
         or user_id in {777000, 1087968824}
@@ -94,10 +93,9 @@ def can_delete(chat: Chat, bot_id: int) -> bool:
 def is_user_ban_protected(chat: Chat, user_id: int, member: ChatMember = None) -> bool:
     if (
         chat.type == "private"
-        or user_id in DRAGONS
+        or user_id in WHITLIST_USERS
         or user_id in DEV_USERS
-        or user_id in WOLVES
-        or user_id in TIGERS
+        or user_id in SUPPORT_USERS
         or chat.all_members_are_administrators
         or user_id in {777000, 1087968824}
     ):  # Count telegram and Group Anonymous as admin
@@ -396,7 +394,7 @@ def user_can_ban(func):
         if (
             not member.can_restrict_members
             and member.status != "creator"
-            and user not in DRAGONS
+            and user not in WHITLIST_USERS
             and user not in [777000, 1087968824]
         ):
             update.effective_message.reply_text(
