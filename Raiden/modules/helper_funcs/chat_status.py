@@ -405,6 +405,10 @@ def user_can_ban(func):
 
     return user_is_banhammer
 
+def callbacks_in_filters(data):
+    return filters.create(lambda flt, _, query: flt.data in query.data, data=data)
+
+
 
 def connection_status(func):
     @wraps(func)
