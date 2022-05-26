@@ -1,7 +1,7 @@
 from pyrogram import filters
 
 from Raiden import pgram as app
-from Raiden.utlis.error import capture_err
+from Raiden.utils.error import capture_err
 
 __mod_name__ = "WebSS"
 __help__ = "`/webss` [URL] - Take A Screenshot Of A Webpage"
