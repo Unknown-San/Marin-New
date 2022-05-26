@@ -2,7 +2,7 @@
 import aiohttp
 from pyrogram import filters
 from Raiden import pgram as pbot
-from Raiden.utlis.error import capture_err
+from Raiden.utils.error import capture_err
 
 
 __mod_name__ = "Github"
