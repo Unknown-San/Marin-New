@@ -682,12 +682,17 @@ def main():
         updater.start_polling(timeout=15, read_latency=4, drop_pending_updates=True)
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.send_video(
-                "@MarinSupport",
-                "https://telegra.ph/file/a3519d803e811ec8bd572.jpg",
-                "Am Alive Again ~ UwU ~",
-                parse_mode=ParseMode.MARKDOWN,
-            )
+            dispatcher.bot.send_message(f"@{SUPPORT_CHAT}", f"[I'm Alive Again ~ UwU ~](https://telegra.ph/file/e36d740c802879c68dda6.mp4)", parse_mode=ParseMode.MARKDOWN,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                  [                  
+                       InlineKeyboardButton(
+                             text="➕ ᴀᴅᴅ ᴍᴇ! ➕",
+                             url="https://t.me/MarinRobot?startgroup=true")
+                     ] 
+                ]
+            ),
+        ) 
         except Unauthorized:
             LOGGER.warning(
                 "Bot isnt able to send message to support_chat, go and check!"
